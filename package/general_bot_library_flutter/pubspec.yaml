@@ -1,0 +1,56 @@
+name: 'general_bot_library_flutter'
+description: 'GGML Is Library machine learning in dart with special feature speed up inference model in cpu only or any gpu'
+version: '0.0.10'
+funding:
+  - 'https://github.com/sponsors/azkadev'
+  - 'https://github.com/sponsors/generalfoss'
+  - 'https://github.com/sponsors/general-developer'
+homepage: 'https://www.youtube.com/@general_dev'
+repository: 'https://github.com/General-Developer/general_bot_library'
+issue_tracker: 'https://t.me/DEVELOPER_GLOBAL_PUBLIC'
+documentation: 'https://www.youtube.com/@general_dev'
+false_secrets:
+  - 'android/jniLibs'
+  - 'linux/'
+  - 'windows/'
+  - 'macos/'
+  - 'ios/'
+platforms:
+  android: null
+  ios: null
+  linux: null
+  macos: null
+  web: null
+  windows: null
+topics:
+  - 'ggml'
+  - 'artificial-intelligence'
+  - 'machine-learning'
+environment:
+  sdk: '>=3.6.0 <4.0.0'
+  flutter: '>=3.3.0'
+dependencies:
+  flutter:
+    sdk: 'flutter'
+dev_dependencies:
+  flutter_test:
+    sdk: 'flutter'
+  flutter_lints: '^5.0.0'
+flutter:
+  plugin:
+    platforms:
+      android:
+        ffiPlugin: true
+      ios:
+        ffiPlugin: true
+      linux:
+        ffiPlugin: true
+      macos:
+        ffiPlugin: true
+      windows:
+        ffiPlugin: true
+dependency_overrides:
+  pointycastle: '4.0.0'
+  mime: '^2.0.0'
+project:
+  type: ''

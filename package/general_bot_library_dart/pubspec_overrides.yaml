@@ -1,0 +1,4 @@
+
+dependency_overrides:
+  general_bot_library:
+    path: ../general_bot_library
