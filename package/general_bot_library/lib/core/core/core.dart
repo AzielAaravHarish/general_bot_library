@@ -1,10 +1,10 @@
-import 'package:general_lib/crypto/crypto.dart';
-import 'package:general_lib/log/log.dart';
+import 'package:general_bot_library/scheme/scheme/general_bot_library_configuration_general_bot_library.dart';
+import 'package:general_universe/crypto/crypto.dart';
 import 'package:http/http.dart' show Client;
-import 'package:server_universe/native.dart';
+import 'package:server_universe/server_universe.dart';
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-enum GeneralBotLibraryPlatformType {
+enum GeneralBotPlatformType {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   all(),
 
@@ -35,22 +35,19 @@ enum GeneralBotLibraryPlatformType {
   ///
   unknown();
 
-  const GeneralBotLibraryPlatformType();
+  const GeneralBotPlatformType();
 }
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-class GeneralBotLibrary {
+class GeneralBotLibraryOptions {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  final String temporaryPath;
+  String temporaryPath;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final Client httpClient;
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  final GeneralLibraryLog generalLibraryLog;
-
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  final ServerUniverseNative serverUniverse;
+  final ServerUniverse serverUniverse;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final Crypto cryptoBotWebhook;
@@ -59,23 +56,34 @@ class GeneralBotLibrary {
   final Crypto cryptoBotServer;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  GeneralBotLibrary({
+  final GeneralBotLibraryConfigurationGeneralBotLibrary generalBotLibraryConfiguration;
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  GeneralBotLibraryOptions({
     required this.temporaryPath,
     required this.httpClient,
-    required this.generalLibraryLog,
     required this.serverUniverse,
     required this.cryptoBotWebhook,
     required this.cryptoBotServer,
+    required this.generalBotLibraryConfiguration,
   });
-}
-
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-abstract class GeneralBotPlatformLibrary {
-  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  final GeneralBotLibrary generalBotLibrary;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  GeneralBotPlatformLibrary({
-    required this.generalBotLibrary,
-  });
+  GeneralBotLibraryOptions copyWith({
+    final String? temporaryPath,
+    final Client? httpClient,
+    final ServerUniverse? serverUniverse,
+    final Crypto? cryptoBotWebhook,
+    final Crypto? cryptoBotServer,
+    final GeneralBotLibraryConfigurationGeneralBotLibrary? generalBotLibraryConfiguration,
+  }) {
+    return GeneralBotLibraryOptions(
+      temporaryPath: temporaryPath ?? this.temporaryPath,
+      httpClient: httpClient ?? this.httpClient,
+      serverUniverse: serverUniverse ?? this.serverUniverse,
+      cryptoBotWebhook: cryptoBotWebhook ?? this.cryptoBotWebhook,
+      cryptoBotServer: cryptoBotServer ?? this.cryptoBotServer,
+      generalBotLibraryConfiguration: generalBotLibraryConfiguration ?? this.generalBotLibraryConfiguration,
+    );
+  }
 }
