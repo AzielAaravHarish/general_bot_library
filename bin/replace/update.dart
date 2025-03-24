@@ -38,8 +38,8 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 import "dart:io";
 
-import "package:general_lib/fork/yaml_writer/core/yaml_writer.dart";
-import "package:general_lib/general_lib.dart";
+import "package:general_universe/fork/yaml_writer/core/yaml_writer.dart";
+import "package:general_universe/general_universe.dart";
 import "package:path/path.dart" as path;
 import "package:yaml/yaml.dart" as yaml;
 
@@ -49,13 +49,11 @@ Future<void> pubspecUpdate({
   required List<String> librarys,
 }) async {
   if (filePubspec.existsSync()) {
-    Map yaml_code =
-        (yaml.loadYaml(filePubspec.readAsStringSync(), recover: true) as Map);
+    Map yaml_code = (yaml.loadYaml(filePubspec.readAsStringSync(), recover: true) as Map);
     Map yaml_code_clone = yaml_code.clone();
 
     yaml_code_clone.addAll({
-      "description":
-          "GGML Is Library machine learning in dart with special feature speed up inference model in cpu only or any gpu",
+      "description": "GGML Is Library machine learning in dart with special feature speed up inference model in cpu only or any gpu",
       "version": version_package,
       "repository": "https://github.com/General-Developer/general_bot_library",
       "homepage": "https://www.youtube.com/@general_dev",
@@ -72,7 +70,7 @@ Future<void> pubspecUpdate({
     });
 
     yaml_code_clone.removeByKeys(["publish_to"]);
-    var yamlDoc = YamlWriterGeneralLib().write(yaml_code_clone);
+    var yamlDoc = YamlWriterGeneralUniverse().write(yaml_code_clone);
     await filePubspec.writeAsString(yamlDoc);
   }
 }
@@ -92,11 +90,9 @@ void main(List<String> args) async {
     exit(1);
   }
 
-  List<FileSystemEntity> file_system_entity_packages =
-      directory_packages.listSync();
+  List<FileSystemEntity> file_system_entity_packages = directory_packages.listSync();
 
-  List<String> librarys =
-      file_system_entity_packages.map((e) => path.basename(e.path)).toList();
+  List<String> librarys = file_system_entity_packages.map((e) => path.basename(e.path)).toList();
 
   for (var i = 0; i < file_system_entity_packages.length; i++) {
     FileSystemEntity fileSystemEntity = file_system_entity_packages[i];

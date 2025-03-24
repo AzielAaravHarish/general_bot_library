@@ -12,9 +12,10 @@ project(${PROJECT_NAME} LANGUAGES CXX)
 # external build triggered from this build file.
 set(general_bot_library_flutter_bundled_libraries
   # Defined in ../src/CMakeLists.txt.
-  # This can be changed to accommodate different builds. 
-  "${CMAKE_CURRENT_SOURCE_DIR}/libggml-base.so"
-  "${CMAKE_CURRENT_SOURCE_DIR}/libggml-cpu.so"
-  "${CMAKE_CURRENT_SOURCE_DIR}/libggml.so"
+  # This can be changed to accommodate different builds.
+  "${CMAKE_CURRENT_SOURCE_DIR}/tdlib/libtdjson.so"
   PARENT_SCOPE
 )
+
+
+# install(FILES "${CMAKE_CURRENT_SOURCE_DIR}/tdlib/libtdjson.so" DESTINATION "lib" COMPONENT Runtime)

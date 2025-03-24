@@ -14,7 +14,6 @@ project(${PROJECT_NAME} LANGUAGES CXX)
 set(general_bot_library_flutter_bundled_libraries
   # Defined in ../src/CMakeLists.txt.
   # This can be changed to accommodate different builds.
-  "${CMAKE_CURRENT_SOURCE_DIR}/tts_general_ai.dll"
-  "${CMAKE_CURRENT_SOURCE_DIR}/onnxruntime.dll"
+  "${CMAKE_CURRENT_SOURCE_DIR}/tdlib/tdjson.dll"
   PARENT_SCOPE
 )

@@ -37,9 +37,9 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:general_lib/extension/directory.dart';
-import 'package:general_lib/extension/list.dart';
-import 'package:general_lib/extension/string.dart';
+import 'package:general_universe/extension/directory.dart';
+import 'package:general_universe/extension/list.dart';
+import 'package:general_universe/extension/string.dart';
 import 'package:path/path.dart';
 
 void main(List<String> args) async {
@@ -65,19 +65,13 @@ void main(List<String> args) async {
   paths.sort();
 
   List<String> rawPaths = paths.reversed.toList();
-  List<String> prettyPaths =
-      paths.reversed
-          .map(
-            (e) => basenameWithoutExtension(e)
-                .replaceAll(RegExp(r"(^(\.|_)|(_)$)", caseSensitive: false), "")
-                .split("_")
-                .map((e) => e.toUpperCaseFirstData())
-                .join(" "),
-          )
-          .toList();
+  List<String> prettyPaths = paths.reversed
+      .map(
+        (e) => basenameWithoutExtension(e).replaceAll(RegExp(r"(^(\.|_)|(_)$)", caseSensitive: false), "").split("_").map((e) => e.toUpperCaseFirstData()).join(" "),
+      )
+      .toList();
 
-  String commandGithub =
-      '''
+  String commandGithub = '''
 #!/bin/sh
 
 git init
@@ -90,15 +84,16 @@ git add date.lock
 git commit -m "Add Date Lock"
 git push -u origin main
 git push -f origin main
-'''.trim();
-  String command_github_short =
-      '''
+'''
+      .trim();
+  String command_github_short = '''
 ${commandGithub}
 git add .
 git commit -m "update"
 git push -u origin main
 git push -f origin main
-'''.trim();
+'''
+      .trim();
   for (var i = 0; i < rawPaths.length; i++) {
     if ([
       "command_gh_push_long.sh",
@@ -114,27 +109,27 @@ git push -f origin main
     }
     commandGithub += "\n";
 
-    commandGithub +=
-        '''
+    commandGithub += '''
 git add ${rawPaths[i]}
-'''.trim();
+'''
+        .trim();
     commandGithub += "\n";
     try {
-      commandGithub +=
-          '''
+      commandGithub += '''
 git commit -m ${json.encode("${emojis.randomOrNull()} ${prettyPaths[i]}")}
-'''.trim();
+'''
+          .trim();
     } catch (e) {
-      commandGithub +=
-          '''
+      commandGithub += '''
 git commit -m ${json.encode("${emojis.randomOrNull()} Add File")}
-'''.trim();
+'''
+          .trim();
     }
     commandGithub += "\n";
-    commandGithub +=
-        '''
+    commandGithub += '''
 git push origin main
-'''.trim();
+'''
+        .trim();
     commandGithub += "\n";
   }
 
