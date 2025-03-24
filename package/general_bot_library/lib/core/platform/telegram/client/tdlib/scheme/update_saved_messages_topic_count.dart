@@ -1,0 +1,169 @@
+/* <!-- START LICENSE -->
+
+
+This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
+Social Media:
+
+   - Youtube: https://youtube.com/@Global_Corporation 
+   - Github: https://github.com/globalcorporation
+   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
+
+All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
+
+If you wan't edit you must add credit me (don't change)
+
+If this Software / Program / Source Code has you
+
+Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
+
+Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
+
+Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
+Karena jika ada negosiasi harga kemungkinan
+
+1. Software Ada yang di kurangin
+2. Informasi tidak lengkap
+3. Bantuan Tidak Bisa remote / full time (Ada jeda)
+
+Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
+
+jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
+Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
+
+
+<!-- END LICENSE --> */
+// ignore_for_file: non_constant_identifier_names, unused_import
+import "package:general_universe/general_universe.dart";
+// import "dart:convert";
+
+
+/// Generate By General Universe Script Dont edit by hand or anything manual 
+class UpdateSavedMessagesTopicCount extends JsonScheme {
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  UpdateSavedMessagesTopicCount(super.rawData);
+  
+  /// return default special type @type
+  /// "updateSavedMessagesTopicCount"
+  static String get defaultDataSpecialType {
+    return "updateSavedMessagesTopicCount";
+  }
+
+  /// return default data
+  /// 
+  static Map get defaultData {
+    return {"@type":"updateSavedMessagesTopicCount","@return_type":"update","topic_count":0};
+  }
+
+  /// check data 
+  /// if raw data 
+  /// - rawData["@type"] == updateSavedMessagesTopicCount
+  /// if same return true
+  bool json_scheme_utils_checkDataIsSameBySpecialType() {
+    return rawData["@type"] == defaultData["@type"];
+  }
+
+  /// check value data whatever do yout want
+  bool json_scheme_utils_checkDataIsSameBuilder({
+    required bool Function(Map rawData, Map defaultData) onResult,
+  }) {
+    return onResult(rawData["@type"], defaultData["@type"]);
+  }
+
+  
+
+  /// create [UpdateSavedMessagesTopicCount]
+  /// Empty  
+  static UpdateSavedMessagesTopicCount empty() {
+    return UpdateSavedMessagesTopicCount({});
+  }
+
+  
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  String? get special_type {
+    try {
+      if (rawData["@type"] is String == false){
+        return null;
+      }
+      return rawData["@type"] as String;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  set special_type(String? value) {
+    rawData["@type"] = value;
+  }
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  String? get special_return_type {
+    try {
+      if (rawData["@return_type"] is String == false){
+        return null;
+      }
+      return rawData["@return_type"] as String;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  set special_return_type(String? value) {
+    rawData["@return_type"] = value;
+  }
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  num? get topic_count {
+    try {
+      if (rawData["topic_count"] is num == false){
+        return null;
+      }
+      return rawData["topic_count"] as num;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  set topic_count(num? value) {
+    rawData["topic_count"] = value;
+  }
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  static UpdateSavedMessagesTopicCount create({
+              bool schemeUtilsIsSetDefaultData = false,
+
+    String special_type = "updateSavedMessagesTopicCount",
+    String special_return_type = "update",
+    num? topic_count,
+})  {
+    // UpdateSavedMessagesTopicCount updateSavedMessagesTopicCount = UpdateSavedMessagesTopicCount({
+final Map updateSavedMessagesTopicCount_data_create_json = {
+  
+      "@type": special_type,
+      "@return_type": special_return_type,
+      "topic_count": topic_count,
+
+
+};
+
+
+          updateSavedMessagesTopicCount_data_create_json.removeWhere((key, value) => value == null);
+
+    if (schemeUtilsIsSetDefaultData) {
+      defaultData.forEach((key, value) {
+        if (updateSavedMessagesTopicCount_data_create_json.containsKey(key) == false) {
+          updateSavedMessagesTopicCount_data_create_json[key] = value;
+        }
+      });
+    }
+return UpdateSavedMessagesTopicCount(updateSavedMessagesTopicCount_data_create_json);
+
+
+      }
+}

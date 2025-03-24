@@ -1,3 +1,37 @@
+/* <!-- START LICENSE -->
+
+
+This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
+Social Media:
+
+   - Youtube: https://youtube.com/@Global_Corporation 
+   - Github: https://github.com/globalcorporation
+   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
+
+All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
+
+If you wan't edit you must add credit me (don't change)
+
+If this Software / Program / Source Code has you
+
+Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
+
+Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
+
+Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
+Karena jika ada negosiasi harga kemungkinan
+
+1. Software Ada yang di kurangin
+2. Informasi tidak lengkap
+3. Bantuan Tidak Bisa remote / full time (Ada jeda)
+
+Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
+
+jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
+Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
+
+
+<!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names, empty_catches
 
 import 'dart:async';
@@ -50,7 +84,6 @@ import 'package:general_bot_library/core/platform/telegram/client/telegram_clien
 import 'package:general_bot_library/core/platform/telegram/client/telegram_client/function/un_pin_chat_message.dart';
 import 'package:general_bot_library/core/platform/telegram/client/telegram_client/function/view_message.dart';
 import 'package:general_bot_library/core/platform/telegram/client/telegram_client/function/view_messages.dart';
-import 'package:general_bot_library/scheme/scheme/general_bot_library_configuration_crypto_general_bot_library.dart';
 import 'package:general_bot_library/scheme/scheme/general_bot_library_configuration_telegram_general_bot_library.dart';
 
 import 'package:general_bot_library/core/platform/telegram/client/type/type.dart';
@@ -301,33 +334,17 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     }
     return "libtdjson.${Dart.getExtensionSharedLibrary}";
   }
-
-  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  static Crypto defaultCrypto = Crypto(
-    key: utf8.decode(base64.decode("TmQ4MzRkOUtvRHIwRzk2QzBkMDFwa2JiZTk1bzFpOTk=")),
-    iv: utf8.decode(base64.decode("RjdGOUF6RzdkSnd6Mm9vdGFwM043Zz09")),
-  );
-
+ 
   static String _eventInvoke = "telegram_invoke";
   static String _eventUpdate = "telegram_update";
-
-  static Crypto _crypto = Crypto.defaultCrypto();
+ 
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final Map<int, GeneralBotPlatformTelegramTdlibClient> tdlibClients = {};
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   int task_count = 0;
-
-  Crypto _refreshCrypto({
-    required GeneralBotLibraryConfigurationTelegramGeneralBotLibrary telegram,
-  }) {
-    final GeneralBotLibraryConfigurationCryptoGeneralBotLibrary generalBotLibraryConfigurationCrypto = generalBotLibrary.generalBotLibraryConfiguration.telegram.crypto;
-    return Crypto(
-      key: generalBotLibraryConfigurationCrypto.key ?? defaultCrypto.key,
-      iv: generalBotLibraryConfigurationCrypto.iv ?? defaultCrypto.iv,
-    );
-  }
+ 
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   String get eventInvoke {
@@ -338,18 +355,12 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
   String get eventUpdate {
     return GeneralBotPlatformTelegramCoreBaseLibrary._eventUpdate;
   }
-
-  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  Crypto get crypto {
-    return GeneralBotPlatformTelegramCoreBaseLibrary._crypto;
-  }
+ 
 
   @override
   void refresh() {
     final GeneralBotLibraryConfigurationTelegramGeneralBotLibrary telegram = generalBotLibrary.generalBotLibraryConfiguration.telegram;
-    GeneralBotPlatformTelegramCoreBaseLibrary._crypto = _refreshCrypto(
-      telegram: telegram,
-    );
+     
 
     GeneralBotPlatformTelegramCoreBaseLibrary._eventInvoke = telegram.event_invoke ?? "telegram_invoke";
     GeneralBotPlatformTelegramCoreBaseLibrary._eventUpdate = telegram.event_update ?? "telegram_update";
@@ -579,7 +590,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     if (query["tg"] is String == false) {
       query["tg"] = "";
     }
-    Map decyprt = json.decode(crypto.decrypt(data: query["tg"]));
+    Map decyprt = json.decode(generalBotLibrary.crypto.decrypt(data: query["tg"]));
 
     if (decyprt["client_tg_user_id"] == null || decyprt["client_tg_user_id"] == 0) {
       decyprt["client_tg_user_id"] = GeneralUniverseUtils.parserBotUserIdFromToken(
@@ -608,7 +619,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
       HttpResponse res,
     ) async {
       try {
-        Map query = (req.uri.queryParameters).clone();
+        Map query = req.uri.queryParameters.clone();
         Map<String, dynamic> body = await req.bodyAsJsonMap;
         eventEmitter.emit(
           eventName: eventUpdate,
@@ -818,7 +829,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
       "expire_date": expire_date,
       "version": version,
     };
-    final String query_telegram_webhook = crypto.encryptMapToBase64(
+    final String query_telegram_webhook = generalBotLibrary.crypto.encryptMapToBase64(
       data: client_data,
     );
 

@@ -1,0 +1,261 @@
+/* <!-- START LICENSE -->
+
+
+This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
+Social Media:
+
+   - Youtube: https://youtube.com/@Global_Corporation 
+   - Github: https://github.com/globalcorporation
+   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
+
+All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
+
+If you wan't edit you must add credit me (don't change)
+
+If this Software / Program / Source Code has you
+
+Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
+
+Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
+
+Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
+Karena jika ada negosiasi harga kemungkinan
+
+1. Software Ada yang di kurangin
+2. Informasi tidak lengkap
+3. Bantuan Tidak Bisa remote / full time (Ada jeda)
+
+Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
+
+jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
+Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
+
+
+<!-- END LICENSE --> */
+// ignore_for_file: non_constant_identifier_names, unused_import
+import "package:general_universe/general_universe.dart";
+// import "dart:convert";
+
+import "option_value_boolean.dart";
+import "option_value_empty.dart";
+import "option_value_integer.dart";
+import "option_value_string.dart";
+
+/// Generate By General Universe Script Dont edit by hand or anything manual 
+class OptionValue extends JsonScheme {
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  OptionValue(super.rawData);
+  
+  /// return default special type @type
+  /// "optionValue"
+  static String get defaultDataSpecialType {
+    return "optionValue";
+  }
+
+  /// return default data
+  /// 
+  static Map get defaultData {
+    return {"@type":"optionValue","is_tdlib_class":true,"@return_type":"optionValue","option_value_boolean":{"@type":"optionValueBoolean"},"option_value_empty":{"@type":"optionValueEmpty"},"option_value_integer":{"@type":"optionValueInteger"},"option_value_string":{"@type":"optionValueString"}};
+  }
+
+  /// check data 
+  /// if raw data 
+  /// - rawData["@type"] == optionValue
+  /// if same return true
+  bool json_scheme_utils_checkDataIsSameBySpecialType() {
+    return rawData["@type"] == defaultData["@type"];
+  }
+
+  /// check value data whatever do yout want
+  bool json_scheme_utils_checkDataIsSameBuilder({
+    required bool Function(Map rawData, Map defaultData) onResult,
+  }) {
+    return onResult(rawData["@type"], defaultData["@type"]);
+  }
+
+  
+
+  /// create [OptionValue]
+  /// Empty  
+  static OptionValue empty() {
+    return OptionValue({});
+  }
+
+  
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  String? get special_type {
+    try {
+      if (rawData["@type"] is String == false){
+        return null;
+      }
+      return rawData["@type"] as String;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  set special_type(String? value) {
+    rawData["@type"] = value;
+  }
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  bool? get is_tdlib_class {
+    try {
+      if (rawData["is_tdlib_class"] is bool == false){
+        return null;
+      }
+      return rawData["is_tdlib_class"] as bool;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  set is_tdlib_class(bool? value) {
+    rawData["is_tdlib_class"] = value;
+  }
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  String? get special_return_type {
+    try {
+      if (rawData["@return_type"] is String == false){
+        return null;
+      }
+      return rawData["@return_type"] as String;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  set special_return_type(String? value) {
+    rawData["@return_type"] = value;
+  }
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  OptionValueBoolean get option_value_boolean {
+    try {
+      if (rawData["option_value_boolean"] is Map == false){
+        return OptionValueBoolean({}); 
+      }
+      return OptionValueBoolean(rawData["option_value_boolean"] as Map);
+    } catch (e) {  
+      return OptionValueBoolean({}); 
+    }
+  }
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  set option_value_boolean(OptionValueBoolean value) {
+    rawData["option_value_boolean"] = value.toJson();
+  }
+
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  OptionValueEmpty get option_value_empty {
+    try {
+      if (rawData["option_value_empty"] is Map == false){
+        return OptionValueEmpty({}); 
+      }
+      return OptionValueEmpty(rawData["option_value_empty"] as Map);
+    } catch (e) {  
+      return OptionValueEmpty({}); 
+    }
+  }
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  set option_value_empty(OptionValueEmpty value) {
+    rawData["option_value_empty"] = value.toJson();
+  }
+
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  OptionValueInteger get option_value_integer {
+    try {
+      if (rawData["option_value_integer"] is Map == false){
+        return OptionValueInteger({}); 
+      }
+      return OptionValueInteger(rawData["option_value_integer"] as Map);
+    } catch (e) {  
+      return OptionValueInteger({}); 
+    }
+  }
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  set option_value_integer(OptionValueInteger value) {
+    rawData["option_value_integer"] = value.toJson();
+  }
+
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  OptionValueString get option_value_string {
+    try {
+      if (rawData["option_value_string"] is Map == false){
+        return OptionValueString({}); 
+      }
+      return OptionValueString(rawData["option_value_string"] as Map);
+    } catch (e) {  
+      return OptionValueString({}); 
+    }
+  }
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  set option_value_string(OptionValueString value) {
+    rawData["option_value_string"] = value.toJson();
+  }
+
+
+
+  /// Generate By General Universe Script Dont edit by hand or anything manual
+  static OptionValue create({
+              bool schemeUtilsIsSetDefaultData = false,
+
+    String special_type = "optionValue",
+    bool? is_tdlib_class,
+    String special_return_type = "optionValue",
+      OptionValueBoolean? option_value_boolean,
+      OptionValueEmpty? option_value_empty,
+      OptionValueInteger? option_value_integer,
+      OptionValueString? option_value_string,
+})  {
+    // OptionValue optionValue = OptionValue({
+final Map optionValue_data_create_json = {
+  
+      "@type": special_type,
+      "is_tdlib_class": is_tdlib_class,
+      "@return_type": special_return_type,
+      "option_value_boolean": (option_value_boolean != null)?option_value_boolean.toJson(): null,
+      "option_value_empty": (option_value_empty != null)?option_value_empty.toJson(): null,
+      "option_value_integer": (option_value_integer != null)?option_value_integer.toJson(): null,
+      "option_value_string": (option_value_string != null)?option_value_string.toJson(): null,
+
+
+};
+
+
+          optionValue_data_create_json.removeWhere((key, value) => value == null);
+
+    if (schemeUtilsIsSetDefaultData) {
+      defaultData.forEach((key, value) {
+        if (optionValue_data_create_json.containsKey(key) == false) {
+          optionValue_data_create_json[key] = value;
+        }
+      });
+    }
+return OptionValue(optionValue_data_create_json);
+
+
+      }
+}

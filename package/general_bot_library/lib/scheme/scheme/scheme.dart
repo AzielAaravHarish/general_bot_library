@@ -1,4 +1,3 @@
-export "general_bot_library_configuration_crypto_general_bot_library.dart";
 export "general_bot_library_configuration_general_bot_library.dart";
 export "general_bot_library_configuration_telegram_general_bot_library.dart";
 export "general_bot_library_configuration_telegram_invoke_options_general_bot_library.dart";
