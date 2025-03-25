@@ -74,7 +74,7 @@ class GeneralBotPlatformWhatsapp extends GeneralBotPlatformLibraryProject {
   }
 
   @override
-  void refresh() {
+  FutureOr<void> refresh() {
     // TODO: implement refresh
   }
 }

@@ -86,8 +86,9 @@ class GeneralBotPlatformTelegram extends GeneralBotPlatformLibraryProject {
   }
 
   @override
-  void refresh() {
-    generalBotClientTelegramLibrary.refresh();
+  FutureOr<void> refresh() async{
+    await super.refresh();
+    await generalBotClientTelegramLibrary.refresh();
     return;
   }
 }

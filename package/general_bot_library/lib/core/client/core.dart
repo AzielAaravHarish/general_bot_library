@@ -58,7 +58,9 @@ abstract class GeneralBotPlatformLibraryProject {
   FutureOr<void> initialized();
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  void refresh();
+  FutureOr<void> refresh() async{
+    return;
+  }
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   FutureOr<bool> restart();

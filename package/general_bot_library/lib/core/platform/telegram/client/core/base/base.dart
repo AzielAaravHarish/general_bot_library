@@ -334,17 +334,15 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     }
     return "libtdjson.${Dart.getExtensionSharedLibrary}";
   }
- 
+
   static String _eventInvoke = "telegram_invoke";
   static String _eventUpdate = "telegram_update";
- 
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final Map<int, GeneralBotPlatformTelegramTdlibClient> tdlibClients = {};
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   int task_count = 0;
- 
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   String get eventInvoke {
@@ -355,12 +353,11 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
   String get eventUpdate {
     return GeneralBotPlatformTelegramCoreBaseLibrary._eventUpdate;
   }
- 
 
   @override
-  void refresh() {
+  FutureOr<void> refresh() async{
+    await super.refresh();
     final GeneralBotLibraryConfigurationTelegramGeneralBotLibrary telegram = generalBotLibrary.generalBotLibraryConfiguration.telegram;
-     
 
     GeneralBotPlatformTelegramCoreBaseLibrary._eventInvoke = telegram.event_invoke ?? "telegram_invoke";
     GeneralBotPlatformTelegramCoreBaseLibrary._eventUpdate = telegram.event_update ?? "telegram_update";
@@ -436,7 +433,15 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
               GeneralBotPlatformTelegramUpdate(
                 raw: tdlibIsolateReceiveData.updateData,
                 query: {},
-                client_option: {},
+                client_option: () {
+                  try {
+                    final GeneralBotPlatformTelegramTdlibClient? generalBotPlatformTelegramTdlibClient = tdlibClients[update.clientId];
+                    if (generalBotPlatformTelegramTdlibClient != null) {
+                      return generalBotPlatformTelegramTdlibClient.client_option;
+                    }
+                  } catch (e) {}
+                  return {};
+                }(),
                 uri: Uri.base,
                 eventEmitterListener: listener,
                 generalBotClientTelegramLibraryData: GeneralBotClientTelegramLibraryData.tdlib(

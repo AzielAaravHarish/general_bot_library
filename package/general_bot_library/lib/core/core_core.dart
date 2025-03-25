@@ -122,7 +122,7 @@ class GeneralBotPlatformsLibrary extends GeneralBotPlatformLibraryProject {
   }
 
   @override
-  void refresh() {
+  FutureOr<void> refresh() {
     // TODO: implement refresh
   }
 
