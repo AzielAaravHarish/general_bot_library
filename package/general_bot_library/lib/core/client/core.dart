@@ -58,7 +58,16 @@ abstract class GeneralBotPlatformLibraryProject {
   FutureOr<void> initialized();
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  FutureOr<void> refresh() async{
+  FutureOr<void> refresh() async {
+    if (generalBotLibrary.generalBotLibraryConfiguration["telegram"] is Map == false) {
+      generalBotLibrary.generalBotLibraryConfiguration["telegram"] = {};
+    }
+    if (generalBotLibrary.generalBotLibraryConfiguration["telegram"]["invoke_options"] is Map == false) {
+      generalBotLibrary.generalBotLibraryConfiguration["telegram"]["invoke_options"] = {};
+    }
+    if (generalBotLibrary.generalBotLibraryConfiguration["telegram"]["tdlib"] is Map == false) {
+      generalBotLibrary.generalBotLibraryConfiguration["telegram"]["tdlib"] = {};
+    } 
     return;
   }
 
