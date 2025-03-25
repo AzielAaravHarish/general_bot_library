@@ -355,7 +355,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
   }
 
   @override
-  FutureOr<void> refresh() async{
+  FutureOr<void> refresh() async {
     await super.refresh();
     final GeneralBotLibraryConfigurationTelegramGeneralBotLibrary telegram = generalBotLibrary.generalBotLibraryConfiguration.telegram;
 
@@ -850,7 +850,9 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     final String url_webhook_new = Uri.parse(invoke_options.telegram_webhook_url ?? "").replace(
       path: path,
       pathSegments: pathSegments,
-      queryParameters: {"tg": query_telegram_webhook},
+      queryParameters: {
+        "tg": Uri.decodeComponent(query_telegram_webhook),
+      },
     ).toString();
 
     if (url_webhook_old == url_webhook_new) {
