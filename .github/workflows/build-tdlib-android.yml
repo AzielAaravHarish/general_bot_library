@@ -1,11 +1,6 @@
 name: Build Tdlib Android AZKADEV TELEGRAM CLIENT
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/build-tdlib-android.yml'
   workflow_dispatch:
 
 jobs:
@@ -38,6 +33,7 @@ jobs:
           name: android
           path: |
             example/android/tdlib/tdlib.zip
+        
       - name: Publish Release
         uses: marvinpinto/action-automatic-releases@latest
         continue-on-error: true
@@ -48,11 +44,3 @@ jobs:
           title: "Release Tdlib Android"
           files: |
             example/android/tdlib/tdlib.zip 
-
-      - name: Publish Release
-        working-directory: package/telegram_client_android
-        shell: bash
-        run: |
-          dart format .
-          sleep 10
-          dart pub publish --force --skip-validation
