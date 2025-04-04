@@ -67,7 +67,6 @@ class GeneralBotPlatformX extends GeneralBotPlatformLibraryProject {
 
   @override
   FutureOr<bool> pause() {
-    // TODO: implement pause
     return false;
   }
 

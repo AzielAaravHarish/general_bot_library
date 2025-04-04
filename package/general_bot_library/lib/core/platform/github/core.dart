@@ -67,13 +67,11 @@ class GeneralBotPlatformGithub extends GeneralBotPlatformLibraryProject {
 
   @override
   FutureOr<bool> pause() {
-    // TODO: implement pause
     return false;
   }
 
   @override
   FutureOr<bool> resume() {
-    // TODO: implement resume
     return false;
   }
 

@@ -48,7 +48,7 @@ class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBase
   static final EventEmitter _eventEmitter = EventEmitter();
 
   @override
-  // TODO: implement eventEmitter
+  
   EventEmitter get eventEmitter {
     return GeneralBotClientTelegramLibrary._eventEmitter;
   }
@@ -96,20 +96,17 @@ class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBase
   }
 
   @override
-  FutureOr<void> tdlib_ensureInitialized() {
-    // TODO: implement tdlib_ensureInitialized
-    return false;
+  FutureOr<void> tdlib_ensureInitialized() async{
+    return;
   }
 
   @override
   FutureOr<bool> pause() {
-    // TODO: implement pause
     return false;
   }
 
   @override
   FutureOr<bool> resume() {
-    // TODO: implement resume
     return false;
   }
 }

@@ -238,7 +238,7 @@ class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBase
   static final EventEmitter _eventEmitter = EventEmitter();
 
   @override
-  // TODO: implement eventEmitter
+  
   EventEmitter get eventEmitter {
     return GeneralBotClientTelegramLibrary._eventEmitter;
   }
