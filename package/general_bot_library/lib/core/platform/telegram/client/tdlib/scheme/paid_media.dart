@@ -1,37 +1,3 @@
-/* <!-- START LICENSE -->
-
-
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
-
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
-
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
-
-If you wan't edit you must add credit me (don't change)
-
-If this Software / Program / Source Code has you
-
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
-
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
-
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names, unused_import
 import "package:general_universe/general_universe.dart";
 // import "dart:convert";
@@ -56,7 +22,7 @@ class PaidMedia extends JsonScheme {
   /// return default data
   /// 
   static Map get defaultData {
-    return {"@type":"paidMedia","is_tdlib_class":true,"@return_type":"paidMedia","paid_media_preview":{"@type":"paidMediaPreview"},"paid_media_photo":{"@type":"paidMediaPhoto"},"paid_media_video":{"@type":"paidMediaVideo"},"paid_media_unsupported":{"@type":"paidMediaUnsupported"}};
+    return {"@type":"paidMedia","@is_json_scheme_class":true,"@return_type":"paidMedia","paid_media_preview":{"@type":"paidMediaPreview"},"paid_media_photo":{"@type":"paidMediaPhoto"},"paid_media_video":{"@type":"paidMediaVideo"},"paid_media_unsupported":{"@type":"paidMediaUnsupported"}};
   }
 
   /// check data 
@@ -103,20 +69,20 @@ class PaidMedia extends JsonScheme {
 
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  bool? get is_tdlib_class {
+  bool? get special_is_json_scheme_class {
     try {
-      if (rawData["is_tdlib_class"] is bool == false){
+      if (rawData["@is_json_scheme_class"] is bool == false){
         return null;
       }
-      return rawData["is_tdlib_class"] as bool;
+      return rawData["@is_json_scheme_class"] as bool;
     } catch (e) {
       return null;
     }
   }
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  set is_tdlib_class(bool? value) {
-    rawData["is_tdlib_class"] = value;
+  set special_is_json_scheme_class(bool? value) {
+    rawData["@is_json_scheme_class"] = value;
   }
 
 
@@ -223,7 +189,7 @@ class PaidMedia extends JsonScheme {
               bool schemeUtilsIsSetDefaultData = false,
 
     String special_type = "paidMedia",
-    bool? is_tdlib_class,
+    bool special_is_json_scheme_class = true,
     String special_return_type = "paidMedia",
       PaidMediaPreview? paid_media_preview,
       PaidMediaPhoto? paid_media_photo,
@@ -234,7 +200,7 @@ class PaidMedia extends JsonScheme {
 final Map paidMedia_data_create_json = {
   
       "@type": special_type,
-      "is_tdlib_class": is_tdlib_class,
+      "@is_json_scheme_class": special_is_json_scheme_class,
       "@return_type": special_return_type,
       "paid_media_preview": (paid_media_preview != null)?paid_media_preview.toJson(): null,
       "paid_media_photo": (paid_media_photo != null)?paid_media_photo.toJson(): null,

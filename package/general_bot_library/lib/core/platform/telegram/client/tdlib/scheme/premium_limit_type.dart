@@ -1,37 +1,3 @@
-/* <!-- START LICENSE -->
-
-
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
-
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
-
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
-
-If you wan't edit you must add credit me (don't change)
-
-If this Software / Program / Source Code has you
-
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
-
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
-
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names, unused_import
 import "package:general_universe/general_universe.dart";
 // import "dart:convert";
@@ -71,7 +37,7 @@ class PremiumLimitType extends JsonScheme {
   /// return default data
   /// 
   static Map get defaultData {
-    return {"@type":"premiumLimitType","is_tdlib_class":true,"@return_type":"premiumLimitType","premium_limit_type_supergroup_count":{"@type":"premiumLimitTypeSupergroupCount"},"premium_limit_type_pinned_chat_count":{"@type":"premiumLimitTypePinnedChatCount"},"premium_limit_type_created_public_chat_count":{"@type":"premiumLimitTypeCreatedPublicChatCount"},"premium_limit_type_saved_animation_count":{"@type":"premiumLimitTypeSavedAnimationCount"},"premium_limit_type_favorite_sticker_count":{"@type":"premiumLimitTypeFavoriteStickerCount"},"premium_limit_type_chat_folder_count":{"@type":"premiumLimitTypeChatFolderCount"},"premium_limit_type_chat_folder_chosen_chat_count":{"@type":"premiumLimitTypeChatFolderChosenChatCount"},"premium_limit_type_pinned_archived_chat_count":{"@type":"premiumLimitTypePinnedArchivedChatCount"},"premium_limit_type_pinned_saved_messages_topic_count":{"@type":"premiumLimitTypePinnedSavedMessagesTopicCount"},"premium_limit_type_caption_length":{"@type":"premiumLimitTypeCaptionLength"},"premium_limit_type_bio_length":{"@type":"premiumLimitTypeBioLength"},"premium_limit_type_chat_folder_invite_link_count":{"@type":"premiumLimitTypeChatFolderInviteLinkCount"},"premium_limit_type_shareable_chat_folder_count":{"@type":"premiumLimitTypeShareableChatFolderCount"},"premium_limit_type_active_story_count":{"@type":"premiumLimitTypeActiveStoryCount"},"premium_limit_type_weekly_sent_story_count":{"@type":"premiumLimitTypeWeeklySentStoryCount"},"premium_limit_type_monthly_sent_story_count":{"@type":"premiumLimitTypeMonthlySentStoryCount"},"premium_limit_type_story_caption_length":{"@type":"premiumLimitTypeStoryCaptionLength"},"premium_limit_type_story_suggested_reaction_area_count":{"@type":"premiumLimitTypeStorySuggestedReactionAreaCount"},"premium_limit_type_similar_chat_count":{"@type":"premiumLimitTypeSimilarChatCount"}};
+    return {"@type":"premiumLimitType","@is_json_scheme_class":true,"@return_type":"premiumLimitType","premium_limit_type_supergroup_count":{"@type":"premiumLimitTypeSupergroupCount"},"premium_limit_type_pinned_chat_count":{"@type":"premiumLimitTypePinnedChatCount"},"premium_limit_type_created_public_chat_count":{"@type":"premiumLimitTypeCreatedPublicChatCount"},"premium_limit_type_saved_animation_count":{"@type":"premiumLimitTypeSavedAnimationCount"},"premium_limit_type_favorite_sticker_count":{"@type":"premiumLimitTypeFavoriteStickerCount"},"premium_limit_type_chat_folder_count":{"@type":"premiumLimitTypeChatFolderCount"},"premium_limit_type_chat_folder_chosen_chat_count":{"@type":"premiumLimitTypeChatFolderChosenChatCount"},"premium_limit_type_pinned_archived_chat_count":{"@type":"premiumLimitTypePinnedArchivedChatCount"},"premium_limit_type_pinned_saved_messages_topic_count":{"@type":"premiumLimitTypePinnedSavedMessagesTopicCount"},"premium_limit_type_caption_length":{"@type":"premiumLimitTypeCaptionLength"},"premium_limit_type_bio_length":{"@type":"premiumLimitTypeBioLength"},"premium_limit_type_chat_folder_invite_link_count":{"@type":"premiumLimitTypeChatFolderInviteLinkCount"},"premium_limit_type_shareable_chat_folder_count":{"@type":"premiumLimitTypeShareableChatFolderCount"},"premium_limit_type_active_story_count":{"@type":"premiumLimitTypeActiveStoryCount"},"premium_limit_type_weekly_sent_story_count":{"@type":"premiumLimitTypeWeeklySentStoryCount"},"premium_limit_type_monthly_sent_story_count":{"@type":"premiumLimitTypeMonthlySentStoryCount"},"premium_limit_type_story_caption_length":{"@type":"premiumLimitTypeStoryCaptionLength"},"premium_limit_type_story_suggested_reaction_area_count":{"@type":"premiumLimitTypeStorySuggestedReactionAreaCount"},"premium_limit_type_similar_chat_count":{"@type":"premiumLimitTypeSimilarChatCount"}};
   }
 
   /// check data 
@@ -118,20 +84,20 @@ class PremiumLimitType extends JsonScheme {
 
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  bool? get is_tdlib_class {
+  bool? get special_is_json_scheme_class {
     try {
-      if (rawData["is_tdlib_class"] is bool == false){
+      if (rawData["@is_json_scheme_class"] is bool == false){
         return null;
       }
-      return rawData["is_tdlib_class"] as bool;
+      return rawData["@is_json_scheme_class"] as bool;
     } catch (e) {
       return null;
     }
   }
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  set is_tdlib_class(bool? value) {
-    rawData["is_tdlib_class"] = value;
+  set special_is_json_scheme_class(bool? value) {
+    rawData["@is_json_scheme_class"] = value;
   }
 
 
@@ -538,7 +504,7 @@ class PremiumLimitType extends JsonScheme {
               bool schemeUtilsIsSetDefaultData = false,
 
     String special_type = "premiumLimitType",
-    bool? is_tdlib_class,
+    bool special_is_json_scheme_class = true,
     String special_return_type = "premiumLimitType",
       PremiumLimitTypeSupergroupCount? premium_limit_type_supergroup_count,
       PremiumLimitTypePinnedChatCount? premium_limit_type_pinned_chat_count,
@@ -564,7 +530,7 @@ class PremiumLimitType extends JsonScheme {
 final Map premiumLimitType_data_create_json = {
   
       "@type": special_type,
-      "is_tdlib_class": is_tdlib_class,
+      "@is_json_scheme_class": special_is_json_scheme_class,
       "@return_type": special_return_type,
       "premium_limit_type_supergroup_count": (premium_limit_type_supergroup_count != null)?premium_limit_type_supergroup_count.toJson(): null,
       "premium_limit_type_pinned_chat_count": (premium_limit_type_pinned_chat_count != null)?premium_limit_type_pinned_chat_count.toJson(): null,

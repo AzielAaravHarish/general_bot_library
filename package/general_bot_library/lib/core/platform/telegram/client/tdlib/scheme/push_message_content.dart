@@ -1,37 +1,3 @@
-/* <!-- START LICENSE -->
-
-
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
-
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
-
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
-
-If you wan't edit you must add credit me (don't change)
-
-If this Software / Program / Source Code has you
-
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
-
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
-
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names, unused_import
 import "package:general_universe/general_universe.dart";
 // import "dart:convert";
@@ -93,7 +59,7 @@ class PushMessageContent extends JsonScheme {
   /// return default data
   /// 
   static Map get defaultData {
-    return {"@type":"pushMessageContent","is_tdlib_class":true,"@return_type":"pushMessageContent","push_message_content_hidden":{"@type":"pushMessageContentHidden"},"push_message_content_animation":{"@type":"pushMessageContentAnimation"},"push_message_content_audio":{"@type":"pushMessageContentAudio"},"push_message_content_contact":{"@type":"pushMessageContentContact"},"push_message_content_contact_registered":{"@type":"pushMessageContentContactRegistered"},"push_message_content_document":{"@type":"pushMessageContentDocument"},"push_message_content_game":{"@type":"pushMessageContentGame"},"push_message_content_game_score":{"@type":"pushMessageContentGameScore"},"push_message_content_invoice":{"@type":"pushMessageContentInvoice"},"push_message_content_location":{"@type":"pushMessageContentLocation"},"push_message_content_paid_media":{"@type":"pushMessageContentPaidMedia"},"push_message_content_photo":{"@type":"pushMessageContentPhoto"},"push_message_content_poll":{"@type":"pushMessageContentPoll"},"push_message_content_premium_gift_code":{"@type":"pushMessageContentPremiumGiftCode"},"push_message_content_giveaway":{"@type":"pushMessageContentGiveaway"},"push_message_content_gift":{"@type":"pushMessageContentGift"},"push_message_content_upgraded_gift":{"@type":"pushMessageContentUpgradedGift"},"push_message_content_screenshot_taken":{"@type":"pushMessageContentScreenshotTaken"},"push_message_content_sticker":{"@type":"pushMessageContentSticker"},"push_message_content_story":{"@type":"pushMessageContentStory"},"push_message_content_text":{"@type":"pushMessageContentText"},"push_message_content_video":{"@type":"pushMessageContentVideo"},"push_message_content_video_note":{"@type":"pushMessageContentVideoNote"},"push_message_content_voice_note":{"@type":"pushMessageContentVoiceNote"},"push_message_content_basic_group_chat_create":{"@type":"pushMessageContentBasicGroupChatCreate"},"push_message_content_video_chat_started":{"@type":"pushMessageContentVideoChatStarted"},"push_message_content_video_chat_ended":{"@type":"pushMessageContentVideoChatEnded"},"push_message_content_invite_video_chat_participants":{"@type":"pushMessageContentInviteVideoChatParticipants"},"push_message_content_chat_add_members":{"@type":"pushMessageContentChatAddMembers"},"push_message_content_chat_change_photo":{"@type":"pushMessageContentChatChangePhoto"},"push_message_content_chat_change_title":{"@type":"pushMessageContentChatChangeTitle"},"push_message_content_chat_set_background":{"@type":"pushMessageContentChatSetBackground"},"push_message_content_chat_set_theme":{"@type":"pushMessageContentChatSetTheme"},"push_message_content_chat_delete_member":{"@type":"pushMessageContentChatDeleteMember"},"push_message_content_chat_join_by_link":{"@type":"pushMessageContentChatJoinByLink"},"push_message_content_chat_join_by_request":{"@type":"pushMessageContentChatJoinByRequest"},"push_message_content_recurring_payment":{"@type":"pushMessageContentRecurringPayment"},"push_message_content_suggest_profile_photo":{"@type":"pushMessageContentSuggestProfilePhoto"},"push_message_content_proximity_alert_triggered":{"@type":"pushMessageContentProximityAlertTriggered"},"push_message_content_message_forwards":{"@type":"pushMessageContentMessageForwards"},"push_message_content_media_album":{"@type":"pushMessageContentMediaAlbum"}};
+    return {"@type":"pushMessageContent","@is_json_scheme_class":true,"@return_type":"pushMessageContent","push_message_content_hidden":{"@type":"pushMessageContentHidden"},"push_message_content_animation":{"@type":"pushMessageContentAnimation"},"push_message_content_audio":{"@type":"pushMessageContentAudio"},"push_message_content_contact":{"@type":"pushMessageContentContact"},"push_message_content_contact_registered":{"@type":"pushMessageContentContactRegistered"},"push_message_content_document":{"@type":"pushMessageContentDocument"},"push_message_content_game":{"@type":"pushMessageContentGame"},"push_message_content_game_score":{"@type":"pushMessageContentGameScore"},"push_message_content_invoice":{"@type":"pushMessageContentInvoice"},"push_message_content_location":{"@type":"pushMessageContentLocation"},"push_message_content_paid_media":{"@type":"pushMessageContentPaidMedia"},"push_message_content_photo":{"@type":"pushMessageContentPhoto"},"push_message_content_poll":{"@type":"pushMessageContentPoll"},"push_message_content_premium_gift_code":{"@type":"pushMessageContentPremiumGiftCode"},"push_message_content_giveaway":{"@type":"pushMessageContentGiveaway"},"push_message_content_gift":{"@type":"pushMessageContentGift"},"push_message_content_upgraded_gift":{"@type":"pushMessageContentUpgradedGift"},"push_message_content_screenshot_taken":{"@type":"pushMessageContentScreenshotTaken"},"push_message_content_sticker":{"@type":"pushMessageContentSticker"},"push_message_content_story":{"@type":"pushMessageContentStory"},"push_message_content_text":{"@type":"pushMessageContentText"},"push_message_content_video":{"@type":"pushMessageContentVideo"},"push_message_content_video_note":{"@type":"pushMessageContentVideoNote"},"push_message_content_voice_note":{"@type":"pushMessageContentVoiceNote"},"push_message_content_basic_group_chat_create":{"@type":"pushMessageContentBasicGroupChatCreate"},"push_message_content_video_chat_started":{"@type":"pushMessageContentVideoChatStarted"},"push_message_content_video_chat_ended":{"@type":"pushMessageContentVideoChatEnded"},"push_message_content_invite_video_chat_participants":{"@type":"pushMessageContentInviteVideoChatParticipants"},"push_message_content_chat_add_members":{"@type":"pushMessageContentChatAddMembers"},"push_message_content_chat_change_photo":{"@type":"pushMessageContentChatChangePhoto"},"push_message_content_chat_change_title":{"@type":"pushMessageContentChatChangeTitle"},"push_message_content_chat_set_background":{"@type":"pushMessageContentChatSetBackground"},"push_message_content_chat_set_theme":{"@type":"pushMessageContentChatSetTheme"},"push_message_content_chat_delete_member":{"@type":"pushMessageContentChatDeleteMember"},"push_message_content_chat_join_by_link":{"@type":"pushMessageContentChatJoinByLink"},"push_message_content_chat_join_by_request":{"@type":"pushMessageContentChatJoinByRequest"},"push_message_content_recurring_payment":{"@type":"pushMessageContentRecurringPayment"},"push_message_content_suggest_profile_photo":{"@type":"pushMessageContentSuggestProfilePhoto"},"push_message_content_proximity_alert_triggered":{"@type":"pushMessageContentProximityAlertTriggered"},"push_message_content_message_forwards":{"@type":"pushMessageContentMessageForwards"},"push_message_content_media_album":{"@type":"pushMessageContentMediaAlbum"}};
   }
 
   /// check data 
@@ -140,20 +106,20 @@ class PushMessageContent extends JsonScheme {
 
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  bool? get is_tdlib_class {
+  bool? get special_is_json_scheme_class {
     try {
-      if (rawData["is_tdlib_class"] is bool == false){
+      if (rawData["@is_json_scheme_class"] is bool == false){
         return null;
       }
-      return rawData["is_tdlib_class"] as bool;
+      return rawData["@is_json_scheme_class"] as bool;
     } catch (e) {
       return null;
     }
   }
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  set is_tdlib_class(bool? value) {
-    rawData["is_tdlib_class"] = value;
+  set special_is_json_scheme_class(bool? value) {
+    rawData["@is_json_scheme_class"] = value;
   }
 
 
@@ -1000,7 +966,7 @@ class PushMessageContent extends JsonScheme {
               bool schemeUtilsIsSetDefaultData = false,
 
     String special_type = "pushMessageContent",
-    bool? is_tdlib_class,
+    bool special_is_json_scheme_class = true,
     String special_return_type = "pushMessageContent",
       PushMessageContentHidden? push_message_content_hidden,
       PushMessageContentAnimation? push_message_content_animation,
@@ -1048,7 +1014,7 @@ class PushMessageContent extends JsonScheme {
 final Map pushMessageContent_data_create_json = {
   
       "@type": special_type,
-      "is_tdlib_class": is_tdlib_class,
+      "@is_json_scheme_class": special_is_json_scheme_class,
       "@return_type": special_return_type,
       "push_message_content_hidden": (push_message_content_hidden != null)?push_message_content_hidden.toJson(): null,
       "push_message_content_animation": (push_message_content_animation != null)?push_message_content_animation.toJson(): null,

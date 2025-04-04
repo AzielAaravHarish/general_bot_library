@@ -1,37 +1,3 @@
-/* <!-- START LICENSE -->
-
-
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
-
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
-
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
-
-If you wan't edit you must add credit me (don't change)
-
-If this Software / Program / Source Code has you
-
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
-
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
-
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names, unused_import
 import "package:general_universe/general_universe.dart";
 // import "dart:convert";
@@ -65,7 +31,7 @@ class UserPrivacySetting extends JsonScheme {
   /// return default data
   /// 
   static Map get defaultData {
-    return {"@type":"userPrivacySetting","is_tdlib_class":true,"@return_type":"userPrivacySetting","user_privacy_setting_show_status":{"@type":"userPrivacySettingShowStatus"},"user_privacy_setting_show_profile_photo":{"@type":"userPrivacySettingShowProfilePhoto"},"user_privacy_setting_show_link_in_forwarded_messages":{"@type":"userPrivacySettingShowLinkInForwardedMessages"},"user_privacy_setting_show_phone_number":{"@type":"userPrivacySettingShowPhoneNumber"},"user_privacy_setting_show_bio":{"@type":"userPrivacySettingShowBio"},"user_privacy_setting_show_birthdate":{"@type":"userPrivacySettingShowBirthdate"},"user_privacy_setting_allow_chat_invites":{"@type":"userPrivacySettingAllowChatInvites"},"user_privacy_setting_allow_calls":{"@type":"userPrivacySettingAllowCalls"},"user_privacy_setting_allow_peer_to_peer_calls":{"@type":"userPrivacySettingAllowPeerToPeerCalls"},"user_privacy_setting_allow_finding_by_phone_number":{"@type":"userPrivacySettingAllowFindingByPhoneNumber"},"user_privacy_setting_allow_private_voice_and_video_note_messages":{"@type":"userPrivacySettingAllowPrivateVoiceAndVideoNoteMessages"},"user_privacy_setting_autosave_gifts":{"@type":"userPrivacySettingAutosaveGifts"},"user_privacy_setting_allow_unpaid_messages":{"@type":"userPrivacySettingAllowUnpaidMessages"}};
+    return {"@type":"userPrivacySetting","@is_json_scheme_class":true,"@return_type":"userPrivacySetting","user_privacy_setting_show_status":{"@type":"userPrivacySettingShowStatus"},"user_privacy_setting_show_profile_photo":{"@type":"userPrivacySettingShowProfilePhoto"},"user_privacy_setting_show_link_in_forwarded_messages":{"@type":"userPrivacySettingShowLinkInForwardedMessages"},"user_privacy_setting_show_phone_number":{"@type":"userPrivacySettingShowPhoneNumber"},"user_privacy_setting_show_bio":{"@type":"userPrivacySettingShowBio"},"user_privacy_setting_show_birthdate":{"@type":"userPrivacySettingShowBirthdate"},"user_privacy_setting_allow_chat_invites":{"@type":"userPrivacySettingAllowChatInvites"},"user_privacy_setting_allow_calls":{"@type":"userPrivacySettingAllowCalls"},"user_privacy_setting_allow_peer_to_peer_calls":{"@type":"userPrivacySettingAllowPeerToPeerCalls"},"user_privacy_setting_allow_finding_by_phone_number":{"@type":"userPrivacySettingAllowFindingByPhoneNumber"},"user_privacy_setting_allow_private_voice_and_video_note_messages":{"@type":"userPrivacySettingAllowPrivateVoiceAndVideoNoteMessages"},"user_privacy_setting_autosave_gifts":{"@type":"userPrivacySettingAutosaveGifts"},"user_privacy_setting_allow_unpaid_messages":{"@type":"userPrivacySettingAllowUnpaidMessages"}};
   }
 
   /// check data 
@@ -112,20 +78,20 @@ class UserPrivacySetting extends JsonScheme {
 
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  bool? get is_tdlib_class {
+  bool? get special_is_json_scheme_class {
     try {
-      if (rawData["is_tdlib_class"] is bool == false){
+      if (rawData["@is_json_scheme_class"] is bool == false){
         return null;
       }
-      return rawData["is_tdlib_class"] as bool;
+      return rawData["@is_json_scheme_class"] as bool;
     } catch (e) {
       return null;
     }
   }
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  set is_tdlib_class(bool? value) {
-    rawData["is_tdlib_class"] = value;
+  set special_is_json_scheme_class(bool? value) {
+    rawData["@is_json_scheme_class"] = value;
   }
 
 
@@ -412,7 +378,7 @@ class UserPrivacySetting extends JsonScheme {
               bool schemeUtilsIsSetDefaultData = false,
 
     String special_type = "userPrivacySetting",
-    bool? is_tdlib_class,
+    bool special_is_json_scheme_class = true,
     String special_return_type = "userPrivacySetting",
       UserPrivacySettingShowStatus? user_privacy_setting_show_status,
       UserPrivacySettingShowProfilePhoto? user_privacy_setting_show_profile_photo,
@@ -432,7 +398,7 @@ class UserPrivacySetting extends JsonScheme {
 final Map userPrivacySetting_data_create_json = {
   
       "@type": special_type,
-      "is_tdlib_class": is_tdlib_class,
+      "@is_json_scheme_class": special_is_json_scheme_class,
       "@return_type": special_return_type,
       "user_privacy_setting_show_status": (user_privacy_setting_show_status != null)?user_privacy_setting_show_status.toJson(): null,
       "user_privacy_setting_show_profile_photo": (user_privacy_setting_show_profile_photo != null)?user_privacy_setting_show_profile_photo.toJson(): null,

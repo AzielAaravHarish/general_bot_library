@@ -44,7 +44,7 @@ final List<Map<String, dynamic>> general_bot_library_schemes = () {
     GeneralBotLibraryDefaultScheme.generalBotLibraryConfiguration(
       generalSchemeType: generalSchemeType,
     ),
-    GeneralBotLibraryDefaultScheme.generalBotLibraryPlatformTelegramClientData(
+    GeneralBotLibraryDefaultScheme.generalBotLibraryPlatformClientData(
       generalSchemeType: generalSchemeType,
     ),
     GeneralBotLibraryDefaultScheme.generalBotLibraryConfigurationPlatformTelegramInvokeOptions(

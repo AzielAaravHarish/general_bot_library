@@ -1,37 +1,3 @@
-/* <!-- START LICENSE -->
-
-
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
-
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
-
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
-
-If you wan't edit you must add credit me (don't change)
-
-If this Software / Program / Source Code has you
-
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
-
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
-
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names, unused_import
 import "package:general_universe/general_universe.dart";
 // import "dart:convert";
@@ -99,7 +65,7 @@ class InternalLinkType extends JsonScheme {
   /// return default data
   /// 
   static Map get defaultData {
-    return {"@type":"internalLinkType","is_tdlib_class":true,"@return_type":"internalLinkType","internal_link_type_active_sessions":{"@type":"internalLinkTypeActiveSessions"},"internal_link_type_attachment_menu_bot":{"@type":"internalLinkTypeAttachmentMenuBot"},"internal_link_type_authentication_code":{"@type":"internalLinkTypeAuthenticationCode"},"internal_link_type_background":{"@type":"internalLinkTypeBackground"},"internal_link_type_bot_add_to_channel":{"@type":"internalLinkTypeBotAddToChannel"},"internal_link_type_bot_start":{"@type":"internalLinkTypeBotStart"},"internal_link_type_bot_start_in_group":{"@type":"internalLinkTypeBotStartInGroup"},"internal_link_type_business_chat":{"@type":"internalLinkTypeBusinessChat"},"internal_link_type_buy_stars":{"@type":"internalLinkTypeBuyStars"},"internal_link_type_change_phone_number":{"@type":"internalLinkTypeChangePhoneNumber"},"internal_link_type_chat_affiliate_program":{"@type":"internalLinkTypeChatAffiliateProgram"},"internal_link_type_chat_boost":{"@type":"internalLinkTypeChatBoost"},"internal_link_type_chat_folder_invite":{"@type":"internalLinkTypeChatFolderInvite"},"internal_link_type_chat_folder_settings":{"@type":"internalLinkTypeChatFolderSettings"},"internal_link_type_chat_invite":{"@type":"internalLinkTypeChatInvite"},"internal_link_type_default_message_auto_delete_timer_settings":{"@type":"internalLinkTypeDefaultMessageAutoDeleteTimerSettings"},"internal_link_type_edit_profile_settings":{"@type":"internalLinkTypeEditProfileSettings"},"internal_link_type_game":{"@type":"internalLinkTypeGame"},"internal_link_type_instant_view":{"@type":"internalLinkTypeInstantView"},"internal_link_type_invoice":{"@type":"internalLinkTypeInvoice"},"internal_link_type_language_pack":{"@type":"internalLinkTypeLanguagePack"},"internal_link_type_language_settings":{"@type":"internalLinkTypeLanguageSettings"},"internal_link_type_main_web_app":{"@type":"internalLinkTypeMainWebApp"},"internal_link_type_message":{"@type":"internalLinkTypeMessage"},"internal_link_type_message_draft":{"@type":"internalLinkTypeMessageDraft"},"internal_link_type_passport_data_request":{"@type":"internalLinkTypePassportDataRequest"},"internal_link_type_phone_number_confirmation":{"@type":"internalLinkTypePhoneNumberConfirmation"},"internal_link_type_premium_features":{"@type":"internalLinkTypePremiumFeatures"},"internal_link_type_premium_gift":{"@type":"internalLinkTypePremiumGift"},"internal_link_type_premium_gift_code":{"@type":"internalLinkTypePremiumGiftCode"},"internal_link_type_privacy_and_security_settings":{"@type":"internalLinkTypePrivacyAndSecuritySettings"},"internal_link_type_proxy":{"@type":"internalLinkTypeProxy"},"internal_link_type_public_chat":{"@type":"internalLinkTypePublicChat"},"internal_link_type_qr_code_authentication":{"@type":"internalLinkTypeQrCodeAuthentication"},"internal_link_type_restore_purchases":{"@type":"internalLinkTypeRestorePurchases"},"internal_link_type_settings":{"@type":"internalLinkTypeSettings"},"internal_link_type_sticker_set":{"@type":"internalLinkTypeStickerSet"},"internal_link_type_story":{"@type":"internalLinkTypeStory"},"internal_link_type_theme":{"@type":"internalLinkTypeTheme"},"internal_link_type_theme_settings":{"@type":"internalLinkTypeThemeSettings"},"internal_link_type_unknown_deep_link":{"@type":"internalLinkTypeUnknownDeepLink"},"internal_link_type_unsupported_proxy":{"@type":"internalLinkTypeUnsupportedProxy"},"internal_link_type_upgraded_gift":{"@type":"internalLinkTypeUpgradedGift"},"internal_link_type_user_phone_number":{"@type":"internalLinkTypeUserPhoneNumber"},"internal_link_type_user_token":{"@type":"internalLinkTypeUserToken"},"internal_link_type_video_chat":{"@type":"internalLinkTypeVideoChat"},"internal_link_type_web_app":{"@type":"internalLinkTypeWebApp"}};
+    return {"@type":"internalLinkType","@is_json_scheme_class":true,"@return_type":"internalLinkType","internal_link_type_active_sessions":{"@type":"internalLinkTypeActiveSessions"},"internal_link_type_attachment_menu_bot":{"@type":"internalLinkTypeAttachmentMenuBot"},"internal_link_type_authentication_code":{"@type":"internalLinkTypeAuthenticationCode"},"internal_link_type_background":{"@type":"internalLinkTypeBackground"},"internal_link_type_bot_add_to_channel":{"@type":"internalLinkTypeBotAddToChannel"},"internal_link_type_bot_start":{"@type":"internalLinkTypeBotStart"},"internal_link_type_bot_start_in_group":{"@type":"internalLinkTypeBotStartInGroup"},"internal_link_type_business_chat":{"@type":"internalLinkTypeBusinessChat"},"internal_link_type_buy_stars":{"@type":"internalLinkTypeBuyStars"},"internal_link_type_change_phone_number":{"@type":"internalLinkTypeChangePhoneNumber"},"internal_link_type_chat_affiliate_program":{"@type":"internalLinkTypeChatAffiliateProgram"},"internal_link_type_chat_boost":{"@type":"internalLinkTypeChatBoost"},"internal_link_type_chat_folder_invite":{"@type":"internalLinkTypeChatFolderInvite"},"internal_link_type_chat_folder_settings":{"@type":"internalLinkTypeChatFolderSettings"},"internal_link_type_chat_invite":{"@type":"internalLinkTypeChatInvite"},"internal_link_type_default_message_auto_delete_timer_settings":{"@type":"internalLinkTypeDefaultMessageAutoDeleteTimerSettings"},"internal_link_type_edit_profile_settings":{"@type":"internalLinkTypeEditProfileSettings"},"internal_link_type_game":{"@type":"internalLinkTypeGame"},"internal_link_type_instant_view":{"@type":"internalLinkTypeInstantView"},"internal_link_type_invoice":{"@type":"internalLinkTypeInvoice"},"internal_link_type_language_pack":{"@type":"internalLinkTypeLanguagePack"},"internal_link_type_language_settings":{"@type":"internalLinkTypeLanguageSettings"},"internal_link_type_main_web_app":{"@type":"internalLinkTypeMainWebApp"},"internal_link_type_message":{"@type":"internalLinkTypeMessage"},"internal_link_type_message_draft":{"@type":"internalLinkTypeMessageDraft"},"internal_link_type_passport_data_request":{"@type":"internalLinkTypePassportDataRequest"},"internal_link_type_phone_number_confirmation":{"@type":"internalLinkTypePhoneNumberConfirmation"},"internal_link_type_premium_features":{"@type":"internalLinkTypePremiumFeatures"},"internal_link_type_premium_gift":{"@type":"internalLinkTypePremiumGift"},"internal_link_type_premium_gift_code":{"@type":"internalLinkTypePremiumGiftCode"},"internal_link_type_privacy_and_security_settings":{"@type":"internalLinkTypePrivacyAndSecuritySettings"},"internal_link_type_proxy":{"@type":"internalLinkTypeProxy"},"internal_link_type_public_chat":{"@type":"internalLinkTypePublicChat"},"internal_link_type_qr_code_authentication":{"@type":"internalLinkTypeQrCodeAuthentication"},"internal_link_type_restore_purchases":{"@type":"internalLinkTypeRestorePurchases"},"internal_link_type_settings":{"@type":"internalLinkTypeSettings"},"internal_link_type_sticker_set":{"@type":"internalLinkTypeStickerSet"},"internal_link_type_story":{"@type":"internalLinkTypeStory"},"internal_link_type_theme":{"@type":"internalLinkTypeTheme"},"internal_link_type_theme_settings":{"@type":"internalLinkTypeThemeSettings"},"internal_link_type_unknown_deep_link":{"@type":"internalLinkTypeUnknownDeepLink"},"internal_link_type_unsupported_proxy":{"@type":"internalLinkTypeUnsupportedProxy"},"internal_link_type_upgraded_gift":{"@type":"internalLinkTypeUpgradedGift"},"internal_link_type_user_phone_number":{"@type":"internalLinkTypeUserPhoneNumber"},"internal_link_type_user_token":{"@type":"internalLinkTypeUserToken"},"internal_link_type_video_chat":{"@type":"internalLinkTypeVideoChat"},"internal_link_type_web_app":{"@type":"internalLinkTypeWebApp"}};
   }
 
   /// check data 
@@ -146,20 +112,20 @@ class InternalLinkType extends JsonScheme {
 
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  bool? get is_tdlib_class {
+  bool? get special_is_json_scheme_class {
     try {
-      if (rawData["is_tdlib_class"] is bool == false){
+      if (rawData["@is_json_scheme_class"] is bool == false){
         return null;
       }
-      return rawData["is_tdlib_class"] as bool;
+      return rawData["@is_json_scheme_class"] as bool;
     } catch (e) {
       return null;
     }
   }
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  set is_tdlib_class(bool? value) {
-    rawData["is_tdlib_class"] = value;
+  set special_is_json_scheme_class(bool? value) {
+    rawData["@is_json_scheme_class"] = value;
   }
 
 
@@ -1126,7 +1092,7 @@ class InternalLinkType extends JsonScheme {
               bool schemeUtilsIsSetDefaultData = false,
 
     String special_type = "internalLinkType",
-    bool? is_tdlib_class,
+    bool special_is_json_scheme_class = true,
     String special_return_type = "internalLinkType",
       InternalLinkTypeActiveSessions? internal_link_type_active_sessions,
       InternalLinkTypeAttachmentMenuBot? internal_link_type_attachment_menu_bot,
@@ -1180,7 +1146,7 @@ class InternalLinkType extends JsonScheme {
 final Map internalLinkType_data_create_json = {
   
       "@type": special_type,
-      "is_tdlib_class": is_tdlib_class,
+      "@is_json_scheme_class": special_is_json_scheme_class,
       "@return_type": special_return_type,
       "internal_link_type_active_sessions": (internal_link_type_active_sessions != null)?internal_link_type_active_sessions.toJson(): null,
       "internal_link_type_attachment_menu_bot": (internal_link_type_attachment_menu_bot != null)?internal_link_type_attachment_menu_bot.toJson(): null,

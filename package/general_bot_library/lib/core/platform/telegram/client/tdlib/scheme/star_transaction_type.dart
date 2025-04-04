@@ -1,37 +1,3 @@
-/* <!-- START LICENSE -->
-
-
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
-
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
-
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
-
-If you wan't edit you must add credit me (don't change)
-
-If this Software / Program / Source Code has you
-
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
-
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
-
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names, unused_import
 import "package:general_universe/general_universe.dart";
 // import "dart:convert";
@@ -82,7 +48,7 @@ class StarTransactionType extends JsonScheme {
   /// return default data
   /// 
   static Map get defaultData {
-    return {"@type":"starTransactionType","is_tdlib_class":true,"@return_type":"starTransactionType","star_transaction_type_premium_bot_deposit":{"@type":"starTransactionTypePremiumBotDeposit"},"star_transaction_type_app_store_deposit":{"@type":"starTransactionTypeAppStoreDeposit"},"star_transaction_type_google_play_deposit":{"@type":"starTransactionTypeGooglePlayDeposit"},"star_transaction_type_fragment_deposit":{"@type":"starTransactionTypeFragmentDeposit"},"star_transaction_type_user_deposit":{"@type":"starTransactionTypeUserDeposit"},"star_transaction_type_giveaway_deposit":{"@type":"starTransactionTypeGiveawayDeposit"},"star_transaction_type_fragment_withdrawal":{"@type":"starTransactionTypeFragmentWithdrawal"},"star_transaction_type_telegram_ads_withdrawal":{"@type":"starTransactionTypeTelegramAdsWithdrawal"},"star_transaction_type_telegram_api_usage":{"@type":"starTransactionTypeTelegramApiUsage"},"star_transaction_type_bot_paid_media_purchase":{"@type":"starTransactionTypeBotPaidMediaPurchase"},"star_transaction_type_bot_paid_media_sale":{"@type":"starTransactionTypeBotPaidMediaSale"},"star_transaction_type_channel_paid_media_purchase":{"@type":"starTransactionTypeChannelPaidMediaPurchase"},"star_transaction_type_channel_paid_media_sale":{"@type":"starTransactionTypeChannelPaidMediaSale"},"star_transaction_type_bot_invoice_purchase":{"@type":"starTransactionTypeBotInvoicePurchase"},"star_transaction_type_bot_invoice_sale":{"@type":"starTransactionTypeBotInvoiceSale"},"star_transaction_type_bot_subscription_purchase":{"@type":"starTransactionTypeBotSubscriptionPurchase"},"star_transaction_type_bot_subscription_sale":{"@type":"starTransactionTypeBotSubscriptionSale"},"star_transaction_type_channel_subscription_purchase":{"@type":"starTransactionTypeChannelSubscriptionPurchase"},"star_transaction_type_channel_subscription_sale":{"@type":"starTransactionTypeChannelSubscriptionSale"},"star_transaction_type_gift_purchase":{"@type":"starTransactionTypeGiftPurchase"},"star_transaction_type_gift_transfer":{"@type":"starTransactionTypeGiftTransfer"},"star_transaction_type_gift_sale":{"@type":"starTransactionTypeGiftSale"},"star_transaction_type_gift_upgrade":{"@type":"starTransactionTypeGiftUpgrade"},"star_transaction_type_channel_paid_reaction_send":{"@type":"starTransactionTypeChannelPaidReactionSend"},"star_transaction_type_channel_paid_reaction_receive":{"@type":"starTransactionTypeChannelPaidReactionReceive"},"star_transaction_type_affiliate_program_commission":{"@type":"starTransactionTypeAffiliateProgramCommission"},"star_transaction_type_paid_message_send":{"@type":"starTransactionTypePaidMessageSend"},"star_transaction_type_paid_message_receive":{"@type":"starTransactionTypePaidMessageReceive"},"star_transaction_type_premium_purchase":{"@type":"starTransactionTypePremiumPurchase"},"star_transaction_type_unsupported":{"@type":"starTransactionTypeUnsupported"}};
+    return {"@type":"starTransactionType","@is_json_scheme_class":true,"@return_type":"starTransactionType","star_transaction_type_premium_bot_deposit":{"@type":"starTransactionTypePremiumBotDeposit"},"star_transaction_type_app_store_deposit":{"@type":"starTransactionTypeAppStoreDeposit"},"star_transaction_type_google_play_deposit":{"@type":"starTransactionTypeGooglePlayDeposit"},"star_transaction_type_fragment_deposit":{"@type":"starTransactionTypeFragmentDeposit"},"star_transaction_type_user_deposit":{"@type":"starTransactionTypeUserDeposit"},"star_transaction_type_giveaway_deposit":{"@type":"starTransactionTypeGiveawayDeposit"},"star_transaction_type_fragment_withdrawal":{"@type":"starTransactionTypeFragmentWithdrawal"},"star_transaction_type_telegram_ads_withdrawal":{"@type":"starTransactionTypeTelegramAdsWithdrawal"},"star_transaction_type_telegram_api_usage":{"@type":"starTransactionTypeTelegramApiUsage"},"star_transaction_type_bot_paid_media_purchase":{"@type":"starTransactionTypeBotPaidMediaPurchase"},"star_transaction_type_bot_paid_media_sale":{"@type":"starTransactionTypeBotPaidMediaSale"},"star_transaction_type_channel_paid_media_purchase":{"@type":"starTransactionTypeChannelPaidMediaPurchase"},"star_transaction_type_channel_paid_media_sale":{"@type":"starTransactionTypeChannelPaidMediaSale"},"star_transaction_type_bot_invoice_purchase":{"@type":"starTransactionTypeBotInvoicePurchase"},"star_transaction_type_bot_invoice_sale":{"@type":"starTransactionTypeBotInvoiceSale"},"star_transaction_type_bot_subscription_purchase":{"@type":"starTransactionTypeBotSubscriptionPurchase"},"star_transaction_type_bot_subscription_sale":{"@type":"starTransactionTypeBotSubscriptionSale"},"star_transaction_type_channel_subscription_purchase":{"@type":"starTransactionTypeChannelSubscriptionPurchase"},"star_transaction_type_channel_subscription_sale":{"@type":"starTransactionTypeChannelSubscriptionSale"},"star_transaction_type_gift_purchase":{"@type":"starTransactionTypeGiftPurchase"},"star_transaction_type_gift_transfer":{"@type":"starTransactionTypeGiftTransfer"},"star_transaction_type_gift_sale":{"@type":"starTransactionTypeGiftSale"},"star_transaction_type_gift_upgrade":{"@type":"starTransactionTypeGiftUpgrade"},"star_transaction_type_channel_paid_reaction_send":{"@type":"starTransactionTypeChannelPaidReactionSend"},"star_transaction_type_channel_paid_reaction_receive":{"@type":"starTransactionTypeChannelPaidReactionReceive"},"star_transaction_type_affiliate_program_commission":{"@type":"starTransactionTypeAffiliateProgramCommission"},"star_transaction_type_paid_message_send":{"@type":"starTransactionTypePaidMessageSend"},"star_transaction_type_paid_message_receive":{"@type":"starTransactionTypePaidMessageReceive"},"star_transaction_type_premium_purchase":{"@type":"starTransactionTypePremiumPurchase"},"star_transaction_type_unsupported":{"@type":"starTransactionTypeUnsupported"}};
   }
 
   /// check data 
@@ -129,20 +95,20 @@ class StarTransactionType extends JsonScheme {
 
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  bool? get is_tdlib_class {
+  bool? get special_is_json_scheme_class {
     try {
-      if (rawData["is_tdlib_class"] is bool == false){
+      if (rawData["@is_json_scheme_class"] is bool == false){
         return null;
       }
-      return rawData["is_tdlib_class"] as bool;
+      return rawData["@is_json_scheme_class"] as bool;
     } catch (e) {
       return null;
     }
   }
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  set is_tdlib_class(bool? value) {
-    rawData["is_tdlib_class"] = value;
+  set special_is_json_scheme_class(bool? value) {
+    rawData["@is_json_scheme_class"] = value;
   }
 
 
@@ -769,7 +735,7 @@ class StarTransactionType extends JsonScheme {
               bool schemeUtilsIsSetDefaultData = false,
 
     String special_type = "starTransactionType",
-    bool? is_tdlib_class,
+    bool special_is_json_scheme_class = true,
     String special_return_type = "starTransactionType",
       StarTransactionTypePremiumBotDeposit? star_transaction_type_premium_bot_deposit,
       StarTransactionTypeAppStoreDeposit? star_transaction_type_app_store_deposit,
@@ -806,7 +772,7 @@ class StarTransactionType extends JsonScheme {
 final Map starTransactionType_data_create_json = {
   
       "@type": special_type,
-      "is_tdlib_class": is_tdlib_class,
+      "@is_json_scheme_class": special_is_json_scheme_class,
       "@return_type": special_return_type,
       "star_transaction_type_premium_bot_deposit": (star_transaction_type_premium_bot_deposit != null)?star_transaction_type_premium_bot_deposit.toJson(): null,
       "star_transaction_type_app_store_deposit": (star_transaction_type_app_store_deposit != null)?star_transaction_type_app_store_deposit.toJson(): null,

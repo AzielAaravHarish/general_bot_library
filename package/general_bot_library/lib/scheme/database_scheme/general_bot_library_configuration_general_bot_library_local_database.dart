@@ -18,7 +18,7 @@ class GeneralBotLibraryConfigurationGeneralBotLibraryLocalDatabase extends JsonS
   /// return default data
   /// 
   static Map get defaultData {
-    return {"@type":"generalBotLibraryConfigurationGeneralBotLibraryLocalDatabase","client_tg_user_id":0,"chat_id":0,"room_chat_id":0,"data":"{}","is_test":true,"from_app_id":"","owner_account_user_id":0};
+    return {"@type":"generalBotLibraryConfigurationGeneralBotLibraryLocalDatabase","data":"{}","is_test":true,"from_app_id":"","owner_account_user_id":0};
   }
 
   /// check data 
@@ -61,60 +61,6 @@ class GeneralBotLibraryConfigurationGeneralBotLibraryLocalDatabase extends JsonS
   /// Generated
   set special_type(String? value) {
     rawData["@type"] = value;
-  }
-
-
-  /// Generated
-  num? get client_tg_user_id {
-    try {
-      if (rawData["client_tg_user_id"] is num == false){
-        return null;
-      }
-      return rawData["client_tg_user_id"] as num;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  /// Generated
-  set client_tg_user_id(num? value) {
-    rawData["client_tg_user_id"] = value;
-  }
-
-
-  /// Generated
-  num? get chat_id {
-    try {
-      if (rawData["chat_id"] is num == false){
-        return null;
-      }
-      return rawData["chat_id"] as num;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  /// Generated
-  set chat_id(num? value) {
-    rawData["chat_id"] = value;
-  }
-
-
-  /// Generated
-  num? get room_chat_id {
-    try {
-      if (rawData["room_chat_id"] is num == false){
-        return null;
-      }
-      return rawData["room_chat_id"] as num;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  /// Generated
-  set room_chat_id(num? value) {
-    rawData["room_chat_id"] = value;
   }
 
 
@@ -195,9 +141,6 @@ class GeneralBotLibraryConfigurationGeneralBotLibraryLocalDatabase extends JsonS
               bool schemeUtilsIsSetDefaultData = false,
 
     String special_type = "generalBotLibraryConfigurationGeneralBotLibraryLocalDatabase",
-    num? client_tg_user_id,
-    num? chat_id,
-    num? room_chat_id,
     String? data,
     bool? is_test,
     String? from_app_id,
@@ -207,9 +150,6 @@ class GeneralBotLibraryConfigurationGeneralBotLibraryLocalDatabase extends JsonS
 final Map generalBotLibraryConfigurationGeneralBotLibraryLocalDatabase_data_create_json = {
   
       "@type": special_type,
-      "client_tg_user_id": client_tg_user_id,
-      "chat_id": chat_id,
-      "room_chat_id": room_chat_id,
       "data": data,
       "is_test": is_test,
       "from_app_id": from_app_id,

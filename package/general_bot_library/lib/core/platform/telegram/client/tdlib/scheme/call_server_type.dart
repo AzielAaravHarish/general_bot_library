@@ -1,37 +1,3 @@
-/* <!-- START LICENSE -->
-
-
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
-
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
-
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
-
-If you wan't edit you must add credit me (don't change)
-
-If this Software / Program / Source Code has you
-
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
-
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
-
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names, unused_import
 import "package:general_universe/general_universe.dart";
 // import "dart:convert";
@@ -54,7 +20,7 @@ class CallServerType extends JsonScheme {
   /// return default data
   /// 
   static Map get defaultData {
-    return {"@type":"callServerType","is_tdlib_class":true,"@return_type":"callServerType","call_server_type_telegram_reflector":{"@type":"callServerTypeTelegramReflector"},"call_server_type_webrtc":{"@type":"callServerTypeWebrtc"}};
+    return {"@type":"callServerType","@is_json_scheme_class":true,"@return_type":"callServerType","call_server_type_telegram_reflector":{"@type":"callServerTypeTelegramReflector"},"call_server_type_webrtc":{"@type":"callServerTypeWebrtc"}};
   }
 
   /// check data 
@@ -101,20 +67,20 @@ class CallServerType extends JsonScheme {
 
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  bool? get is_tdlib_class {
+  bool? get special_is_json_scheme_class {
     try {
-      if (rawData["is_tdlib_class"] is bool == false){
+      if (rawData["@is_json_scheme_class"] is bool == false){
         return null;
       }
-      return rawData["is_tdlib_class"] as bool;
+      return rawData["@is_json_scheme_class"] as bool;
     } catch (e) {
       return null;
     }
   }
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  set is_tdlib_class(bool? value) {
-    rawData["is_tdlib_class"] = value;
+  set special_is_json_scheme_class(bool? value) {
+    rawData["@is_json_scheme_class"] = value;
   }
 
 
@@ -181,7 +147,7 @@ class CallServerType extends JsonScheme {
               bool schemeUtilsIsSetDefaultData = false,
 
     String special_type = "callServerType",
-    bool? is_tdlib_class,
+    bool special_is_json_scheme_class = true,
     String special_return_type = "callServerType",
       CallServerTypeTelegramReflector? call_server_type_telegram_reflector,
       CallServerTypeWebrtc? call_server_type_webrtc,
@@ -190,7 +156,7 @@ class CallServerType extends JsonScheme {
 final Map callServerType_data_create_json = {
   
       "@type": special_type,
-      "is_tdlib_class": is_tdlib_class,
+      "@is_json_scheme_class": special_is_json_scheme_class,
       "@return_type": special_return_type,
       "call_server_type_telegram_reflector": (call_server_type_telegram_reflector != null)?call_server_type_telegram_reflector.toJson(): null,
       "call_server_type_webrtc": (call_server_type_webrtc != null)?call_server_type_webrtc.toJson(): null,

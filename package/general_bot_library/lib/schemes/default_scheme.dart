@@ -115,9 +115,6 @@ class GeneralBotLibraryDefaultScheme {
   }) {
     final Map<String, dynamic> defaultData = <String, dynamic>{
       "@type": "generalBotLibraryConfiguration${GeneralBotLibraryDefaultScheme.namespace}${generalSchemeType.toSpesialType()}",
-      "client_tg_user_id": 0,
-      "chat_id": 0,
-      "room_chat_id": 0,
     };
     if (generalSchemeType == GeneralUniverseSchemeType.database) {
       defaultData.general_universe_extension_updateForce(
@@ -222,27 +219,20 @@ class GeneralBotLibraryDefaultScheme {
   }
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  static Map<String, dynamic> generalBotLibraryPlatformTelegramClientData({
+  static Map<String, dynamic> generalBotLibraryPlatformClientData({
     required GeneralUniverseSchemeType generalSchemeType,
   }) {
     final Map<String, dynamic> defaultData = <String, dynamic>{
-      "@type": "generalBotLibraryPlatformTelegramClientData${GeneralBotLibraryDefaultScheme.namespace}${generalSchemeType.toSpesialType()}",
+      "@type": "generalBotLibraryPlatformClientData${GeneralBotLibraryDefaultScheme.namespace}${generalSchemeType.toSpesialType()}",
       "id": 0,
       "created_at": "2022-12-26T05:26:40.500935+00:00",
       "client_tg_user_id": 0,
       "client_title": "",
       "client_token": "",
-      "owner_user_id": 0,
-      "client_type": "",
-      "from_bot_type": null,
-      "can_join_groups": false,
-      "can_read_all_group_messages": false,
-      "from_bot_user_id": 0,
-      "expire_date": 0,
-      "client_username": "",
-      "version": "",
       "client_id": 0,
+      "client_type": "",
       "client_data": "{}",
+      "client_username": "",
     };
     return defaultData;
   }

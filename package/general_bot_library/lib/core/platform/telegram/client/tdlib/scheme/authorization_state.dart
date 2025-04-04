@@ -1,37 +1,3 @@
-/* <!-- START LICENSE -->
-
-
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
-
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
-
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
-
-If you wan't edit you must add credit me (don't change)
-
-If this Software / Program / Source Code has you
-
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
-
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
-
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names, unused_import
 import "package:general_universe/general_universe.dart";
 // import "dart:convert";
@@ -64,7 +30,7 @@ class AuthorizationState extends JsonScheme {
   /// return default data
   /// 
   static Map get defaultData {
-    return {"@type":"authorizationState","is_tdlib_class":true,"@return_type":"authorizationState","authorization_state_wait_tdlib_parameters":{"@type":"authorizationStateWaitTdlibParameters"},"authorization_state_wait_phone_number":{"@type":"authorizationStateWaitPhoneNumber"},"authorization_state_wait_email_address":{"@type":"authorizationStateWaitEmailAddress"},"authorization_state_wait_email_code":{"@type":"authorizationStateWaitEmailCode"},"authorization_state_wait_code":{"@type":"authorizationStateWaitCode"},"authorization_state_wait_other_device_confirmation":{"@type":"authorizationStateWaitOtherDeviceConfirmation"},"authorization_state_wait_registration":{"@type":"authorizationStateWaitRegistration"},"authorization_state_wait_password":{"@type":"authorizationStateWaitPassword"},"authorization_state_ready":{"@type":"authorizationStateReady"},"authorization_state_logging_out":{"@type":"authorizationStateLoggingOut"},"authorization_state_closing":{"@type":"authorizationStateClosing"},"authorization_state_closed":{"@type":"authorizationStateClosed"}};
+    return {"@type":"authorizationState","@is_json_scheme_class":true,"@return_type":"authorizationState","authorization_state_wait_tdlib_parameters":{"@type":"authorizationStateWaitTdlibParameters"},"authorization_state_wait_phone_number":{"@type":"authorizationStateWaitPhoneNumber"},"authorization_state_wait_email_address":{"@type":"authorizationStateWaitEmailAddress"},"authorization_state_wait_email_code":{"@type":"authorizationStateWaitEmailCode"},"authorization_state_wait_code":{"@type":"authorizationStateWaitCode"},"authorization_state_wait_other_device_confirmation":{"@type":"authorizationStateWaitOtherDeviceConfirmation"},"authorization_state_wait_registration":{"@type":"authorizationStateWaitRegistration"},"authorization_state_wait_password":{"@type":"authorizationStateWaitPassword"},"authorization_state_ready":{"@type":"authorizationStateReady"},"authorization_state_logging_out":{"@type":"authorizationStateLoggingOut"},"authorization_state_closing":{"@type":"authorizationStateClosing"},"authorization_state_closed":{"@type":"authorizationStateClosed"}};
   }
 
   /// check data 
@@ -111,20 +77,20 @@ class AuthorizationState extends JsonScheme {
 
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  bool? get is_tdlib_class {
+  bool? get special_is_json_scheme_class {
     try {
-      if (rawData["is_tdlib_class"] is bool == false){
+      if (rawData["@is_json_scheme_class"] is bool == false){
         return null;
       }
-      return rawData["is_tdlib_class"] as bool;
+      return rawData["@is_json_scheme_class"] as bool;
     } catch (e) {
       return null;
     }
   }
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  set is_tdlib_class(bool? value) {
-    rawData["is_tdlib_class"] = value;
+  set special_is_json_scheme_class(bool? value) {
+    rawData["@is_json_scheme_class"] = value;
   }
 
 
@@ -391,7 +357,7 @@ class AuthorizationState extends JsonScheme {
               bool schemeUtilsIsSetDefaultData = false,
 
     String special_type = "authorizationState",
-    bool? is_tdlib_class,
+    bool special_is_json_scheme_class = true,
     String special_return_type = "authorizationState",
       AuthorizationStateWaitTdlibParameters? authorization_state_wait_tdlib_parameters,
       AuthorizationStateWaitPhoneNumber? authorization_state_wait_phone_number,
@@ -410,7 +376,7 @@ class AuthorizationState extends JsonScheme {
 final Map authorizationState_data_create_json = {
   
       "@type": special_type,
-      "is_tdlib_class": is_tdlib_class,
+      "@is_json_scheme_class": special_is_json_scheme_class,
       "@return_type": special_return_type,
       "authorization_state_wait_tdlib_parameters": (authorization_state_wait_tdlib_parameters != null)?authorization_state_wait_tdlib_parameters.toJson(): null,
       "authorization_state_wait_phone_number": (authorization_state_wait_phone_number != null)?authorization_state_wait_phone_number.toJson(): null,

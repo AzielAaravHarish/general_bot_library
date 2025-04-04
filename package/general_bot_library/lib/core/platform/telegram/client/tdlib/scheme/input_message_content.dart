@@ -1,37 +1,3 @@
-/* <!-- START LICENSE -->
-
-
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
-
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
-
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
-
-If you wan't edit you must add credit me (don't change)
-
-If this Software / Program / Source Code has you
-
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
-
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
-
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names, unused_import
 import "package:general_universe/general_universe.dart";
 // import "dart:convert";
@@ -71,7 +37,7 @@ class InputMessageContent extends JsonScheme {
   /// return default data
   /// 
   static Map get defaultData {
-    return {"@type":"inputMessageContent","is_tdlib_class":true,"@return_type":"inputMessageContent","input_message_text":{"@type":"inputMessageText"},"input_message_animation":{"@type":"inputMessageAnimation"},"input_message_audio":{"@type":"inputMessageAudio"},"input_message_document":{"@type":"inputMessageDocument"},"input_message_paid_media":{"@type":"inputMessagePaidMedia"},"input_message_photo":{"@type":"inputMessagePhoto"},"input_message_sticker":{"@type":"inputMessageSticker"},"input_message_video":{"@type":"inputMessageVideo"},"input_message_video_note":{"@type":"inputMessageVideoNote"},"input_message_voice_note":{"@type":"inputMessageVoiceNote"},"input_message_location":{"@type":"inputMessageLocation"},"input_message_venue":{"@type":"inputMessageVenue"},"input_message_contact":{"@type":"inputMessageContact"},"input_message_dice":{"@type":"inputMessageDice"},"input_message_game":{"@type":"inputMessageGame"},"input_message_invoice":{"@type":"inputMessageInvoice"},"input_message_poll":{"@type":"inputMessagePoll"},"input_message_story":{"@type":"inputMessageStory"},"input_message_forwarded":{"@type":"inputMessageForwarded"}};
+    return {"@type":"inputMessageContent","@is_json_scheme_class":true,"@return_type":"inputMessageContent","input_message_text":{"@type":"inputMessageText"},"input_message_animation":{"@type":"inputMessageAnimation"},"input_message_audio":{"@type":"inputMessageAudio"},"input_message_document":{"@type":"inputMessageDocument"},"input_message_paid_media":{"@type":"inputMessagePaidMedia"},"input_message_photo":{"@type":"inputMessagePhoto"},"input_message_sticker":{"@type":"inputMessageSticker"},"input_message_video":{"@type":"inputMessageVideo"},"input_message_video_note":{"@type":"inputMessageVideoNote"},"input_message_voice_note":{"@type":"inputMessageVoiceNote"},"input_message_location":{"@type":"inputMessageLocation"},"input_message_venue":{"@type":"inputMessageVenue"},"input_message_contact":{"@type":"inputMessageContact"},"input_message_dice":{"@type":"inputMessageDice"},"input_message_game":{"@type":"inputMessageGame"},"input_message_invoice":{"@type":"inputMessageInvoice"},"input_message_poll":{"@type":"inputMessagePoll"},"input_message_story":{"@type":"inputMessageStory"},"input_message_forwarded":{"@type":"inputMessageForwarded"}};
   }
 
   /// check data 
@@ -118,20 +84,20 @@ class InputMessageContent extends JsonScheme {
 
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  bool? get is_tdlib_class {
+  bool? get special_is_json_scheme_class {
     try {
-      if (rawData["is_tdlib_class"] is bool == false){
+      if (rawData["@is_json_scheme_class"] is bool == false){
         return null;
       }
-      return rawData["is_tdlib_class"] as bool;
+      return rawData["@is_json_scheme_class"] as bool;
     } catch (e) {
       return null;
     }
   }
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  set is_tdlib_class(bool? value) {
-    rawData["is_tdlib_class"] = value;
+  set special_is_json_scheme_class(bool? value) {
+    rawData["@is_json_scheme_class"] = value;
   }
 
 
@@ -538,7 +504,7 @@ class InputMessageContent extends JsonScheme {
               bool schemeUtilsIsSetDefaultData = false,
 
     String special_type = "inputMessageContent",
-    bool? is_tdlib_class,
+    bool special_is_json_scheme_class = true,
     String special_return_type = "inputMessageContent",
       InputMessageText? input_message_text,
       InputMessageAnimation? input_message_animation,
@@ -564,7 +530,7 @@ class InputMessageContent extends JsonScheme {
 final Map inputMessageContent_data_create_json = {
   
       "@type": special_type,
-      "is_tdlib_class": is_tdlib_class,
+      "@is_json_scheme_class": special_is_json_scheme_class,
       "@return_type": special_return_type,
       "input_message_text": (input_message_text != null)?input_message_text.toJson(): null,
       "input_message_animation": (input_message_animation != null)?input_message_animation.toJson(): null,

@@ -1,37 +1,3 @@
-/* <!-- START LICENSE -->
-
-
-This Software / Program / Source Code Created By Developer From Company GLOBAL CORPORATION
-Social Media:
-
-   - Youtube: https://youtube.com/@Global_Corporation 
-   - Github: https://github.com/globalcorporation
-   - TELEGRAM: https://t.me/GLOBAL_CORP_ORG_BOT
-
-All code script in here created 100% original without copy / steal from other code if we copy we add description source at from top code
-
-If you wan't edit you must add credit me (don't change)
-
-If this Software / Program / Source Code has you
-
-Jika Program ini milik anda dari hasil beli jasa developer di (Global Corporation / apapun itu dari turunan itu jika ada kesalahan / bug / ingin update segera lapor ke sub)
-
-Misal anda beli Beli source code di Slebew CORPORATION anda lapor dahulu di slebew jangan lapor di GLOBAL CORPORATION!
-
-Jika ada kendala program ini (Pastikan sebelum deal project tidak ada negosiasi harga)
-Karena jika ada negosiasi harga kemungkinan
-
-1. Software Ada yang di kurangin
-2. Informasi tidak lengkap
-3. Bantuan Tidak Bisa remote / full time (Ada jeda)
-
-Sebelum program ini sampai ke pembeli developer kami sudah melakukan testing
-
-jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesuai ? 
-Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
-
-
-<!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names, unused_import
 import "package:general_universe/general_universe.dart";
 // import "dart:convert";
@@ -62,7 +28,7 @@ class AuthenticationCodeType extends JsonScheme {
   /// return default data
   /// 
   static Map get defaultData {
-    return {"@type":"authenticationCodeType","is_tdlib_class":true,"@return_type":"authenticationCodeType","authentication_code_type_telegram_message":{"@type":"authenticationCodeTypeTelegramMessage"},"authentication_code_type_sms":{"@type":"authenticationCodeTypeSms"},"authentication_code_type_sms_word":{"@type":"authenticationCodeTypeSmsWord"},"authentication_code_type_sms_phrase":{"@type":"authenticationCodeTypeSmsPhrase"},"authentication_code_type_call":{"@type":"authenticationCodeTypeCall"},"authentication_code_type_flash_call":{"@type":"authenticationCodeTypeFlashCall"},"authentication_code_type_missed_call":{"@type":"authenticationCodeTypeMissedCall"},"authentication_code_type_fragment":{"@type":"authenticationCodeTypeFragment"},"authentication_code_type_firebase_android":{"@type":"authenticationCodeTypeFirebaseAndroid"},"authentication_code_type_firebase_ios":{"@type":"authenticationCodeTypeFirebaseIos"}};
+    return {"@type":"authenticationCodeType","@is_json_scheme_class":true,"@return_type":"authenticationCodeType","authentication_code_type_telegram_message":{"@type":"authenticationCodeTypeTelegramMessage"},"authentication_code_type_sms":{"@type":"authenticationCodeTypeSms"},"authentication_code_type_sms_word":{"@type":"authenticationCodeTypeSmsWord"},"authentication_code_type_sms_phrase":{"@type":"authenticationCodeTypeSmsPhrase"},"authentication_code_type_call":{"@type":"authenticationCodeTypeCall"},"authentication_code_type_flash_call":{"@type":"authenticationCodeTypeFlashCall"},"authentication_code_type_missed_call":{"@type":"authenticationCodeTypeMissedCall"},"authentication_code_type_fragment":{"@type":"authenticationCodeTypeFragment"},"authentication_code_type_firebase_android":{"@type":"authenticationCodeTypeFirebaseAndroid"},"authentication_code_type_firebase_ios":{"@type":"authenticationCodeTypeFirebaseIos"}};
   }
 
   /// check data 
@@ -109,20 +75,20 @@ class AuthenticationCodeType extends JsonScheme {
 
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  bool? get is_tdlib_class {
+  bool? get special_is_json_scheme_class {
     try {
-      if (rawData["is_tdlib_class"] is bool == false){
+      if (rawData["@is_json_scheme_class"] is bool == false){
         return null;
       }
-      return rawData["is_tdlib_class"] as bool;
+      return rawData["@is_json_scheme_class"] as bool;
     } catch (e) {
       return null;
     }
   }
 
   /// Generate By General Universe Script Dont edit by hand or anything manual
-  set is_tdlib_class(bool? value) {
-    rawData["is_tdlib_class"] = value;
+  set special_is_json_scheme_class(bool? value) {
+    rawData["@is_json_scheme_class"] = value;
   }
 
 
@@ -349,7 +315,7 @@ class AuthenticationCodeType extends JsonScheme {
               bool schemeUtilsIsSetDefaultData = false,
 
     String special_type = "authenticationCodeType",
-    bool? is_tdlib_class,
+    bool special_is_json_scheme_class = true,
     String special_return_type = "authenticationCodeType",
       AuthenticationCodeTypeTelegramMessage? authentication_code_type_telegram_message,
       AuthenticationCodeTypeSms? authentication_code_type_sms,
@@ -366,7 +332,7 @@ class AuthenticationCodeType extends JsonScheme {
 final Map authenticationCodeType_data_create_json = {
   
       "@type": special_type,
-      "is_tdlib_class": is_tdlib_class,
+      "@is_json_scheme_class": special_is_json_scheme_class,
       "@return_type": special_return_type,
       "authentication_code_type_telegram_message": (authentication_code_type_telegram_message != null)?authentication_code_type_telegram_message.toJson(): null,
       "authentication_code_type_sms": (authentication_code_type_sms != null)?authentication_code_type_sms.toJson(): null,

@@ -89,7 +89,7 @@ import 'package:general_bot_library/scheme/scheme/general_bot_library_configurat
 import 'package:general_bot_library/core/platform/telegram/client/type/type.dart';
 import 'package:general_bot_library/scheme/scheme/general_bot_library_configuration_telegram_invoke_options_general_bot_library.dart';
 import 'package:general_bot_library/scheme/scheme/general_bot_library_configuration_telegram_tdlib_option_parameter_general_bot_library.dart';
-import 'package:general_bot_library/scheme/scheme/general_bot_library_platform_telegram_client_data_general_bot_library.dart';
+import 'package:general_bot_library/scheme/scheme/general_bot_library_platform_client_data_general_bot_library.dart';
 import 'package:general_bot_library/scheme/scheme/general_bot_library_platform_telegram_telegram_error_general_bot_library.dart';
 import 'package:general_universe/general_universe.dart';
 import 'package:http/http.dart';
@@ -591,7 +591,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
 
   /// Parse Query Http To TgClientClientData
   ///
-  GeneralBotLibraryPlatformTelegramClientDataGeneralBotLibrary telegram_bot_api_tgClientData({
+  GeneralBotLibraryPlatformClientDataGeneralBotLibrary telegram_bot_api_tgClientData({
     required Map query,
     bool isThrowOnError = false,
   }) {
@@ -613,12 +613,12 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
           decyprt["client_tg_user_id"] = 0;
         }
       }
-      return GeneralBotLibraryPlatformTelegramClientDataGeneralBotLibrary(decyprt);
+      return GeneralBotLibraryPlatformClientDataGeneralBotLibrary(decyprt);
     } catch (e) {
       if (isThrowOnError) {
         rethrow;
       }
-      return GeneralBotLibraryPlatformTelegramClientDataGeneralBotLibrary({});
+      return GeneralBotLibraryPlatformClientDataGeneralBotLibrary({});
     }
   }
 
