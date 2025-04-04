@@ -109,44 +109,100 @@ class GeneralBotPlatformsLibrary extends GeneralBotPlatformLibraryProject {
   FutureOr<void> ensureInitialized({
     required GeneralBotPlatformLibraryLoadingTextFunction onLoadingText,
   }) async {
-    await generalBotPlatformTelegram.ensureInitialized(
-      onLoadingText: onLoadingText,
-    );
+    await generalBotPlatformAi.ensureInitialized(onLoadingText: onLoadingText);
+    await generalBotPlatformDiscord.ensureInitialized(onLoadingText: onLoadingText);
+    await generalBotPlatformFacebook.ensureInitialized(onLoadingText: onLoadingText);
+    await generalBotPlatformGithub.ensureInitialized(onLoadingText: onLoadingText);
+    await generalBotPlatformGoogle.ensureInitialized(onLoadingText: onLoadingText);
+    await generalBotPlatformInstagram.ensureInitialized(onLoadingText: onLoadingText);
+    await generalBotPlatformTelegram.ensureInitialized(onLoadingText: onLoadingText);
+    await generalBotPlatformWhatsapp.ensureInitialized(onLoadingText: onLoadingText);
+    await generalBotPlatformX.ensureInitialized(onLoadingText: onLoadingText);
     return;
   }
 
   @override
   FutureOr<void> initialized() async {
+    await generalBotPlatformAi.initialized();
+    await generalBotPlatformDiscord.initialized();
+    await generalBotPlatformFacebook.initialized();
+    await generalBotPlatformGithub.initialized();
+    await generalBotPlatformGoogle.initialized();
+    await generalBotPlatformInstagram.initialized();
     await generalBotPlatformTelegram.initialized();
+    await generalBotPlatformWhatsapp.initialized();
+    await generalBotPlatformX.initialized();
     return;
   }
 
   @override
-  FutureOr<void> refresh() {
-    // TODO: implement refresh
+  FutureOr<void> refresh() async {
+    await super.refresh();
+    await generalBotPlatformAi.refresh();
+    await generalBotPlatformDiscord.refresh();
+    await generalBotPlatformFacebook.refresh();
+    await generalBotPlatformGithub.refresh();
+    await generalBotPlatformGoogle.refresh();
+    await generalBotPlatformInstagram.refresh();
+    await generalBotPlatformTelegram.refresh();
+    await generalBotPlatformWhatsapp.refresh();
+    await generalBotPlatformX.refresh();
+    return;
   }
 
   @override
-  FutureOr<bool> pause() {
-    // TODO: implement pause
-    throw UnimplementedError();
+  FutureOr<bool> pause() async {
+    await generalBotPlatformAi.pause();
+    await generalBotPlatformDiscord.pause();
+    await generalBotPlatformFacebook.pause();
+    await generalBotPlatformGithub.pause();
+    await generalBotPlatformGoogle.pause();
+    await generalBotPlatformInstagram.pause();
+    await generalBotPlatformTelegram.pause();
+    await generalBotPlatformWhatsapp.pause();
+    await generalBotPlatformX.pause();
+    return true;
   }
 
   @override
-  FutureOr<bool> restart() {
-    // TODO: implement restart
-    throw UnimplementedError();
+  FutureOr<bool> restart() async {
+    await generalBotPlatformAi.restart();
+    await generalBotPlatformDiscord.restart();
+    await generalBotPlatformFacebook.restart();
+    await generalBotPlatformGithub.restart();
+    await generalBotPlatformGoogle.restart();
+    await generalBotPlatformInstagram.restart();
+    await generalBotPlatformTelegram.restart();
+    await generalBotPlatformWhatsapp.restart();
+    await generalBotPlatformX.restart();
+    return true;
   }
 
   @override
-  FutureOr<bool> resume() {
-    // TODO: implement resume
-    throw UnimplementedError();
+  FutureOr<bool> resume() async {
+    await generalBotPlatformAi.resume();
+    await generalBotPlatformDiscord.resume();
+    await generalBotPlatformFacebook.resume();
+    await generalBotPlatformGithub.resume();
+    await generalBotPlatformGoogle.resume();
+    await generalBotPlatformInstagram.resume();
+    await generalBotPlatformTelegram.resume();
+    await generalBotPlatformWhatsapp.resume();
+    await generalBotPlatformX.resume();
+    return true;
   }
 
   @override
-  FutureOr<bool> stop() {
-    // TODO: implement stop
-    throw UnimplementedError();
+  FutureOr<bool> stop() async {
+    await generalBotPlatformAi.stop();
+    await generalBotPlatformDiscord.stop();
+    await generalBotPlatformFacebook.stop();
+    await generalBotPlatformGithub.stop();
+    await generalBotPlatformGoogle.stop();
+    await generalBotPlatformInstagram.stop();
+    await generalBotPlatformTelegram.stop();
+    await generalBotPlatformWhatsapp.stop();
+    await generalBotPlatformX.stop();
+    return true;
   }
 }
