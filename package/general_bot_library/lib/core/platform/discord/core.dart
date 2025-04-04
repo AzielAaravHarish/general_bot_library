@@ -40,7 +40,7 @@ import 'package:general_bot_library/core/client/client.dart';
 class GeneralBotPlatformDiscord extends GeneralBotPlatformLibraryProject {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   GeneralBotPlatformDiscord({
-    required super.generalBotLibrary,
+    required super.generalBotLibraryOptions,
   });
 
   @override

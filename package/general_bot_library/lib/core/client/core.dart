@@ -42,11 +42,11 @@ typedef GeneralBotPlatformLibraryLoadingTextFunction = void Function(String text
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 abstract class GeneralBotPlatformLibraryProject {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  final GeneralBotLibraryOptions generalBotLibrary;
+  final GeneralBotLibraryOptions generalBotLibraryOptions;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   GeneralBotPlatformLibraryProject({
-    required this.generalBotLibrary,
+    required this.generalBotLibraryOptions,
   });
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
@@ -56,20 +56,6 @@ abstract class GeneralBotPlatformLibraryProject {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   FutureOr<void> initialized();
-
-  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  FutureOr<void> refresh() async {
-    if (generalBotLibrary.generalBotLibraryConfiguration["telegram"] is Map == false) {
-      generalBotLibrary.generalBotLibraryConfiguration["telegram"] = {};
-    }
-    if (generalBotLibrary.generalBotLibraryConfiguration["telegram"]["invoke_options"] is Map == false) {
-      generalBotLibrary.generalBotLibraryConfiguration["telegram"]["invoke_options"] = {};
-    }
-    if (generalBotLibrary.generalBotLibraryConfiguration["telegram"]["tdlib"] is Map == false) {
-      generalBotLibrary.generalBotLibraryConfiguration["telegram"]["tdlib"] = {};
-    } 
-    return;
-  }
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   FutureOr<bool> restart();
@@ -82,4 +68,19 @@ abstract class GeneralBotPlatformLibraryProject {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   FutureOr<bool> stop();
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  FutureOr<void> refresh() async {
+    if (generalBotLibraryOptions.generalBotLibraryConfiguration["telegram"] is Map == false) {
+      generalBotLibraryOptions.generalBotLibraryConfiguration["telegram"] = {};
+    }
+    if (generalBotLibraryOptions.generalBotLibraryConfiguration["telegram"]["invoke_options"] is Map == false) {
+      generalBotLibraryOptions.generalBotLibraryConfiguration["telegram"]["invoke_options"] = {};
+    }
+    if (generalBotLibraryOptions.generalBotLibraryConfiguration["telegram"]["tdlib"] is Map == false) {
+      generalBotLibraryOptions.generalBotLibraryConfiguration["telegram"]["tdlib"] = {};
+    } 
+    return;
+  }
+
 }

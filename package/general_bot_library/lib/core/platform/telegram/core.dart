@@ -44,9 +44,9 @@ class GeneralBotPlatformTelegram extends GeneralBotPlatformLibraryProject {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   GeneralBotPlatformTelegram({
-    required super.generalBotLibrary,
+    required super.generalBotLibraryOptions,
   }) : generalBotClientTelegramLibrary = GeneralBotClientTelegramLibrary(
-          generalBotLibrary: generalBotLibrary,
+          generalBotLibraryOptions: generalBotLibraryOptions,
         );
 
   @override

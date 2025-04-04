@@ -319,7 +319,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   GeneralBotPlatformTelegramCoreBaseLibrary({
-    required super.generalBotLibrary,
+    required super.generalBotLibraryOptions,
   }) {
     refresh();
   }
@@ -357,7 +357,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
   @override
   FutureOr<void> refresh() async {
     await super.refresh();
-    final GeneralBotLibraryConfigurationTelegramGeneralBotLibrary telegram = generalBotLibrary.generalBotLibraryConfiguration.telegram;
+    final GeneralBotLibraryConfigurationTelegramGeneralBotLibrary telegram = generalBotLibraryOptions.generalBotLibraryConfiguration.telegram;
 
     GeneralBotPlatformTelegramCoreBaseLibrary._eventInvoke = telegram.event_invoke ?? "telegram_invoke";
     GeneralBotPlatformTelegramCoreBaseLibrary._eventUpdate = telegram.event_update ?? "telegram_update";
@@ -519,7 +519,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
   GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary getInvokeOptions({
     required final GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary? invokeOptions,
   }) {
-    return invokeOptions ?? generalBotLibrary.generalBotLibraryConfiguration.telegram.invoke_options;
+    return invokeOptions ?? generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.invoke_options;
   }
 
   /// TelegramClientUncompleDocumentation
@@ -600,7 +600,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
         query["tg"] = "";
       }
       final Map decyprt = json.decode(
-        generalBotLibrary.cryptoBotWebhook.decrypt(
+        generalBotLibraryOptions.cryptoBotWebhook.decrypt(
           data: query["tg"],
         ),
       );
@@ -627,7 +627,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
 
   /// TelegramClientUncompleDocumentation
   void initServer() {
-    final serverUniverseNative = generalBotLibrary.serverUniverse;
+    final serverUniverseNative = generalBotLibraryOptions.serverUniverse;
     if (Dart.isWeb) {
       return;
     }
@@ -636,7 +636,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     }
     is_init_server = true;
 
-    serverUniverseNative.post(Uri.parse(generalBotLibrary.generalBotLibraryConfiguration.telegram.invoke_options.telegram_webhook_url ?? "").path, (
+    serverUniverseNative.post(Uri.parse(generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.invoke_options.telegram_webhook_url ?? "").path, (
       HttpRequest req,
       HttpResponse res,
     ) async {
@@ -677,7 +677,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     bool isVoid = false,
     bool isAutoSetOptionIfEmpty = true,
   }) async {
-    final Map client_new_option = generalBotLibrary.generalBotLibraryConfiguration.telegram.tdlib.option_parameter.rawData.clone();
+    final Map client_new_option = generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.tdlib.option_parameter.rawData.clone();
     if (tdlibOption != null) {
       tdlibOption.rawData.remove("@type");
       client_new_option.addAll(tdlibOption.rawData);
@@ -687,7 +687,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
         "system_language_code": "en",
         "device_model": "Unknown",
         "application_version": "v1",
-        "api_hash": generalBotLibrary.generalBotLibraryConfiguration.telegram.tdlib.option_parameter.api_hash ?? "",
+        "api_hash": generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.tdlib.option_parameter.api_hash ?? "",
       };
       tdlib_option_should_not_empty_string.forEach((key, value) {
         try {
@@ -704,7 +704,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
         }
       });
       final Map<String, num> tdlib_option_should_not_empty_num = {
-        "api_id": generalBotLibrary.generalBotLibraryConfiguration.telegram.tdlib.option_parameter.api_id ?? 0,
+        "api_id": generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.tdlib.option_parameter.api_id ?? 0,
       };
       tdlib_option_should_not_empty_num.forEach((key, value) {
         try {
@@ -851,7 +851,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
       "expire_date": expire_date,
       "version": version,
     };
-    final String query_telegram_webhook = generalBotLibrary.cryptoBotWebhook.encryptMapToBase64(
+    final String query_telegram_webhook = generalBotLibraryOptions.cryptoBotWebhook.encryptMapToBase64(
       data: client_data,
     );
 
@@ -939,10 +939,10 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     bool is_form = invoke_options.is_form == true;
     bool is_invoke_throw_on_error = invoke_options.is_invoke_throw_on_error == true;
     final String telegram_bot_api_url = telegram_bot_api_getTelegramBotApiUrl(
-      telegramBotApiUrl: invoke_options.telegram_bot_api_url ?? generalBotLibrary.generalBotLibraryConfiguration.telegram.invoke_options.telegram_bot_api_url ?? "",
+      telegramBotApiUrl: invoke_options.telegram_bot_api_url ?? generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.invoke_options.telegram_bot_api_url ?? "",
     );
     final String telegram_bot_api_client_type = telegram_bot_api_getTelegramBotClientType(
-      telegramBotClientType: invoke_options.telegram_bot_api_client_type ?? generalBotLibrary.generalBotLibraryConfiguration.telegram.invoke_options.telegram_bot_api_client_type ?? "",
+      telegramBotClientType: invoke_options.telegram_bot_api_client_type ?? generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.invoke_options.telegram_bot_api_client_type ?? "",
     );
 
     Map<dynamic, dynamic> option = <dynamic, dynamic>{
@@ -1156,7 +1156,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
       } else {
         utils_remove_parameters(data: parameters);
         option["body"] = json.encode(parameters);
-        final response = await generalBotLibrary.httpClient.post(
+        final response = await generalBotLibraryOptions.httpClient.post(
           uri,
           headers: {
             'Accept': 'application/json',
@@ -1320,20 +1320,20 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     );
     final bool isVoid = invoke_options.is_void == true;
     final int taskMaxCount = getTaskMaxCount(
-      taskMaxCount: (invoke_options.task_max_count ?? generalBotLibrary.generalBotLibraryConfiguration.telegram.invoke_options.task_max_count ?? 0).toInt(),
+      taskMaxCount: (invoke_options.task_max_count ?? generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.invoke_options.task_max_count ?? 0).toInt(),
     );
     final int taskMinCooldown = getTaskMinCooldown(
-      taskMinCooldown: (invoke_options.task_min_cooldown ?? generalBotLibrary.generalBotLibraryConfiguration.telegram.invoke_options.task_min_cooldown ?? 0).toInt(),
+      taskMinCooldown: (invoke_options.task_min_cooldown ?? generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.invoke_options.task_min_cooldown ?? 0).toInt(),
     );
     final Duration invokeTimeOut = getInvokeTimeOut(
       duration: Duration(
-        seconds: (invoke_options.invoke_time_out ?? generalBotLibrary.generalBotLibraryConfiguration.telegram.invoke_options.invoke_time_out ?? 0).toInt(),
+        seconds: (invoke_options.invoke_time_out ?? generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.invoke_options.invoke_time_out ?? 0).toInt(),
       ),
     );
 
     final String extra = "";
     final bool isAutoGetChat = getAutoGetChat(
-      isAutoGetChat: invoke_options.is_auto_get_chat ?? generalBotLibrary.generalBotLibraryConfiguration.telegram.invoke_options.is_auto_get_chat,
+      isAutoGetChat: invoke_options.is_auto_get_chat ?? generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.invoke_options.is_auto_get_chat,
     );
     final Completer<Map> completer = Completer<Map>();
     final bool isInvokeThrowOnError = (invoke_options.is_invoke_throw_on_error ?? true) == true;
@@ -3770,7 +3770,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     );
 
     bool isAutoGetChat = getAutoGetChat(
-      isAutoGetChat: invoke_options.is_auto_get_chat ?? generalBotLibrary.generalBotLibraryConfiguration.telegram.invoke_options.is_auto_get_chat,
+      isAutoGetChat: invoke_options.is_auto_get_chat ?? generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.invoke_options.is_auto_get_chat,
     );
     final String method = parameters["@type"];
 

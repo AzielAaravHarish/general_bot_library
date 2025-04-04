@@ -40,7 +40,7 @@ import 'package:general_bot_library/core/client/client.dart';
 class GeneralBotPlatformX extends GeneralBotPlatformLibraryProject {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   GeneralBotPlatformX({
-    required super.generalBotLibrary,
+    required super.generalBotLibraryOptions,
   });
 
   @override

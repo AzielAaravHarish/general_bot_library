@@ -33,3 +33,7 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 export "core/core.dart";
+
+export "scheme/database_scheme/database_scheme.dart";
+export "scheme/respond_scheme/respond_scheme.dart";
+export "scheme/scheme/scheme.dart";

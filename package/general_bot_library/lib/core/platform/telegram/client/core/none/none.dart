@@ -43,7 +43,7 @@ import 'package:general_universe/general_universe.dart';
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBaseLibrary {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  GeneralBotClientTelegramLibrary({required super.generalBotLibrary});
+  GeneralBotClientTelegramLibrary({required super.generalBotLibraryOptions});
 
   static final EventEmitter _eventEmitter = EventEmitter();
 

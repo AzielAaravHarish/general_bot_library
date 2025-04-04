@@ -76,33 +76,33 @@ class GeneralBotPlatformsLibrary extends GeneralBotPlatformLibraryProject {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   GeneralBotPlatformsLibrary({
-    required super.generalBotLibrary,
+    required super.generalBotLibraryOptions,
   })  : generalBotPlatformAi = GeneralBotPlatformAi(
-          generalBotLibrary: generalBotLibrary,
+          generalBotLibraryOptions: generalBotLibraryOptions,
         ),
         generalBotPlatformDiscord = GeneralBotPlatformDiscord(
-          generalBotLibrary: generalBotLibrary,
+          generalBotLibraryOptions: generalBotLibraryOptions,
         ),
         generalBotPlatformFacebook = GeneralBotPlatformFacebook(
-          generalBotLibrary: generalBotLibrary,
+          generalBotLibraryOptions: generalBotLibraryOptions,
         ),
         generalBotPlatformGithub = GeneralBotPlatformGithub(
-          generalBotLibrary: generalBotLibrary,
+          generalBotLibraryOptions: generalBotLibraryOptions,
         ),
         generalBotPlatformGoogle = GeneralBotPlatformGoogle(
-          generalBotLibrary: generalBotLibrary,
+          generalBotLibraryOptions: generalBotLibraryOptions,
         ),
         generalBotPlatformInstagram = GeneralBotPlatformInstagram(
-          generalBotLibrary: generalBotLibrary,
+          generalBotLibraryOptions: generalBotLibraryOptions,
         ),
         generalBotPlatformTelegram = GeneralBotPlatformTelegram(
-          generalBotLibrary: generalBotLibrary,
+          generalBotLibraryOptions: generalBotLibraryOptions,
         ),
         generalBotPlatformWhatsapp = GeneralBotPlatformWhatsapp(
-          generalBotLibrary: generalBotLibrary,
+          generalBotLibraryOptions: generalBotLibraryOptions,
         ),
         generalBotPlatformX = GeneralBotPlatformX(
-          generalBotLibrary: generalBotLibrary,
+          generalBotLibraryOptions: generalBotLibraryOptions,
         );
 
   @override

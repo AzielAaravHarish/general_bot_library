@@ -106,7 +106,7 @@ class _TdlibIsolateData {
 class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBaseLibrary {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   GeneralBotClientTelegramLibrary({
-    required super.generalBotLibrary,
+    required super.generalBotLibraryOptions,
   });
 
   static Isolate _tdlibIsolate = Isolate.current;
@@ -264,10 +264,10 @@ class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBase
 
   @override
   FutureOr<void> initialized() async {
-    if (generalBotLibrary.generalBotLibraryConfiguration.telegram.tdlib.is_auto_initialized == true) {
+    if (generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.tdlib.is_auto_initialized == true) {
       _opentdLib(
         pathTdlib: GeneralBotPlatformTelegramCoreBaseLibrary.getSharedLibraryFromPathOrDefault(
-          sharedLibraryPath: generalBotLibrary.generalBotLibraryConfiguration.telegram.tdlib.tdlib_library_path,
+          sharedLibraryPath: generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.tdlib.tdlib_library_path,
         ),
       );
       tdlib_invokeSync(
@@ -291,9 +291,9 @@ class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBase
       _TdlibIsolateData(
         sendPort: GeneralBotClientTelegramLibrary._receivePort.sendPort,
         pathTdlib: GeneralBotPlatformTelegramCoreBaseLibrary.getSharedLibraryFromPathOrDefault(
-          sharedLibraryPath: generalBotLibrary.generalBotLibraryConfiguration.telegram.tdlib.tdlib_library_path,
+          sharedLibraryPath: generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.tdlib.tdlib_library_path,
         ),
-        timeOutUpdate: generalBotLibrary.generalBotLibraryConfiguration.telegram.tdlib.timeout_update ?? 1.0,
+        timeOutUpdate: generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.tdlib.timeout_update ?? 1.0,
       ),
       onExit: GeneralBotClientTelegramLibrary._receivePort.sendPort,
       onError: GeneralBotClientTelegramLibrary._receivePort.sendPort,

@@ -286,7 +286,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageAudio";
         request_parameters["input_message_content"]["audio"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["audio"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
       if (RegExp(
@@ -296,7 +296,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessagePhoto";
         request_parameters["input_message_content"]["photo"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["photo"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
       if (RegExp(
@@ -306,7 +306,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageAnimation";
         request_parameters["input_message_content"]["animation"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["animation"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
       if (RegExp(
@@ -316,7 +316,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageDocument";
         request_parameters["input_message_content"]["document"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["document"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
       if (RegExp(
@@ -451,7 +451,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageSticker";
         request_parameters["input_message_content"]["sticker"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["sticker"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
       if (RegExp(
@@ -461,7 +461,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageVideo";
         request_parameters["input_message_content"]["video"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["video"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
 
@@ -472,7 +472,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageVoiceNote";
         request_parameters["input_message_content"]["voice_note"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["voice"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
     }
@@ -552,7 +552,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
     final Map result = await completer.future.timeout(
       getInvokeTimeOut(
         duration: Duration(
-          seconds: (generalBotLibrary.generalBotLibraryConfiguration.telegram.tdlib.timeout_update ?? 0).toInt(),
+          seconds: (generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.tdlib.timeout_update ?? 0).toInt(),
         ),
       ),
       onTimeout: () {
@@ -723,7 +723,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageAudio";
         request_parameters["input_message_content"]["audio"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["audio"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
       if (RegExp(
@@ -733,7 +733,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessagePhoto";
         request_parameters["input_message_content"]["photo"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["photo"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
       if (RegExp(
@@ -743,7 +743,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageAnimation";
         request_parameters["input_message_content"]["animation"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["animation"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
       if (RegExp(
@@ -753,7 +753,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageDocument";
         request_parameters["input_message_content"]["document"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["document"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
       if (RegExp(
@@ -763,7 +763,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageSticker";
         request_parameters["input_message_content"]["sticker"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["sticker"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
       if (RegExp(
@@ -773,7 +773,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageVideo";
         request_parameters["input_message_content"]["video"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["video"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
 
@@ -784,7 +784,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
         request_parameters["input_message_content"]["@type"] = "inputMessageVoiceNote";
         request_parameters["input_message_content"]["voice_note"] = (await GeneralUniverseUtils.typeFile(
           content: parameters["voice"],
-          directory_temp: Directory(generalBotLibrary.temporaryPath),
+          directory_temp: Directory(generalBotLibraryOptions.temporaryPath),
         ));
       }
     }
@@ -842,7 +842,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
     final Map result = await completer.future.timeout(
       getInvokeTimeOut(
         duration: Duration(
-          seconds: (generalBotLibrary.generalBotLibraryConfiguration.telegram.tdlib.timeout_update ?? 0).toInt(),
+          seconds: (generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.tdlib.timeout_update ?? 0).toInt(),
         ),
       ),
       onTimeout: () {

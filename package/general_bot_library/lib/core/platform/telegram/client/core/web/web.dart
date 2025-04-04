@@ -48,7 +48,7 @@ import 'dart:convert' as convert;
 class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBaseLibrary {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   GeneralBotClientTelegramLibrary({
-    required super.generalBotLibrary,
+    required super.generalBotLibraryOptions,
   });
 
   /// TelegramClientUncompleDocumentation
@@ -144,7 +144,7 @@ class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBase
 
   @override
   FutureOr<void> initialized() async {
-    if (generalBotLibrary.generalBotLibraryConfiguration.telegram.tdlib.is_auto_initialized == true) {
+    if (generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.tdlib.is_auto_initialized == true) {
       await GeneralBotClientTelegramLibrary._opentdLib(
         pathTdlib: "td_wasm.${Dart.getExtensionSharedLibrary}",
       );
