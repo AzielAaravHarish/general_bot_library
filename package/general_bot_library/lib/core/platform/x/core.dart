@@ -46,10 +46,14 @@ class GeneralBotPlatformX extends GeneralBotPlatformLibraryProject {
   @override
   FutureOr<void> ensureInitialized({
     required GeneralBotPlatformLibraryLoadingTextFunction onLoadingText,
-  }) {}
+  }) async {
+    return;
+  }
 
   @override
-  FutureOr<void> initialized() {}
+  FutureOr<void> initialized() async {
+    return;
+  }
 
   @override
   FutureOr<bool> restart() async {

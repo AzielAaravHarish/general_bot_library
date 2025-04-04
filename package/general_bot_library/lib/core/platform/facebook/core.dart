@@ -46,10 +46,14 @@ class GeneralBotPlatformFacebook extends GeneralBotPlatformLibraryProject {
   @override
   FutureOr<void> ensureInitialized({
     required GeneralBotPlatformLibraryLoadingTextFunction onLoadingText,
-  }) {}
+  }) async {
+    return;
+  }
 
   @override
-  FutureOr<void> initialized() {}
+  FutureOr<void> initialized() async {
+    return;
+  }
 
   @override
   FutureOr<bool> restart() async {
@@ -74,8 +78,8 @@ class GeneralBotPlatformFacebook extends GeneralBotPlatformLibraryProject {
   }
 
   @override
-  FutureOr<void> refresh() async{
+  FutureOr<void> refresh() async {
     await super.refresh();
-return;
+    return;
   }
 }
