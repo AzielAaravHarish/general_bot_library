@@ -33,16 +33,14 @@ Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba
 
 <!-- END LICENSE --> */
 // ignore_for_file: non_constant_identifier_names
-
-import 'dart:convert';
+ 
 
 import 'package:general_bot_library/core/platform/telegram/client/core/core.dart';
 import 'package:general_bot_library/core/platform/telegram/client/telegram_client/update/callback_query.dart';
 import 'package:general_bot_library/core/platform/telegram/client/telegram_client/update/inline_query.dart';
 import 'package:general_bot_library/core/platform/telegram/client/telegram_client/update/message.dart';
 import 'package:general_bot_library/core/platform/telegram/client/type/type.dart';
-import 'package:general_universe/utils/utils.dart';
-
+ 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 extension GeneralBotPlatformTelegramUpdateExtensionUpdate on GeneralBotPlatformTelegramUpdate {
   /// TelegramClientUncompleDocumentation
@@ -50,16 +48,8 @@ extension GeneralBotPlatformTelegramUpdateExtensionUpdate on GeneralBotPlatformT
     required GeneralBotClientTelegramLibrary generalBotClientTelegramLibrary,
   }) {
     if (generalBotClientTelegramLibraryData.telegramClientType == GeneralBotClientTelegramLibraryType.telegam_bot_api) {
-      final Map decyprt = json.decode(
-        generalBotClientTelegramLibrary.generalBotLibrary.crypto.decrypt(data: query["tg"]),
-      );
-
-      if (decyprt["client_tg_user_id"] == null || decyprt["client_tg_user_id"] == 0) {
-        decyprt["client_tg_user_id"] = GeneralUniverseUtils.parserBotUserIdFromToken(
-          decyprt["client_token"],
-        );
-      }
-      return decyprt;
+ 
+      return       generalBotClientTelegramLibrary.telegram_bot_api_tgClientData(query: query).toJson();
     }
     return client_option;
   }

@@ -37,3 +37,6 @@ bin/dev.dart
 *.dylib
 
 lib/telegram/
+fork/ephemeral/
+secret-*
+secret_*

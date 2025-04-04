@@ -315,7 +315,7 @@ packages:
   server_universe:
     dependency: "direct main"
     description:
-      path: "../../../../../galaxeus/app/general_developer_public_library_project/packages/server_universe/package/server_universe"
+      path: "../../../../../galaxeus/app/general_developer_public_library_project/packages/server_universe"
       relative: true
     source: path
     version: "0.0.0"

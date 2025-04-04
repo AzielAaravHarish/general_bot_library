@@ -595,7 +595,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     if (query["tg"] is String == false) {
       query["tg"] = "";
     }
-    Map decyprt = json.decode(generalBotLibrary.crypto.decrypt(data: query["tg"]));
+    Map decyprt = json.decode(generalBotLibrary.cryptoBotWebhook.decrypt(data: query["tg"]));
 
     if (decyprt["client_tg_user_id"] == null || decyprt["client_tg_user_id"] == 0) {
       decyprt["client_tg_user_id"] = GeneralUniverseUtils.parserBotUserIdFromToken(
@@ -834,7 +834,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
       "expire_date": expire_date,
       "version": version,
     };
-    final String query_telegram_webhook = generalBotLibrary.crypto.encryptMapToBase64(
+    final String query_telegram_webhook = generalBotLibrary.cryptoBotWebhook.encryptMapToBase64(
       data: client_data,
     );
 
