@@ -98,18 +98,18 @@ class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBase
   @override
   FutureOr<void> tdlib_ensureInitialized() {
     // TODO: implement tdlib_ensureInitialized
-    throw UnimplementedError();
+    return false;
   }
 
   @override
   FutureOr<bool> pause() {
     // TODO: implement pause
-    throw UnimplementedError();
+    return false;
   }
 
   @override
   FutureOr<bool> resume() {
     // TODO: implement resume
-    throw UnimplementedError();
+    return false;
   }
 }

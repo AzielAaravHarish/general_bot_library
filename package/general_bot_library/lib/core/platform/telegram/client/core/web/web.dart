@@ -41,9 +41,9 @@ import 'package:general_bot_library/core/client/core.dart';
 import 'package:general_bot_library/core/platform/telegram/client/core/base/base.dart';
 import 'package:general_universe/general_universe.dart';
 import 'package:general_universe/stream/stream.dart';
- 
+
 import 'dart:convert' as convert;
- 
+
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBaseLibrary {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
@@ -87,8 +87,7 @@ class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBase
     }
     GeneralBotClientTelegramLibrary._is_open_tdlib = true;
 
-    try { 
-    } catch (e) {
+    try {} catch (e) {
       GeneralBotClientTelegramLibrary._isCrash = true;
     }
   }
@@ -247,19 +246,19 @@ class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBase
   @override
   FutureOr<bool> restart() {
     // TODO: implement restart
-    throw UnimplementedError();
+    return false;
   }
 
   @override
   FutureOr<bool> stop() {
     // TODO: implement stop
-    throw UnimplementedError();
+    return false;
   }
 
   @override
   FutureOr<bool> pause() {
     // TODO: implement pause
-    throw UnimplementedError();
+    return false;
   }
 
   @override

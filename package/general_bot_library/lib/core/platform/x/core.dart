@@ -64,17 +64,17 @@ class GeneralBotPlatformX extends GeneralBotPlatformLibraryProject {
   @override
   FutureOr<bool> pause() {
     // TODO: implement pause
-    throw UnimplementedError();
+    return false;
   }
 
   @override
-  FutureOr<bool> resume() {
-    // TODO: implement resume
-    throw UnimplementedError();
+  FutureOr<bool> resume() async {
+    return false;
   }
 
   @override
-  FutureOr<void> refresh() {
-    // TODO: implement refresh
+  FutureOr<void> refresh() async {
+    await super.refresh();
+    return;
   }
 }
