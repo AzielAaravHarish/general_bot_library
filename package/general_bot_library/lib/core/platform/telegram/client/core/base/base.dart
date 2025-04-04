@@ -591,18 +591,35 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
 
   /// Parse Query Http To TgClientClientData
   ///
-  GeneralBotLibraryPlatformTelegramClientDataGeneralBotLibrary telegram_bot_api_tgClientData({required Map query}) {
-    if (query["tg"] is String == false) {
-      query["tg"] = "";
-    }
-    Map decyprt = json.decode(generalBotLibrary.cryptoBotWebhook.decrypt(data: query["tg"]));
-
-    if (decyprt["client_tg_user_id"] == null || decyprt["client_tg_user_id"] == 0) {
-      decyprt["client_tg_user_id"] = GeneralUniverseUtils.parserBotUserIdFromToken(
-        decyprt["client_token"],
+  GeneralBotLibraryPlatformTelegramClientDataGeneralBotLibrary telegram_bot_api_tgClientData({
+    required Map query,
+    bool isThrowOnError = false,
+  }) {
+    try {
+      if (query["tg"] is String == false) {
+        query["tg"] = "";
+      }
+      final Map decyprt = json.decode(
+        generalBotLibrary.cryptoBotWebhook.decrypt(
+          data: query["tg"],
+        ),
       );
+      if (decyprt["client_tg_user_id"] == null || decyprt["client_tg_user_id"] == 0) {
+        if (decyprt["client_token"] is String) {
+          decyprt["client_tg_user_id"] = GeneralUniverseUtils.parserBotUserIdFromToken(
+            decyprt["client_token"],
+          );
+        } else {
+          decyprt["client_tg_user_id"] = 0;
+        }
+      }
+      return GeneralBotLibraryPlatformTelegramClientDataGeneralBotLibrary(decyprt);
+    } catch (e) {
+      if (isThrowOnError) {
+        rethrow;
+      }
+      return GeneralBotLibraryPlatformTelegramClientDataGeneralBotLibrary({});
     }
-    return GeneralBotLibraryPlatformTelegramClientDataGeneralBotLibrary(decyprt);
   }
 
   /// TelegramClientUncompleDocumentation

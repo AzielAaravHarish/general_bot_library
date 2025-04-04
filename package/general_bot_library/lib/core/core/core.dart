@@ -85,6 +85,7 @@ class GeneralBotLibraryOptions {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final Crypto crypto;
+
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final Crypto cryptoBotWebhook;
 
