@@ -32,15 +32,13 @@ dev_dependencies:
   lints: '^5.0.0'
   test: 'any'
 dependency_overrides:
-  general_universe:
-    path: '../../../galaxeus/app/general_developer_public_library_project/packages/general_universe'
+  general_universe: '^0.0.0'
   mime: '^2.0.0'
-  packagex:
-    path: '../../../galaxeus/app/general_developer_public_library_project/packages/packagex'
+  packagex: '^0.0.0'
   pointycastle: '^4.0.0'
 project:
   type: 'library'
-  is_use_direct_package: true
+  is_use_direct_package: false
   is_private: false
   developers:
     - username: 'azkadev'

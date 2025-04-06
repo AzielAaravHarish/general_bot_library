@@ -1,6 +1,6 @@
 name: 'general_bot_library'
 description: 'GGML Is Library machine learning in dart with special feature speed up inference model in cpu only or any gpu'
-version: '0.0.10'
+version: '0.0.0'
 homepage: 'https://www.youtube.com/@general_dev'
 repository: 'https://github.com/General-Developer/general_bot_library'
 issue_tracker: 'https://t.me/DEVELOPER_GLOBAL_PUBLIC'
@@ -38,17 +38,15 @@ dev_dependencies:
   lints: '^5.0.0'
   test: 'any'
 dependency_overrides:
-  general_universe:
-    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/general_universe'
+  general_universe: '^0.0.0'
   mime: '^2.0.0'
   pointycastle: '^4.0.0'
-  server_universe:
-    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/server_universe'
+  server_universe: '^0.0.0'
 flutter:
   uses-material-design: true
 project:
   type: ''
-  is_use_direct_package: true
+  is_use_direct_package: false
   is_private: false
   developers:
     - username: 'azkadev'
