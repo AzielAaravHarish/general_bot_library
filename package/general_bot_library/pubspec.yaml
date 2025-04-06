@@ -25,11 +25,15 @@ environment:
 dependencies:
   collection: '^1.19.0'
   ffi: '^2.1.4'
-  general_universe: '^0.0.0'
+  general_universe:
+    hosted: 'https://package-repository-general-developer.vercel.app/package/repository/dart'
+    version: '^0.0.0'
   http: '^1.3.0'
   mime: '^2.0.0'
   path: '^1.9.0'
-  server_universe: '^0.0.0'
+  server_universe:
+    hosted: 'https://package-repository-general-developer.vercel.app/package/repository/dart'
+    version: '^0.0.0'
 dev_dependencies:
   lints: '^5.0.0'
   test: 'any'
