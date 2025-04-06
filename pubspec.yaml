@@ -5,6 +5,7 @@ repository: 'https://github.com/General-Developer/general_bot_library'
 homepage: 'https://www.youtube.com/@general_dev'
 issue_tracker: 'https://t.me/DEVELOPER_GLOBAL_PUBLIC'
 documentation: 'https://www.youtube.com/@general_dev'
+publish_to: 'none'
 funding:
   - 'https://github.com/sponsors/General-Developer'
   - 'https://github.com/sponsors/azkadev'

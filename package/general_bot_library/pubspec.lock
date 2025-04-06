@@ -140,9 +140,10 @@ packages:
   general_universe:
     dependency: "direct main"
     description:
-      path: "../../../../../galaxeus/app/general_developer_public_library_project/packages/general_universe"
-      relative: true
-    source: path
+      name: general_universe
+      sha256: "3879ee277f1bbd7066892a5c04fba788e79b4c891e0fbf3704256d525e5bc414"
+      url: "https://package-repository-general-developer.vercel.app/package/repository/dart/"
+    source: hosted
     version: "0.0.0"
   glob:
     dependency: transitive
@@ -273,7 +274,7 @@ packages:
     source: hosted
     version: "6.1.0"
   pointycastle:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: pointycastle
       sha256: "92aa3841d083cc4b0f4709b5c74fd6409a3e6ba833ffc7dc6a8fee096366acf5"
@@ -315,9 +316,10 @@ packages:
   server_universe:
     dependency: "direct main"
     description:
-      path: "../../../../../galaxeus/app/general_developer_public_library_project/packages/server_universe"
-      relative: true
-    source: path
+      name: server_universe
+      sha256: "8165b783d1226ba5da2b83e2ea5a5c61cf77fcaa120f81063bcb522babb80782"
+      url: "https://package-repository-general-developer.vercel.app/package/repository/dart/"
+    source: hosted
     version: "0.0.0"
   shelf:
     dependency: transitive
