@@ -275,6 +275,9 @@ Pong
           );
         }
       }
+      
+      print(generalBotClientTelegramLibrary.tdlib_first_client_id);
+      print(generalBotClientTelegramLibraryData.tdlib_client_id);
     },
     onError: (error, stackTrace, eventEmitterListener) {
       logger.err("${error} ${stackTrace}");
