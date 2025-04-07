@@ -69,8 +69,9 @@ class EdgeUserAndBotDefaultScheme {
       /// start:
       "is_initial_respond": false,
       "initial_respond_text": "",
-      "dynamic_is_initial_respond": false,
-
+      "initial_respond_unique_id": "",
+      "dynamic_initial_respond_unique_id": "",
+      
       /// end:
     };
 
