@@ -22,10 +22,10 @@ environment:
   sdk: '>=3.6.0 <4.0.0'
 dependencies:
   general_universe:
-    hosted: 'https://package-repository-general-developer.vercel.app/package/repository/dart'
+    hosted: 'https://package-repository-general-developer.vercel.app'
     version: '^0.0.0'
   packagex:
-    hosted: 'https://package-repository-general-developer.vercel.app/package/repository/dart'
+    hosted: 'https://package-repository-general-developer.vercel.app'
     version: '^0.0.0'
   path: '^1.9.0'
   yaml: '^3.1.3'
