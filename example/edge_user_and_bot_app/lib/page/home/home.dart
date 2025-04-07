@@ -66,6 +66,45 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
                   width: context.width,
                   margin: EdgeInsets.all(10),
                   borderRadius: BorderRadius.circular(15),
+                  text: "Github",
+                  isLoading: isLoading,
+                  onPressed: () {
+                    handleFunction(
+                      onFunction: (context, statefulWidget) {
+                        context.showAlertGeneralFramework(
+                          alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
+                            title: "Error",
+                            builder: (context, alertGeneralFrameworkOptions) {
+                              return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
+                            },
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
+                  width: context.width,
+                  margin: EdgeInsets.all(10),
+                  borderRadius: BorderRadius.circular(15),
+                  text: "Google",
+                  isLoading: isLoading,
+                  onPressed: () {
+                    handleFunction(
+                      onFunction: (context, statefulWidget) {
+                        context.navigator().push(MaterialPageRoute(
+                          builder: (context) {
+                            return TelegramHomePage();
+                          },
+                        ));
+                      },
+                    );
+                  },
+                ),
+                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
+                  width: context.width,
+                  margin: EdgeInsets.all(10),
+                  borderRadius: BorderRadius.circular(15),
                   text: "Telegram",
                   isLoading: isLoading,
                   onPressed: () {
@@ -85,6 +124,27 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
                   margin: EdgeInsets.all(10),
                   borderRadius: BorderRadius.circular(15),
                   text: "Whatsapp",
+                  isLoading: isLoading,
+                  onPressed: () {
+                    handleFunction(
+                      onFunction: (context, statefulWidget) {
+                        context.showAlertGeneralFramework(
+                          alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
+                            title: "Error",
+                            builder: (context, alertGeneralFrameworkOptions) {
+                              return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
+                            },
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
+                  width: context.width,
+                  margin: EdgeInsets.all(10),
+                  borderRadius: BorderRadius.circular(15),
+                  text: "X",
                   isLoading: isLoading,
                   onPressed: () {
                     handleFunction(
