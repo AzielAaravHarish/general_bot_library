@@ -225,7 +225,7 @@ class EdgeUserAndBotAppClientFlutter {
               pageState.handleFunction(
                 onFunction: (context, statefulWidget) async {
                   await launchUrlString(
-                    "https://github.com/azkadev",
+                    "https://github.com/orgs/General-Developer/people",
                     mode: LaunchMode.externalApplication,
                   );
                 },
