@@ -232,6 +232,22 @@ class EdgeUserAndBotAppClientFlutter {
               );
             },
           ),
+          MenuContainerGeneralFrameworkWidget.lisTile(
+            context: context,
+            contentPadding: EdgeInsets.all(5),
+            title: "Support Chat Group",
+            subtitle: "Telegram",
+            onTap: () {
+              pageState.handleFunction(
+                onFunction: (context, statefulWidget) async {
+                  await launchUrlString(
+                    "https://t.me/DEVELOPER_GLOBAL_PUBLIC",
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              );
+            },
+          ),
         ];
       },
     );

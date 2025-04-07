@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Edge User And Bot App
+GenericName=Edge User And Bot App
+Version=1.0.0+1
+Exec=/opt/edge-user-and-bot-app/edge_user_and_bot_app
+Icon=/opt/edge-user-and-bot-app/data/flutter_assets/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Music;Media;
+Keywords=Hello;World;Test;Application;
+StartupNotify=true

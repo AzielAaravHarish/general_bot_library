@@ -3,6 +3,7 @@
 import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe/general_universe.dart';
+import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 import 'package:general_universe_flutter/flutter/loading/loading_controller.dart';
 import 'package:general_universe_flutter/flutter/loading/loading_core.dart';
@@ -74,26 +75,37 @@ class _EdgeUserBotAndAppMainState extends State<EdgeUserBotAndAppMain> {
   void task() async {
     setState(() {});
     await Future(() async {
-      final Duration waitDuration = Duration(seconds: 10);
-      final DateTime dateTimeExpired = DateTime.now().add(waitDuration);
-      loadingGeneralFrameworkController.update(
-        loadingText: waitText(duration: dateTimeExpired.difference(DateTime.now())),
-      );
-      while (true) {
-        await Future.delayed(Duration(microseconds: 10));
-        if (dateTimeExpired.isExpired()) {
-          break;
-        }
+      try {
+        final Duration waitDuration = Duration(seconds: 10);
+        final DateTime dateTimeExpired = DateTime.now().add(waitDuration);
         loadingGeneralFrameworkController.update(
           loadingText: waitText(duration: dateTimeExpired.difference(DateTime.now())),
         );
+        while (true) {
+          await Future.delayed(Duration(microseconds: 10));
+          if (dateTimeExpired.isExpired()) {
+            break;
+          }
+          loadingGeneralFrameworkController.update(
+            loadingText: waitText(duration: dateTimeExpired.difference(DateTime.now())),
+          );
+        }
+        await edgeUserAndBotAppClientFlutter.ensureInitialized(
+          context: context,
+          onLoading: (text) {
+            loadingGeneralFrameworkController.update(loadingText: text);
+          },
+        );
+      } catch (e, stack) {
+        context.showAlertGeneralFramework(
+          alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
+            title: "Crash",
+            builder: (context, alertGeneralFrameworkOptions) {
+              return "${e} ${stack}";
+            },
+          ),
+        );
       }
-      await edgeUserAndBotAppClientFlutter.ensureInitialized(
-        context: context,
-        onLoading: (text) {
-          loadingGeneralFrameworkController.update(loadingText: text);
-        },
-      );
     });
   }
 

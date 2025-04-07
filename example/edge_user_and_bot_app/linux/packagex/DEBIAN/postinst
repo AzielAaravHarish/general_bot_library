@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+ln --force -s /opt/edge-user-and-bot-app/edge_user_and_bot_app /usr/bin/edge-user-and-bot-app-app
+chmod +x /usr/bin/edge-user-and-bot-app-app
+
+exit 0

@@ -15,6 +15,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
   general_audio_flutter
+  general_bot_library_flutter
   media_universe_flutter
 )
 
