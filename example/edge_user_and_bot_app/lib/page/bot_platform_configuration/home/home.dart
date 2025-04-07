@@ -1,7 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/controller.dart';
 import 'package:edge_user_and_bot_app/scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
+import 'package:general_universe/extension/extension.dart';
+import 'package:general_universe_flutter/extension/date_time.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 
@@ -103,11 +107,100 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
                           },
                         ),
                       ),
+                      Divider(
+                        thickness: context.theme.dividerTheme.thickness,
+                      ),
                       MenuContainerGeneralFrameworkWidget.lisTile(
                         context: context,
                         contentPadding: EdgeInsets.all(5),
                         title: "Afk Respond Text",
                         subtitle: "${(botEdgePlatformConfigurationEdgeUserAndBot.afk_respond_text ?? "")}".trim(),
+                      ),
+                      Divider(
+                        thickness: context.theme.dividerTheme.thickness,
+                      ),
+                      MenuContainerGeneralFrameworkWidget.lisTile(
+                        context: context,
+                        contentPadding: EdgeInsets.all(5),
+                        title: "Afk From Date",
+                        subtitle: """
+Afk dari tanggal
+
+- Status
+  afk sejak: ${DateTime.now().extension_general_universe_countAgoFromDateTime(dateTime: DateTime.fromMillisecondsSinceEpoch((botEdgePlatformConfigurationEdgeUserAndBot.afk_from_date ?? 0).toInt()))} Ago
+
+""",
+                        onTap: () {
+                          handleFunction(
+                            onFunction: (context, statefulWidget) async {
+                              final day = await showDatePicker(
+                                context: context,
+                                firstDate: DateTime.now().subtract(Duration(days: 30)),
+                                lastDate: DateTime.now(),
+                              );
+                              if (day == null) {
+                                return;
+                              }
+                              botEdgePlatformConfigurationEdgeUserAndBot.afk_from_date = day.millisecondsSinceEpoch;
+                              widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+
+                              setState(() {});
+                            },
+                          );
+                        },
+                      ),
+                      Divider(
+                        thickness: context.theme.dividerTheme.thickness,
+                      ),
+                      MenuContainerGeneralFrameworkWidget.lisTile(
+                        context: context,
+                        contentPadding: EdgeInsets.all(5),
+                        title: "Afk Reset Date",
+                        subtitle: """
+Afk akan di reset setiap saat untuk orang lain.
+
+Setelah reset pesan akan kekirim lagi
+
+- Status
+  Afk Reset: ${Duration(seconds: (botEdgePlatformConfigurationEdgeUserAndBot.afk_respond_duration_expire ?? 0).toInt()).toDurationLocal()}
+
+""",
+                        onTap: () {
+                          handleFunction(
+                            onFunction: (context, statefulWidget) async {
+                              final TimeOfDay? timeOfDay = await showTimePicker(
+                                context: context,
+                                initialTime: TimeOfDay.fromDateTime(DateTime.now().extensionGeneralFrameworkToThisDay()),
+                                initialEntryMode: TimePickerEntryMode.inputOnly,
+                              );
+                              if (timeOfDay == null) {
+                                return;
+                              }
+                              final Duration duration = Duration(
+                                hours: timeOfDay.hour,
+                                minutes: timeOfDay.minute,
+                              );
+                              if (duration < Duration(minutes: 5)) {
+                                context.showAlertGeneralFramework(
+                                  alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
+                                    title: "Error",
+                                    builder: (context, alertGeneralFrameworkOptions) {
+                                      return "Timer Minimal 5 Menit ";
+                                    },
+                                  ),
+                                );
+                                return;
+                              }
+                              botEdgePlatformConfigurationEdgeUserAndBot.afk_respond_duration_expire = duration.inSeconds;
+                              widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+
+                              setState(() {});
+                            },
+                          );
+                        },
+                      ),
+                      Divider(
+                        thickness: context.theme.dividerTheme.thickness,
                       ),
                       MenuContainerGeneralFrameworkWidget.lisTile(
                         context: context,
@@ -128,13 +221,15 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
                           },
                         ),
                       ),
+                      Divider(
+                        thickness: context.theme.dividerTheme.thickness,
+                      ),
                       MenuContainerGeneralFrameworkWidget.lisTile(
                         context: context,
                         contentPadding: EdgeInsets.all(5),
                         title: "Initial Respond Text",
                         subtitle: "${(botEdgePlatformConfigurationEdgeUserAndBot.initial_respond_text ?? "")}".trim(),
                       ),
-
                     ];
                   },
                 ),
