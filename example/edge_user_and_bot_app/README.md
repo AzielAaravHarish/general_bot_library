@@ -1,16 +1,12 @@
-# edge_user_and_bot_app
+# Edge User And Bot App
 
-A new Flutter project.
+Ini adalah contoh kode program sederhana untuk menggunakan general_bot_library dari general-developer
 
-## Getting Started
+Feature asli library general_bot_library bisa membuat banyak bot dengan mudah, di karenakan saya tidak ingin di gunakan spam / penipuan yang merugikan maka pertanyaan lebih baik secara private dan wajib bayar, jika tidak cari aja informasi github general-developer
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Platform yang siap di pakai (Karena ini example jadi dikit aja ya takut id pakai buat hal merugikan)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. Telegram Bot & Userbot
+2. Whatsapp Userbot
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
