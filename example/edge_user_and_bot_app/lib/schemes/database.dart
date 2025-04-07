@@ -2,6 +2,8 @@
 
 import 'package:general_universe/general_universe.dart';
 
+import 'default_scheme.dart';
+
 final List<Map<String, dynamic>> edge_user_and_bot_app_database_schemes = () {
   final List<GeneralUniverseSchemeType> generalUniverseSchemeTypes = [
     GeneralUniverseSchemeType.local,
@@ -9,8 +11,16 @@ final List<Map<String, dynamic>> edge_user_and_bot_app_database_schemes = () {
   ];
 
   return <Map<String, dynamic>>[
-    for(final GeneralUniverseSchemeType generalUniverseSchemeType in generalUniverseSchemeTypes)...[
-
+    for (final GeneralUniverseSchemeType generalUniverseSchemeType in generalUniverseSchemeTypes) ...[
+      EdgeUserAndBotDefaultScheme.botEdgeClientTelegram(
+        generalUniverseSchemeType: generalUniverseSchemeType,
+      ),
+      EdgeUserAndBotDefaultScheme.botEdgeClientWhatsapp(
+        generalUniverseSchemeType: generalUniverseSchemeType,
+      ),
+      EdgeUserAndBotDefaultScheme.botEdgeChatTelegram(
+        generalUniverseSchemeType: generalUniverseSchemeType,
+      ),
     ],
   ];
 }();
