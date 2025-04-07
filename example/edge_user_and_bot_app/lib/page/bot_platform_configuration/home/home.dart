@@ -5,6 +5,7 @@ import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/contr
 import 'package:edge_user_and_bot_app/scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe/extension/extension.dart';
+import 'package:general_universe/general_universe.dart';
 import 'package:general_universe_flutter/extension/date_time.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
@@ -115,6 +116,22 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
                         contentPadding: EdgeInsets.all(5),
                         title: "Afk Respond Text",
                         subtitle: "${(botEdgePlatformConfigurationEdgeUserAndBot.afk_respond_text ?? "")}".trim(),
+                        onTap: () {
+                          handleFunction(
+                            onFunction: (context, statefulWidget) {
+                              showTextFormWidget(
+                                context: context,
+                                title: "Initial Respond Text",
+                                onResult: (text) {
+                                  setState(() {
+                                    botEdgePlatformConfigurationEdgeUserAndBot.afk_respond_text = text;
+                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                                  });
+                                },
+                              );
+                            },
+                          );
+                        },
                       ),
                       Divider(
                         thickness: context.theme.dividerTheme.thickness,
@@ -229,6 +246,23 @@ Setelah reset pesan akan kekirim lagi
                         contentPadding: EdgeInsets.all(5),
                         title: "Initial Respond Text",
                         subtitle: "${(botEdgePlatformConfigurationEdgeUserAndBot.initial_respond_text ?? "")}".trim(),
+                        onTap: () {
+                          handleFunction(
+                            onFunction: (context, statefulWidget) {
+                              showTextFormWidget(
+                                context: context,
+                                title: "Initial Respond Text",
+                                onResult: (text) {
+                                  setState(() {
+                                    botEdgePlatformConfigurationEdgeUserAndBot.initial_respond_text = text;
+                                    botEdgePlatformConfigurationEdgeUserAndBot.initial_respond_unique_id = generateUuid(10);
+                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                                  });
+                                },
+                              );
+                            },
+                          );
+                        },
                       ),
                     ];
                   },
@@ -242,5 +276,47 @@ Setelah reset pesan akan kekirim lagi
         ),
       ),
     );
+  }
+
+  void showTextFormWidget({
+    required BuildContext context,
+    required String title,
+    required void Function(String text) onResult,
+  }) async {
+    final TextEditingController textEditingController = TextEditingController();
+    await context.showDialogGeneralFramework(
+      builder: (context, setState) {
+        return MenuContainerGeneralFrameworkWidget(
+          isLoading: isLoading,
+          decorationBuilder: (context, decoration) {
+            return decoration.copyWith(
+              borderRadius: BorderRadius.circular(15),
+            );
+          },
+          menuBuilder: (context) {
+            return [
+              MenuContainerGeneralFrameworkWidget.title(
+                context: context,
+                title: title.trim(),
+              ),
+              Padding(
+                padding: EdgeInsets.all(10),
+                child: TextFormFieldGeneralFrameworkWidget(
+                  controller: textEditingController,
+                  prefixIconBuilder: (context, child) {
+                    return Icon(Icons.title);
+                  },
+                  onChanged: (value) {
+                    setState(() {});
+                  },
+                ),
+              ),
+            ];
+          },
+        );
+      },
+    );
+    onResult(textEditingController.text);
+    return;
   }
 }
