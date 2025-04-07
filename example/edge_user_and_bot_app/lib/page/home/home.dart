@@ -2,6 +2,7 @@ import 'package:edge_user_and_bot_app/page/telegram/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -62,6 +63,64 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
                 SizedBox(
                   height: context.mediaQueryData.padding.top,
                 ),
+                MenuContainerResponsiveGeneralFrameworkWidget(
+                  isLoading: isLoading,
+                  decorationBuilder: (context, decoration) {
+                    return decoration.copyWith(
+                      borderRadius: BorderRadius.circular(15),
+                    );
+                  },
+                  titleBuilder: (context) {
+                    return MenuContainerGeneralFrameworkWidget.title(
+                      context: context,
+                      title: "Information",
+                    );
+                  },
+                  menuBuilder: (context) {
+                    return [
+                      MenuContainerGeneralFrameworkWidget.lisTile(
+                        context: context,
+                        contentPadding: EdgeInsets.all(5),
+                        title: "Developer",
+                        subtitle: "General-Developer",
+                        onTap: () {
+                          handleFunction(
+                            onFunction: (context, statefulWidget) async {
+                              await launchUrlString(
+                                "https://github.com/general-developer",
+                                mode: LaunchMode.externalApplication,
+                              ); 
+                            },
+                          );
+                        },
+                      ),
+                      MenuContainerGeneralFrameworkWidget.lisTile(
+                        context: context,
+                        contentPadding: EdgeInsets.all(5),
+                        title: "Maintaners",
+                        subtitle: """
+- Azkadev
+- AzielAaravHarish
+- ClarissaGazalaEvanthe
+- AegizTyreseValfredo
+""",
+                        onTap: () {
+                          handleFunction(
+                            onFunction: (context, statefulWidget) async {
+                              await launchUrlString(
+                                "https://github.com/azkadev",
+                                mode: LaunchMode.externalApplication,
+                              ); 
+                            },
+                          );
+                        },
+                      ),
+                    ];
+                  },
+                ),
+
+                ///
+
                 MaterialOutlineGeneralFrameworkButtonGeneralWidget(
                   width: context.width,
                   margin: EdgeInsets.all(10),
@@ -92,11 +151,14 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
                   onPressed: () {
                     handleFunction(
                       onFunction: (context, statefulWidget) {
-                        context.navigator().push(MaterialPageRoute(
-                          builder: (context) {
-                            return TelegramHomePage();
-                          },
-                        ));
+                        context.showAlertGeneralFramework(
+                          alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
+                            title: "Error",
+                            builder: (context, alertGeneralFrameworkOptions) {
+                              return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
+                            },
+                          ),
+                        );
                       },
                     );
                   },
