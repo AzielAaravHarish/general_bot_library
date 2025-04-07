@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
-import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart'; 
-
+import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class TelegramHomePage extends StatefulWidget {
   const TelegramHomePage({super.key});
@@ -62,37 +62,36 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
                 SizedBox(
                   height: context.mediaQueryData.padding.top,
                 ),
-                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
-                  width: context.width,
-                  margin: EdgeInsets.all(10),
-                  borderRadius: BorderRadius.circular(15),
-                  text: "Telegram",
+                MenuContainerGeneralFrameworkWidget(
                   isLoading: isLoading,
-                  onPressed: () {
-                    handleFunction(
-                      onFunction: (context, statefulWidget) {},
+                  decorationBuilder: (context, decoration) {
+                    return decoration.copyWith(
+                      borderRadius: BorderRadius.circular(15),
                     );
                   },
-                ),
-                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
-                  width: context.width,
-                  margin: EdgeInsets.all(10),
-                  borderRadius: BorderRadius.circular(15),
-                  text: "Whatsapp",
-                  isLoading: isLoading,
-                  onPressed: () {
-                    handleFunction(
-                      onFunction: (context, statefulWidget) {
-                        context.showAlertGeneralFramework(
-                          alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
-                            title: "Error",
-                            builder: (context, alertGeneralFrameworkOptions) {
-                              return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
+                  menuBuilder: (context) {
+                    return [
+                      MenuContainerGeneralFrameworkWidget.title(
+                        context: context,
+                        title: "Information",
+                      ),
+                      MenuContainerGeneralFrameworkWidget.lisTile(
+                        context: context,
+                        contentPadding: EdgeInsets.all(5),
+                        title: "Developer",
+                        subtitle: "General-Developer",
+                        onTap: () {
+                          handleFunction(
+                            onFunction: (context, statefulWidget) async {
+                              await launchUrlString(
+                                "https://github.com/general-developer",
+                                mode: LaunchMode.externalApplication,
+                              );
                             },
-                          ),
-                        );
-                      },
-                    );
+                          );
+                        },
+                      ),
+                    ];
                   },
                 ),
                 SizedBox(

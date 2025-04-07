@@ -21,6 +21,9 @@ final List<Map<String, dynamic>> edge_user_and_bot_app_database_schemes = () {
       EdgeUserAndBotDefaultScheme.botEdgeChatTelegram(
         generalUniverseSchemeType: generalUniverseSchemeType,
       ),
+      EdgeUserAndBotDefaultScheme.botEdgeTelegramConfiguration(
+        generalUniverseSchemeType: generalUniverseSchemeType,
+      ),
     ],
   ];
 }();

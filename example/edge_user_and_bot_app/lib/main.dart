@@ -87,7 +87,7 @@ class _EdgeUserBotAndAppMainState extends State<EdgeUserBotAndAppMain> {
         loadingGeneralFrameworkController.update(
           loadingText: waitText(duration: dateTimeExpired.difference(DateTime.now())),
         );
-      } 
+      }
       await edgeUserAndBotAppClientFlutter.ensureInitialized(
         context: context,
         onLoading: (text) {
@@ -99,7 +99,7 @@ class _EdgeUserBotAndAppMainState extends State<EdgeUserBotAndAppMain> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(
       body: SingleChildScrollView(
         child: ConstrainedBox(
           constraints: BoxConstraints(

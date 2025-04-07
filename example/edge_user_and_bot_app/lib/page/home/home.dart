@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
                               await launchUrlString(
                                 "https://github.com/general-developer",
                                 mode: LaunchMode.externalApplication,
-                              ); 
+                              );
                             },
                           );
                         },
@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
                               await launchUrlString(
                                 "https://github.com/azkadev",
                                 mode: LaunchMode.externalApplication,
-                              ); 
+                              );
                             },
                           );
                         },

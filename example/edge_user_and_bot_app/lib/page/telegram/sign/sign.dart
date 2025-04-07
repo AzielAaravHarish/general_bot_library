@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
-import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart'; 
-
+import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 
 class TelegramSignPage extends StatefulWidget {
   const TelegramSignPage({super.key});

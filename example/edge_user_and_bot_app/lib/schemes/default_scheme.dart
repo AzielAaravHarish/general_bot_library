@@ -85,7 +85,6 @@ class EdgeUserAndBotDefaultScheme {
   }) {
     final Map<String, dynamic> jsonData = {
       "@type": "botEdgeTelegramConfiguration${EdgeUserAndBotDefaultScheme.namespace}${generalUniverseSchemeType.toSpesialType()}",
-      "client_user_id": 0,
     };
 
     if (generalUniverseSchemeType == GeneralUniverseSchemeType.scheme) {
