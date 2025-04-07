@@ -1,0 +1,86 @@
+name: 'edge_user_and_bot_app'
+description: 'A new Flutter project.'
+publish_to: 'none'
+version: '1.0.0+1'
+environment:
+  sdk: '>=3.6.0 <4.0.0'
+dependencies:
+  cupertino_icons: '^1.0.8'
+  database_universe:
+    hosted: 'https://package-repository-general-developer.vercel.app'
+    version: '^0.0.0'
+  database_universe_flutter_libs:
+    hosted: 'https://package-repository-general-developer.vercel.app'
+    version: '^0.0.0'
+  flutter:
+    sdk: 'flutter'
+  general_audio_flutter:
+    hosted: 'https://package-repository-general-developer.vercel.app'
+    version: '^0.0.0'
+  general_bot_library:
+    hosted: 'https://package-repository-general-developer.vercel.app'
+    version: '^0.0.0'
+  general_universe:
+    hosted: 'https://package-repository-general-developer.vercel.app'
+    version: '^0.0.0'
+  general_universe_flutter:
+    hosted: 'https://package-repository-general-developer.vercel.app'
+    version: '^0.0.0'
+  media_universe_flutter:
+    hosted: 'https://package-repository-general-developer.vercel.app'
+    version: '^0.0.0'
+  packagex:
+    hosted: 'https://package-repository-general-developer.vercel.app'
+    version: '^0.0.0'
+  path: '^1.9.0'
+  server_universe:
+    hosted: 'https://package-repository-general-developer.vercel.app'
+    version: '^0.0.0'
+  system_information:
+    hosted: 'https://package-repository-general-developer.vercel.app'
+    version: '^0.0.0'
+  system_information_flutter:
+    hosted: 'https://package-repository-general-developer.vercel.app'
+    version: '^0.0.0'
+dev_dependencies:
+  build_runner: 'any'
+  flutter_lints: '^5.0.0'
+  flutter_test:
+    sdk: 'flutter'
+flutter:
+  uses-material-design: true
+project:
+  type: ''
+  is_use_direct_package: true
+  is_private: true
+  developers:
+    - username: ''
+      note: ''
+      social_medias:
+        - 'https://github.com'
+dependency_overrides:
+  database_universe:
+    path: '../../../../../galaxeus/app/database_universe_project/package/database_universe'
+  database_universe_flutter_libs:
+    path: '../../../../../galaxeus/app/database_universe_project/package/database_universe_flutter_libs'
+  general_audio_flutter:
+    path: '../../../../../galaxeus/app/general_audio_project/package/general_audio_flutter'
+  general_bot_library:
+    path: '../../../../../github/general-developer/general_bot_library/package/general_bot_library'
+  general_universe:
+    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/general_universe'
+  general_universe_flutter:
+    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/general_universe_flutter'
+  media_universe_flutter:
+    path: '../../../../../galaxeus/app/media_universe_project/package/media_universe_flutter'
+  mime: '^2.0.0'
+  packagex:
+    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/packagex'
+  pointycastle: '^4.0.0'
+  server_universe:
+    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/server_universe'
+  system_information:
+    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/system_information/package/system_information'
+  system_information_flutter:
+    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/system_information/package/system_information_flutter'
+funding: []
