@@ -1,11 +1,9 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:edge_user_and_bot_app/configuration/configuration.dart' as configuration;
 import 'package:edge_user_and_bot_app/core/database/database.dart';
 import 'package:edge_user_and_bot_app/scheme/scheme/bot_edge_user_and_bot_app_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
-import 'package:general_universe/dart_universe/io_universe/io_universe.dart';
 import 'package:general_universe/general_universe.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 import 'package:general_universe_flutter/fork/general_system_device/flutter/flutter.dart';
@@ -43,8 +41,8 @@ class EdgeUserAndBotAppClientFlutter {
 
   static final GeneralSystemDeviceFlutter generalFlutter = GeneralSystemDeviceFlutter();
 
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-  static final GeneralLibFlutterApp generalLibFlutterApp =GeneralLibFlutterApp();
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  static final GeneralLibFlutterApp generalLibFlutterApp = GeneralLibFlutterApp();
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
@@ -132,5 +130,24 @@ class EdgeUserAndBotAppClientFlutter {
     await generalBotPlatformsLibrary.initialized();
 
     return;
+  }
+}
+
+extension EdgeUserAndBotAppClientFlutterExtensionState on State {
+  EdgeUserAndBotAppClientFlutter get edgeUserAndBotAppClientFlutter {
+    return EdgeUserAndBotAppClientFlutter.edgeUserAndBotAppClientFlutter;
+  }
+}
+
+
+extension EdgeUserAndBotAppClientFlutterExtensionStatelessWidget on StatelessWidget {
+  EdgeUserAndBotAppClientFlutter get edgeUserAndBotAppClientFlutter {
+    return EdgeUserAndBotAppClientFlutter.edgeUserAndBotAppClientFlutter;
+  }
+}
+
+extension EdgeUserAndBotAppClientFlutterExtensionStatefulWidget on StatefulWidget {
+  EdgeUserAndBotAppClientFlutter get edgeUserAndBotAppClientFlutter {
+    return EdgeUserAndBotAppClientFlutter.edgeUserAndBotAppClientFlutter;
   }
 }

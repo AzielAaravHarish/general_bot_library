@@ -3,7 +3,6 @@
 import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
-import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/loading/loading_controller.dart';
 import 'package:general_universe_flutter/flutter/loading/loading_core.dart';
 import 'package:general_universe_flutter/flutter/loading/loading_widget.dart';
@@ -15,7 +14,7 @@ void main(List<String> args) async {
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class EdgeUserBotAndAppFlutter extends StatelessWidget {
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const EdgeUserBotAndAppFlutter({super.key});
 
   @override
@@ -24,6 +23,7 @@ class EdgeUserBotAndAppFlutter extends StatelessWidget {
       generalLibFlutterApp: EdgeUserAndBotAppClientFlutter.generalLibFlutterApp,
       builder: (themeMode, lightTheme, darkTheme, widget) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           theme: lightTheme,
           darkTheme: darkTheme,
           themeMode: themeMode,
@@ -36,7 +36,7 @@ class EdgeUserBotAndAppFlutter extends StatelessWidget {
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class EdgeUserBotAndAppMain extends StatefulWidget {
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const EdgeUserBotAndAppMain({super.key});
 
   @override
@@ -44,7 +44,9 @@ class EdgeUserBotAndAppMain extends StatefulWidget {
 }
 
 class _EdgeUserBotAndAppMainState extends State<EdgeUserBotAndAppMain> {
-  final LoadingGeneralFrameworkController loadingGeneralFrameworkController = LoadingGeneralFrameworkController(loadingText: "");
+  final LoadingGeneralFrameworkController loadingGeneralFrameworkController = LoadingGeneralFrameworkController(
+    loadingText: "Loading...",
+  );
   @override
   void initState() {
     // TODO: implement initState
@@ -65,7 +67,7 @@ class _EdgeUserBotAndAppMainState extends State<EdgeUserBotAndAppMain> {
   void task() async {
     setState(() {});
     await Future(() async {
-      await EdgeUserAndBotAppClientFlutter.edgeUserAndBotAppClientFlutter.ensureInitialized(
+      await edgeUserAndBotAppClientFlutter.ensureInitialized(
         context: context,
         onLoading: (text) {
           loadingGeneralFrameworkController.update(loadingText: text);
@@ -77,6 +79,11 @@ class _EdgeUserBotAndAppMainState extends State<EdgeUserBotAndAppMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () { 
+          print(generalBotClientTelegramLibrary.tdlib_first_client_id);
+        },
+      ),
       body: SingleChildScrollView(
         child: ConstrainedBox(
           constraints: BoxConstraints(
