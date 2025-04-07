@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:edge_user_and_bot_app/configuration/configuration.dart' as configuration;
+import 'package:edge_user_and_bot_app/core/database/database.dart';
 import 'package:edge_user_and_bot_app/scheme/scheme/bot_edge_user_and_bot_app_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe/dart_universe/io_universe/io_universe.dart';
@@ -25,6 +26,10 @@ class EdgeUserAndBotAppClientFlutter {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
+  final EdgeUserAndBotAppDatabase edgeUserAndBotAppDatabase = EdgeUserAndBotAppDatabase();
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+
   final ServerUniverse serverUniverse = ServerUniverse(
     onNotFound: (req, res) {
       return res.json({"@type": "error", "message": "not_found_path", "description": "${req.uri.path} not found"});
@@ -32,15 +37,14 @@ class EdgeUserAndBotAppClientFlutter {
   );
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-
-  Directory directoryEdgeUserAndBot = Directory("");
-
-  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   EdgeUserAndBotAppClientFlutter();
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
   static final GeneralSystemDeviceFlutter generalFlutter = GeneralSystemDeviceFlutter();
+
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  static final GeneralLibFlutterApp generalLibFlutterApp =GeneralLibFlutterApp();
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
@@ -65,26 +69,6 @@ class EdgeUserAndBotAppClientFlutter {
     return;
   }
 
-  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-
-  Directory get directoryEdgeUserAndBotTemp {
-    final Directory directory = Directory(path.join(directoryEdgeUserAndBot.path, "temp"));
-    if (directory.existsSync() == false) {
-      directory.createSync(recursive: true);
-    }
-    return directory;
-  }
-
-  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
-
-  Directory get directoryEdgeUserAndBotClientTelegram {
-    final Directory directory = Directory(path.join(directoryEdgeUserAndBot.path, "clients", "telegram"));
-    if (directory.existsSync() == false) {
-      directory.createSync(recursive: true);
-    }
-    return directory;
-  }
-
   bool _isEnsureInitialized = false;
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
@@ -101,13 +85,12 @@ class EdgeUserAndBotAppClientFlutter {
       context: context,
       onLoading: onLoading,
     );
-    directoryEdgeUserAndBot = Directory(path.join(
-      EdgeUserAndBotAppClientFlutter.generalFrameworkClientFlutterAppDirectory.app_support_directory.path,
-      "edge_user_and_bot_data",
-    ));
-    if (directoryEdgeUserAndBot.existsSync() == false) {
-      directoryEdgeUserAndBot.createSync(recursive: true);
-    }
+    await edgeUserAndBotAppDatabase.ensureInitialized(
+      currentPath: path.join(
+        EdgeUserAndBotAppClientFlutter.generalFrameworkClientFlutterAppDirectory.app_support_directory.path,
+        "edge_user_and_bot",
+      ),
+    );
 
     generalBotPlatformsLibrary = GeneralBotPlatformsLibrary(
       generalBotLibraryOptions: GeneralBotLibraryOptions(
@@ -116,7 +99,7 @@ class EdgeUserAndBotAppClientFlutter {
         cryptoBotWebhook: EdgeUserAndBotAppClientFlutter.crypto,
         httpClient: HttpClientGeneralUniverse(null),
         serverUniverse: serverUniverse,
-        temporaryPath: directoryEdgeUserAndBotTemp.path,
+        temporaryPath: edgeUserAndBotAppDatabase.directoryTemp.path,
         generalBotLibraryConfiguration: GeneralBotLibraryConfigurationGeneralBotLibrary.create(
           telegram: GeneralBotLibraryConfigurationTelegramGeneralBotLibrary.create(
             invoke_options: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
@@ -128,8 +111,8 @@ class EdgeUserAndBotAppClientFlutter {
             tdlib: GeneralBotLibraryConfigurationTelegramTdlibGeneralBotLibrary.create(
               is_auto_initialized: true,
               option_parameter: GeneralBotLibraryConfigurationTelegramTdlibOptionParameterGeneralBotLibrary.create(
-                database_directory: directoryEdgeUserAndBotClientTelegram.path,
-                files_directory: directoryEdgeUserAndBotClientTelegram.path,
+                database_directory: edgeUserAndBotAppDatabase.directoryClientTelegram.path,
+                files_directory: edgeUserAndBotAppDatabase.directoryClientTelegram.path,
                 api_id: edgeUserAndBotAppConfigurationEdgeUserAndBot.telegram_api_id,
                 api_hash: edgeUserAndBotAppConfigurationEdgeUserAndBot.telegram_api_hash,
                 use_chat_info_database: true,
