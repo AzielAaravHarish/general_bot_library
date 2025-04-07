@@ -1,4 +1,4 @@
-name: 'telegram_bot_cli'
+name: 'telegram_user_and_bot_cli'
 description: 'A sample command-line application.'
 version: '1.0.0'
 environment:
@@ -20,6 +20,7 @@ dependencies:
 dev_dependencies:
   lints: '^5.0.0'
   test: 'any'
+  msix: '^3.16.8'
 project:
   type: ''
   is_use_direct_package: true
@@ -41,3 +42,39 @@ dependency_overrides:
   pointycastle: '^4.0.0'
   server_universe:
     path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/server_universe'
+packagex:
+  name: 'telegram_user_and_bot_cli'
+  is_without_platform_name: true
+  is_app_auto_clean_up_folder: true
+  flutter_build_arguments:
+    - '--split-per-abi'
+    - '--build-name'
+    - '0.0.0'
+    - '--build-number'
+    - '0'
+    - '--obfuscate'
+    - '--split-debug-info'
+    - 'packagex-build-debug'
+  dart_compile_exe_arguments:
+    - '--save-debugging-info=packagex-compile-debug'
+  uploads:
+    - platform_type: 'github'
+      github_username: 'general-developer'
+      github_tag: 'release'
+      github_is_org: true
+      github_repository_name: 'general_bot_library'
+  packages:
+    - dart_target: 'telegram_user_and_bot_cli'
+      flutter_target: 'main'
+      dart_name: 'telegram_user_and_bot_cli'
+      flutter_name: 'telegram_user_and_bot_cli'
+      output_name: 'telegram-user-and-bot-cli'
+      is_edge: false
+      is_edge_debug: false
+      is_edge_build_vercel: false
+      is_edge_build_supabase: false
+      is_edge_build_cloudflare: false
+      is_edge_build_netlify: false
+msix_config:
+  display_name: 'telegram_user_and_bot_cli'
+  install_certificate: false

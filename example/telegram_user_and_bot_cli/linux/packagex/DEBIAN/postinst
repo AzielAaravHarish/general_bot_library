@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+ln --force -s /opt/telegram-user-and-bot-cli/telegram_user_and_bot_cli /usr/bin/telegram-user-and-bot-cli-app
+chmod +x /usr/bin/telegram-user-and-bot-cli-app
+exit 0
