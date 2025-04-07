@@ -4,14 +4,17 @@
 
 import 'dart:convert';
 import 'package:database_universe/database_universe.dart';
-part "bot_edge_telegram_configuration_edge_user_and_bot_local_database.g.dart";
+part "bot_edge_platform_configuration_edge_user_and_bot_local_database.g.dart";
 
 @collection
-class BotEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase {
+class BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase {
   // Id id = DatabaseUniverse.autoIncrement;
 
   /// Generated
-  String special_type = "botEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase";
+  String special_type = "botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase";
+
+  /// Generated
+  String platform = "";
 
   /// Generated
   String data = "{}";
@@ -34,6 +37,10 @@ class BotEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase {
   void operator []=(key, value) {
     if (key == "@type") {
       this.special_type = value;
+    }
+
+    if (key == "platform") {
+      this.platform = value;
     }
 
     if (key == "data") {
@@ -106,6 +113,7 @@ class BotEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase {
   Map toJson() {
     return {
       "@type": special_type,
+      "platform": platform,
       "data": data,
       "from_app_id": from_app_id,
       "owner_account_user_id": owner_account_user_id,
@@ -126,19 +134,19 @@ class BotEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase {
 
   /// return original data json
   static Map get defaultData {
-    return {"@type": "botEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase", "data": "{}", "from_app_id": "", "owner_account_user_id": 0, "id": 0};
+    return {"@type": "botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase", "platform": "", "data": "{}", "from_app_id": "", "owner_account_user_id": 0, "id": 0};
   }
 
   /// Generated
-  static BotEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase create({
+  static BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase create({
     bool utils_is_print_data = false,
   }) {
-    BotEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase botEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase_data_create = BotEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase();
+    BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase_data_create = BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase();
 
     if (utils_is_print_data) {
-      // print(botEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase_data_create.toStringPretty());
+      // print(botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase_data_create.toStringPretty());
     }
 
-    return botEdgeTelegramConfigurationEdgeUserAndBotLocalDatabase_data_create;
+    return botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase_data_create;
   }
 }

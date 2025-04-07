@@ -16,7 +16,7 @@ class BotEdgeChatTelegramEdgeUserAndBot extends JsonScheme {
   /// return default data
   ///
   static Map get defaultData {
-    return {"@type": "botEdgeChatTelegramEdgeUserAndBot", "chat_id": 0, "is_afk": true, "afk_from_date": 1744050728510, "afk_respond_duration_expire": 0, "afk_respond_text": "", "dynamic_afk_respond_expire_date": 0, "is_initial_respond": false, "initial_respond_text": "", "initial_respond_unique_id": "", "dynamic_initial_respond_unique_id": "", "@extra": "", "@expire_date": "", "@client_id": ""};
+    return {"@type": "botEdgeChatTelegramEdgeUserAndBot", "chat_id": 0, "is_afk": true, "afk_from_date": 1744051212371, "afk_respond_duration_expire": 0, "afk_respond_text": "", "dynamic_afk_respond_expire_date": 0, "is_initial_respond": false, "initial_respond_text": "", "initial_respond_unique_id": "", "dynamic_initial_respond_unique_id": "", "@extra": "", "@expire_date": "", "@client_id": ""};
   }
 
   /// check data

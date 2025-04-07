@@ -3,25 +3,25 @@ import "package:general_universe/general_universe.dart";
 // import "dart:convert";
 
 /// Generated
-class BotEdgeTelegramConfigurationEdgeUserAndBotDatabase extends JsonScheme {
+class BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase extends JsonScheme {
   /// Generated
-  BotEdgeTelegramConfigurationEdgeUserAndBotDatabase(super.rawData);
+  BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase(super.rawData);
 
   /// return default special type @type
-  /// "botEdgeTelegramConfigurationEdgeUserAndBotDatabase"
+  /// "botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase"
   static String get defaultDataSpecialType {
-    return "botEdgeTelegramConfigurationEdgeUserAndBotDatabase";
+    return "botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase";
   }
 
   /// return default data
   ///
   static Map get defaultData {
-    return {"@type": "botEdgeTelegramConfigurationEdgeUserAndBotDatabase", "data": "{}", "from_app_id": "", "owner_account_user_id": 0};
+    return {"@type": "botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase", "platform": "", "data": "{}", "from_app_id": "", "owner_account_user_id": 0};
   }
 
   /// check data
   /// if raw data
-  /// - rawData["@type"] == botEdgeTelegramConfigurationEdgeUserAndBotDatabase
+  /// - rawData["@type"] == botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase
   /// if same return true
   bool json_scheme_utils_checkDataIsSameBySpecialType() {
     return rawData["@type"] == defaultData["@type"];
@@ -34,10 +34,10 @@ class BotEdgeTelegramConfigurationEdgeUserAndBotDatabase extends JsonScheme {
     return onResult(rawData["@type"], defaultData["@type"]);
   }
 
-  /// create [BotEdgeTelegramConfigurationEdgeUserAndBotDatabase]
+  /// create [BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase]
   /// Empty
-  static BotEdgeTelegramConfigurationEdgeUserAndBotDatabase empty() {
-    return BotEdgeTelegramConfigurationEdgeUserAndBotDatabase({});
+  static BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase empty() {
+    return BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase({});
   }
 
   /// Generated
@@ -55,6 +55,23 @@ class BotEdgeTelegramConfigurationEdgeUserAndBotDatabase extends JsonScheme {
   /// Generated
   set special_type(String? value) {
     rawData["@type"] = value;
+  }
+
+  /// Generated
+  String? get platform {
+    try {
+      if (rawData["platform"] is String == false) {
+        return null;
+      }
+      return rawData["platform"] as String;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Generated
+  set platform(String? value) {
+    rawData["platform"] = value;
   }
 
   /// Generated
@@ -109,30 +126,32 @@ class BotEdgeTelegramConfigurationEdgeUserAndBotDatabase extends JsonScheme {
   }
 
   /// Generated
-  static BotEdgeTelegramConfigurationEdgeUserAndBotDatabase create({
+  static BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase create({
     bool schemeUtilsIsSetDefaultData = false,
-    String special_type = "botEdgeTelegramConfigurationEdgeUserAndBotDatabase",
+    String special_type = "botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase",
+    String? platform,
     String? data,
     String? from_app_id,
     num? owner_account_user_id,
   }) {
-    // BotEdgeTelegramConfigurationEdgeUserAndBotDatabase botEdgeTelegramConfigurationEdgeUserAndBotDatabase = BotEdgeTelegramConfigurationEdgeUserAndBotDatabase({
-    final Map botEdgeTelegramConfigurationEdgeUserAndBotDatabase_data_create_json = {
+    // BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase = BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase({
+    final Map botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase_data_create_json = {
       "@type": special_type,
+      "platform": platform,
       "data": data,
       "from_app_id": from_app_id,
       "owner_account_user_id": owner_account_user_id,
     };
 
-    botEdgeTelegramConfigurationEdgeUserAndBotDatabase_data_create_json.removeWhere((key, value) => value == null);
+    botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase_data_create_json.removeWhere((key, value) => value == null);
 
     if (schemeUtilsIsSetDefaultData) {
       defaultData.forEach((key, value) {
-        if (botEdgeTelegramConfigurationEdgeUserAndBotDatabase_data_create_json.containsKey(key) == false) {
-          botEdgeTelegramConfigurationEdgeUserAndBotDatabase_data_create_json[key] = value;
+        if (botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase_data_create_json.containsKey(key) == false) {
+          botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase_data_create_json[key] = value;
         }
       });
     }
-    return BotEdgeTelegramConfigurationEdgeUserAndBotDatabase(botEdgeTelegramConfigurationEdgeUserAndBotDatabase_data_create_json);
+    return BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabase(botEdgePlatformConfigurationEdgeUserAndBotLocalDatabase_data_create_json);
   }
 }

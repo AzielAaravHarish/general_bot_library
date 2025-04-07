@@ -5,14 +5,14 @@ import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-class TelegramHomePage extends StatefulWidget {
-  const TelegramHomePage({super.key});
+class BotPlatformHomePage extends StatefulWidget {
+  const BotPlatformHomePage({super.key});
 
   @override
-  State<TelegramHomePage> createState() => _TelegramHomePageState();
+  State<BotPlatformHomePage> createState() => _BotPlatformHomePageState();
 }
 
-class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlutterStatefulWidget {
+class _BotPlatformHomePageState extends State<BotPlatformHomePage> with GeneralLibFlutterStatefulWidget {
   @override
   void initState() {
     super.initState();

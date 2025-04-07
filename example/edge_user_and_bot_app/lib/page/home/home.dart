@@ -1,3 +1,4 @@
+import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:edge_user_and_bot_app/page/telegram/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
@@ -63,60 +64,9 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
                 SizedBox(
                   height: context.mediaQueryData.padding.top,
                 ),
-                MenuContainerResponsiveGeneralFrameworkWidget(
-                  isLoading: isLoading,
-                  decorationBuilder: (context, decoration) {
-                    return decoration.copyWith(
-                      borderRadius: BorderRadius.circular(15),
-                    );
-                  },
-                  titleBuilder: (context) {
-                    return MenuContainerGeneralFrameworkWidget.title(
-                      context: context,
-                      title: "Information",
-                    );
-                  },
-                  menuBuilder: (context) {
-                    return [
-                      MenuContainerGeneralFrameworkWidget.lisTile(
-                        context: context,
-                        contentPadding: EdgeInsets.all(5),
-                        title: "Developer",
-                        subtitle: "General-Developer",
-                        onTap: () {
-                          handleFunction(
-                            onFunction: (context, statefulWidget) async {
-                              await launchUrlString(
-                                "https://github.com/general-developer",
-                                mode: LaunchMode.externalApplication,
-                              );
-                            },
-                          );
-                        },
-                      ),
-                      MenuContainerGeneralFrameworkWidget.lisTile(
-                        context: context,
-                        contentPadding: EdgeInsets.all(5),
-                        title: "Maintaners",
-                        subtitle: """
-- Azkadev
-- AzielAaravHarish
-- ClarissaGazalaEvanthe
-- AegizTyreseValfredo
-""",
-                        onTap: () {
-                          handleFunction(
-                            onFunction: (context, statefulWidget) async {
-                              await launchUrlString(
-                                "https://github.com/azkadev",
-                                mode: LaunchMode.externalApplication,
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ];
-                  },
+
+                edgeUserAndBotAppClientFlutter.developerWidget(
+                  pageState: this,
                 ),
 
                 ///

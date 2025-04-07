@@ -3,25 +3,25 @@ import "package:general_universe/general_universe.dart";
 // import "dart:convert";
 
 /// Generated
-class BotEdgeTelegramConfigurationEdgeUserAndBot extends JsonScheme {
+class BotEdgePlatformConfigurationEdgeUserAndBot extends JsonScheme {
   /// Generated
-  BotEdgeTelegramConfigurationEdgeUserAndBot(super.rawData);
+  BotEdgePlatformConfigurationEdgeUserAndBot(super.rawData);
 
   /// return default special type @type
-  /// "botEdgeTelegramConfigurationEdgeUserAndBot"
+  /// "botEdgePlatformConfigurationEdgeUserAndBot"
   static String get defaultDataSpecialType {
-    return "botEdgeTelegramConfigurationEdgeUserAndBot";
+    return "botEdgePlatformConfigurationEdgeUserAndBot";
   }
 
   /// return default data
   ///
   static Map get defaultData {
-    return {"@type": "botEdgeTelegramConfigurationEdgeUserAndBot", "is_afk": true, "afk_from_date": 1744050728510, "afk_respond_duration_expire": 0, "afk_respond_text": "", "dynamic_afk_respond_expire_date": 0, "is_initial_respond": false, "initial_respond_text": "", "initial_respond_unique_id": "", "dynamic_initial_respond_unique_id": "", "@extra": "", "@expire_date": "", "@client_id": ""};
+    return {"@type": "botEdgePlatformConfigurationEdgeUserAndBot", "platform": "", "is_afk": true, "afk_from_date": 1744051212371, "afk_respond_duration_expire": 0, "afk_respond_text": "", "dynamic_afk_respond_expire_date": 0, "is_initial_respond": false, "initial_respond_text": "", "initial_respond_unique_id": "", "dynamic_initial_respond_unique_id": "", "@extra": "", "@expire_date": "", "@client_id": ""};
   }
 
   /// check data
   /// if raw data
-  /// - rawData["@type"] == botEdgeTelegramConfigurationEdgeUserAndBot
+  /// - rawData["@type"] == botEdgePlatformConfigurationEdgeUserAndBot
   /// if same return true
   bool json_scheme_utils_checkDataIsSameBySpecialType() {
     return rawData["@type"] == defaultData["@type"];
@@ -34,10 +34,10 @@ class BotEdgeTelegramConfigurationEdgeUserAndBot extends JsonScheme {
     return onResult(rawData["@type"], defaultData["@type"]);
   }
 
-  /// create [BotEdgeTelegramConfigurationEdgeUserAndBot]
+  /// create [BotEdgePlatformConfigurationEdgeUserAndBot]
   /// Empty
-  static BotEdgeTelegramConfigurationEdgeUserAndBot empty() {
-    return BotEdgeTelegramConfigurationEdgeUserAndBot({});
+  static BotEdgePlatformConfigurationEdgeUserAndBot empty() {
+    return BotEdgePlatformConfigurationEdgeUserAndBot({});
   }
 
   /// Generated
@@ -55,6 +55,23 @@ class BotEdgeTelegramConfigurationEdgeUserAndBot extends JsonScheme {
   /// Generated
   set special_type(String? value) {
     rawData["@type"] = value;
+  }
+
+  /// Generated
+  String? get platform {
+    try {
+      if (rawData["platform"] is String == false) {
+        return null;
+      }
+      return rawData["platform"] as String;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Generated
+  set platform(String? value) {
+    rawData["platform"] = value;
   }
 
   /// Generated
@@ -262,9 +279,10 @@ class BotEdgeTelegramConfigurationEdgeUserAndBot extends JsonScheme {
   }
 
   /// Generated
-  static BotEdgeTelegramConfigurationEdgeUserAndBot create({
+  static BotEdgePlatformConfigurationEdgeUserAndBot create({
     bool schemeUtilsIsSetDefaultData = false,
-    String special_type = "botEdgeTelegramConfigurationEdgeUserAndBot",
+    String special_type = "botEdgePlatformConfigurationEdgeUserAndBot",
+    String? platform,
     bool? is_afk,
     num? afk_from_date,
     num? afk_respond_duration_expire,
@@ -278,9 +296,10 @@ class BotEdgeTelegramConfigurationEdgeUserAndBot extends JsonScheme {
     String special_expire_date = "",
     String special_client_id = "",
   }) {
-    // BotEdgeTelegramConfigurationEdgeUserAndBot botEdgeTelegramConfigurationEdgeUserAndBot = BotEdgeTelegramConfigurationEdgeUserAndBot({
-    final Map botEdgeTelegramConfigurationEdgeUserAndBot_data_create_json = {
+    // BotEdgePlatformConfigurationEdgeUserAndBot botEdgePlatformConfigurationEdgeUserAndBot = BotEdgePlatformConfigurationEdgeUserAndBot({
+    final Map botEdgePlatformConfigurationEdgeUserAndBot_data_create_json = {
       "@type": special_type,
+      "platform": platform,
       "is_afk": is_afk,
       "afk_from_date": afk_from_date,
       "afk_respond_duration_expire": afk_respond_duration_expire,
@@ -295,15 +314,15 @@ class BotEdgeTelegramConfigurationEdgeUserAndBot extends JsonScheme {
       "@client_id": special_client_id,
     };
 
-    botEdgeTelegramConfigurationEdgeUserAndBot_data_create_json.removeWhere((key, value) => value == null);
+    botEdgePlatformConfigurationEdgeUserAndBot_data_create_json.removeWhere((key, value) => value == null);
 
     if (schemeUtilsIsSetDefaultData) {
       defaultData.forEach((key, value) {
-        if (botEdgeTelegramConfigurationEdgeUserAndBot_data_create_json.containsKey(key) == false) {
-          botEdgeTelegramConfigurationEdgeUserAndBot_data_create_json[key] = value;
+        if (botEdgePlatformConfigurationEdgeUserAndBot_data_create_json.containsKey(key) == false) {
+          botEdgePlatformConfigurationEdgeUserAndBot_data_create_json[key] = value;
         }
       });
     }
-    return BotEdgeTelegramConfigurationEdgeUserAndBot(botEdgeTelegramConfigurationEdgeUserAndBot_data_create_json);
+    return BotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot_data_create_json);
   }
 }

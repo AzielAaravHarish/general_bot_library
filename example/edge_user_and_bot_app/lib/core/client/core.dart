@@ -9,6 +9,7 @@ import 'package:edge_user_and_bot_app/page/home/home.dart';
 import 'package:edge_user_and_bot_app/scheme/scheme/bot_edge_user_and_bot_app_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe/general_universe.dart';
+import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 import 'package:general_universe_flutter/fork/general_system_device/flutter/flutter.dart';
 import "package:path/path.dart" as path;
@@ -16,6 +17,7 @@ import 'package:general_universe_flutter/flutter/client/general_universe_flutter
 import 'package:general_bot_library/general_bot_library_project.dart';
 import 'package:server_universe/server_universe.dart';
 import "package:general_universe/http/http.dart";
+import 'package:url_launcher/url_launcher_string.dart';
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class EdgeUserAndBotAppClientFlutter {
@@ -171,6 +173,66 @@ class EdgeUserAndBotAppClientFlutter {
     }
 
     return;
+  }
+
+  Widget developerWidget({
+    required GeneralLibFlutterStatefulWidget pageState,
+  }) {
+    return MenuContainerResponsiveGeneralFrameworkWidget(
+      isLoading: pageState.isLoading,
+      decorationBuilder: (context, decoration) {
+        return decoration.copyWith(
+          borderRadius: BorderRadius.circular(15),
+        );
+      },
+      titleBuilder: (context) {
+        return MenuContainerGeneralFrameworkWidget.title(
+          context: context,
+          title: "Information",
+        );
+      },
+      menuBuilder: (context) {
+        return [
+          MenuContainerGeneralFrameworkWidget.lisTile(
+            context: context,
+            contentPadding: EdgeInsets.all(5),
+            title: "Developer",
+            subtitle: "General-Developer",
+            onTap: () {
+              pageState.handleFunction(
+                onFunction: (context, statefulWidget) async {
+                  await launchUrlString(
+                    "https://github.com/general-developer",
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              );
+            },
+          ),
+          MenuContainerGeneralFrameworkWidget.lisTile(
+            context: context,
+            contentPadding: EdgeInsets.all(5),
+            title: "Maintaners",
+            subtitle: """
+- Azkadev
+- AzielAaravHarish
+- ClarissaGazalaEvanthe
+- AegizTyreseValfredo
+""",
+            onTap: () {
+              pageState.handleFunction(
+                onFunction: (context, statefulWidget) async {
+                  await launchUrlString(
+                    "https://github.com/azkadev",
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              );
+            },
+          ),
+        ];
+      },
+    );
   }
 }
 

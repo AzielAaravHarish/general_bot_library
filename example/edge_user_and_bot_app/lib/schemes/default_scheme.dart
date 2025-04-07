@@ -53,7 +53,7 @@ class EdgeUserAndBotDefaultScheme {
     return jsonData;
   }
 
-  static Map<String, dynamic> _botEdgeTelegramConfigurationMapData() {
+  static Map<String, dynamic> _botEdgePlatformConfigurationMapData() {
     final Map<String, dynamic> jsonData = {
       /// implement afk
       /// start:
@@ -80,16 +80,17 @@ class EdgeUserAndBotDefaultScheme {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
-  static Map<String, dynamic> botEdgeTelegramConfiguration({
+  static Map<String, dynamic> botEdgePlatformConfiguration({
     required final GeneralUniverseSchemeType generalUniverseSchemeType,
   }) {
     final Map<String, dynamic> jsonData = {
-      "@type": "botEdgeTelegramConfiguration${EdgeUserAndBotDefaultScheme.namespace}${generalUniverseSchemeType.toSpesialType()}",
+      "@type": "botEdgePlatformConfiguration${EdgeUserAndBotDefaultScheme.namespace}${generalUniverseSchemeType.toSpesialType()}",
+      "platform": "",
     };
 
     if (generalUniverseSchemeType == GeneralUniverseSchemeType.scheme) {
       jsonData.general_universe_extension_updateForce(
-        data: EdgeUserAndBotDefaultScheme._botEdgeTelegramConfigurationMapData(),
+        data: EdgeUserAndBotDefaultScheme._botEdgePlatformConfigurationMapData(),
       );
     } else {
       jsonData.general_universe_extension_updateForce(data: {
@@ -111,7 +112,7 @@ class EdgeUserAndBotDefaultScheme {
 
     if (generalUniverseSchemeType == GeneralUniverseSchemeType.scheme) {
       jsonData.general_universe_extension_updateForce(
-        data: EdgeUserAndBotDefaultScheme._botEdgeTelegramConfigurationMapData(),
+        data: EdgeUserAndBotDefaultScheme._botEdgePlatformConfigurationMapData(),
       );
     } else {
       jsonData.general_universe_extension_updateForce(data: {
