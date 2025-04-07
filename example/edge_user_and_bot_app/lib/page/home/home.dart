@@ -3,7 +3,7 @@ import 'package:edge_user_and_bot_app/page/telegram/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
- 
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -69,55 +69,24 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
                 ),
 
                 ///
-
-                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
-                  width: context.width,
-                  margin: EdgeInsets.all(10),
-                  borderRadius: BorderRadius.circular(15),
-                  text: "Github",
-                  isLoading: isLoading,
-                  onPressed: () {
-                    handleFunction(
-                      onFunction: (context, statefulWidget) {
-                        context.showAlertGeneralFramework(
-                          alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
-                            title: "Error",
-                            builder: (context, alertGeneralFrameworkOptions) {
-                              return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
-                            },
-                          ),
-                        );
-                      },
-                    );
-                  },
+                botPlatfomWidget(
+                  context: context,
+                  title: "Discord",
+                  onPressed: null,
                 ),
-                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
-                  width: context.width,
-                  margin: EdgeInsets.all(10),
-                  borderRadius: BorderRadius.circular(15),
-                  text: "Google",
-                  isLoading: isLoading,
-                  onPressed: () {
-                    handleFunction(
-                      onFunction: (context, statefulWidget) {
-                        context.showAlertGeneralFramework(
-                          alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
-                            title: "Error",
-                            builder: (context, alertGeneralFrameworkOptions) {
-                              return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
-                            },
-                          ),
-                        );
-                      },
-                    );
-                  },
+                botPlatfomWidget(
+                  context: context,
+                  title: "Github",
+                  onPressed: null,
                 ),
-                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
-                  width: context.width,
-                  margin: EdgeInsets.all(10),
-                  borderRadius: BorderRadius.circular(15),
-                  text: "Telegram",
-                  isLoading: isLoading,
+                botPlatfomWidget(
+                  context: context,
+                  title: "Google",
+                  onPressed: null,
+                ),
+                botPlatfomWidget(
+                  context: context,
+                  title: "Telegram",
                   onPressed: () {
                     handleFunction(
                       onFunction: (context, statefulWidget) {
@@ -130,47 +99,15 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
                     );
                   },
                 ),
-                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
-                  width: context.width,
-                  margin: EdgeInsets.all(10),
-                  borderRadius: BorderRadius.circular(15),
-                  text: "Whatsapp",
-                  isLoading: isLoading,
-                  onPressed: () {
-                    handleFunction(
-                      onFunction: (context, statefulWidget) {
-                        context.showAlertGeneralFramework(
-                          alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
-                            title: "Error",
-                            builder: (context, alertGeneralFrameworkOptions) {
-                              return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
-                            },
-                          ),
-                        );
-                      },
-                    );
-                  },
+                botPlatfomWidget(
+                  context: context,
+                  title: "Whatsapp",
+                  onPressed: null,
                 ),
-                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
-                  width: context.width,
-                  margin: EdgeInsets.all(10),
-                  borderRadius: BorderRadius.circular(15),
-                  text: "X",
-                  isLoading: isLoading,
-                  onPressed: () {
-                    handleFunction(
-                      onFunction: (context, statefulWidget) {
-                        context.showAlertGeneralFramework(
-                          alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
-                            title: "Error",
-                            builder: (context, alertGeneralFrameworkOptions) {
-                              return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
-                            },
-                          ),
-                        );
-                      },
-                    );
-                  },
+                botPlatfomWidget(
+                  context: context,
+                  title: "X",
+                  onPressed: null,
                 ),
                 SizedBox(
                   height: context.mediaQueryData.padding.bottom,
@@ -180,6 +117,39 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
           ),
         ),
       ),
+    );
+  }
+
+  Widget botPlatfomWidget({
+    required BuildContext context,
+    required String title,
+    required void Function()? onPressed,
+  }) {
+    return MaterialOutlineGeneralFrameworkButtonGeneralWidget(
+      width: context.width,
+      margin: EdgeInsets.all(10),
+      borderRadius: BorderRadius.circular(15),
+      text: title,
+      isLoading: isLoading,
+      onPressed: () {
+        final onPressedProcces = onPressed;
+        if (onPressedProcces != null) {
+          onPressedProcces();
+          return;
+        }
+        handleFunction(
+          onFunction: (context, statefulWidget) {
+            context.showAlertGeneralFramework(
+              alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
+                title: "Error",
+                builder: (context, alertGeneralFrameworkOptions) {
+                  return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
+                },
+              ),
+            );
+          },
+        );
+      },
     );
   }
 }
