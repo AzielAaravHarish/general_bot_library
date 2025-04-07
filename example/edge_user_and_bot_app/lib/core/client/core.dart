@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:edge_user_and_bot_app/configuration/configuration.dart' as configuration;
+import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:edge_user_and_bot_app/core/database/database.dart';
 import 'package:edge_user_and_bot_app/scheme/scheme/bot_edge_user_and_bot_app_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
@@ -124,6 +125,10 @@ class EdgeUserAndBotAppClientFlutter {
         ),
       ),
     );
+    generalBotPlatformsLibrary.generalBotPlatformTelegram.generalBotClientTelegramLibrary.on(
+      eventName: generalBotPlatformsLibrary.generalBotPlatformTelegram.generalBotClientTelegramLibrary.eventUpdate,
+      onUpdate: onGeneralBotPlatformTelegramUpdate,
+    );
     await generalBotPlatformsLibrary.ensureInitialized(
       onLoadingText: (text) {},
     );
@@ -131,22 +136,45 @@ class EdgeUserAndBotAppClientFlutter {
 
     return;
   }
+
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  FutureOr<dynamic> onGeneralBotPlatformTelegramUpdate(GeneralBotPlatformTelegramUpdate generalBotPlatformTelegramUpdate) async {
+    final Map? update = await generalBotPlatformTelegramUpdate.update(
+      generalBotClientTelegramLibrary: generalBotPlatformsLibrary.generalBotPlatformTelegram.generalBotClientTelegramLibrary,
+    );
+    if (update == null) {
+      return null;
+    }
+
+    if (update["message"] is Map) {
+      await telegramUpdateMessage(
+        update: update["message"],
+      );
+    }
+
+    return;
+  }
 }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 extension EdgeUserAndBotAppClientFlutterExtensionState on State {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   EdgeUserAndBotAppClientFlutter get edgeUserAndBotAppClientFlutter {
     return EdgeUserAndBotAppClientFlutter.edgeUserAndBotAppClientFlutter;
   }
 }
 
-
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 extension EdgeUserAndBotAppClientFlutterExtensionStatelessWidget on StatelessWidget {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   EdgeUserAndBotAppClientFlutter get edgeUserAndBotAppClientFlutter {
     return EdgeUserAndBotAppClientFlutter.edgeUserAndBotAppClientFlutter;
   }
 }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 extension EdgeUserAndBotAppClientFlutterExtensionStatefulWidget on StatefulWidget {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   EdgeUserAndBotAppClientFlutter get edgeUserAndBotAppClientFlutter {
     return EdgeUserAndBotAppClientFlutter.edgeUserAndBotAppClientFlutter;
   }
