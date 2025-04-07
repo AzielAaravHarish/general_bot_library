@@ -1,4 +1,4 @@
-// ignore_for_file: empty_catches, non_constant_identifier_names
+// ignore_for_file: empty_catches, non_constant_identifier_names, unused_local_variable
 
 import 'dart:convert';
 import 'dart:io';
