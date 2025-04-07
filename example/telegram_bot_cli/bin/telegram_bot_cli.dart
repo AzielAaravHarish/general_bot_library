@@ -95,25 +95,79 @@ void main(List<String> arguments) async {
               return (choice == true) ? "Userbot" : "Bot";
             },
           );
-          if (isClientUserbot) {
-          } else {
-            final String tokenBot = logger.prompt("Token Bot");
-            final response = await generalBotClientTelegramLibrary.invoke(
-              parameters: tdlib_json_scheme.CheckAuthenticationBotToken.create(
-                token: tokenBot,
-              ).toJson(),
-              invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
-                is_void: false,
-                is_invoke_throw_on_error: false,
-              ),
-              generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
-            );
-            if (response["@type"] != "ok") {
+
+          final String telegramPhoneNumberOrTokenBot = logger.prompt("Phone Number");
+
+          final response = await generalBotClientTelegramLibrary.invoke(
+            parameters: () {
+              if (isClientUserbot) {
+                return tdlib_json_scheme.SetAuthenticationPhoneNumber.create(
+                  phone_number: telegramPhoneNumberOrTokenBot,
+                ).toJson();
+              }
+              return tdlib_json_scheme.CheckAuthenticationBotToken.create(
+                token: telegramPhoneNumberOrTokenBot,
+              ).toJson();
+            }(),
+            invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+              is_void: false,
+              is_invoke_throw_on_error: false,
+            ),
+            generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+          );
+          if (response["@type"] != "ok") {
+            if (isClientUserbot) {
+              logger.err("Tolong check nomor telepon lagi dengan benar ya");
+            } else {
               logger.err("Tolong check token bot lagi dengan benar ya");
-              exit(1);
             }
+            exit(1);
           }
+          return null;
         }
+        if (updateAuthorizationState.authorization_state["@type"] == tdlib_json_scheme.AuthorizationStateWaitCode.defaultData) {
+          final String telegramCode = logger.prompt("Telegram Code?");
+
+          final response = await generalBotClientTelegramLibrary.invoke(
+            parameters: tdlib_json_scheme.CheckAuthenticationCode.create(
+              code: telegramCode,
+            ).toJson(),
+            invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+              is_void: false,
+              is_invoke_throw_on_error: false,
+            ),
+            generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+          );
+          if (response["@type"] != "ok") {
+            logger.err("Tolong check code lagi dengan benar ya");
+            exit(1);
+          }
+          return null;
+        }
+        if (updateAuthorizationState.authorization_state["@type"] == tdlib_json_scheme.AuthorizationStateWaitPassword.defaultData) {
+          final String telegramPassword = logger.prompt("Telegram Password?");
+
+          final response = await generalBotClientTelegramLibrary.invoke(
+            parameters: tdlib_json_scheme.CheckAuthenticationPassword.create(
+              password: telegramPassword,
+            ).toJson(),
+            invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+              is_void: false,
+              is_invoke_throw_on_error: false,
+            ),
+            generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+          );
+          if (response["@type"] != "ok") {
+            logger.err("Tolong check code lagi dengan benar ya");
+            exit(1);
+          }
+          return null;
+        }
+        if (updateAuthorizationState.authorization_state["@type"] == tdlib_json_scheme.AuthorizationStateWaitEmailCode.defaultData) {
+          logger.err("AuthorizationStateWaitEmailCode Belum di implementasi. silahkan cari informasi sendiri / tunggu ya kami sedang sedikit malas");
+          exit(1);
+        }
+
         if (updateAuthorizationState.authorization_state["@type"] == tdlib_json_scheme.AuthorizationStateReady.defaultDataSpecialType) {
           final Map getMeRaw = await generalBotClientTelegramLibrary.request(
             parameters: {
@@ -151,7 +205,10 @@ Silahkan typing
 
 Maaf command ini hanya tersedia singkat karena hanya contoh
 """);
+          return null;
         }
+
+        update.printPretty();
       }
 
       if (update["message"] is Map) {
@@ -167,6 +224,10 @@ Maaf command ini hanya tersedia singkat karena hanya contoh
         final int user_id = msg_from["id"];
         final Map msg_chat = msg["chat"];
         final int chat_id = msg_chat["id"];
+        if (msg_chat["type"] is String == false) {
+          msg_chat["type"] = "";
+        }
+        final String msg_chat_type = msg_chat["type"];
 
         final String msg_text = () {
           try {
@@ -176,8 +237,15 @@ Maaf command ini hanya tersedia singkat karena hanya contoh
           } catch (e) {}
           return "";
         }();
-        if (msg_from["is_outgoing"] == true) {
-          return null;
+
+        if (isClientUserbot) {
+          if (msg_chat_type != "private") {
+            return null;
+          }
+        } else {
+          if (msg["is_outgoing"] == true) {
+            return null;
+          }
         }
 
         if (RegExp(r"^(/start)$", caseSensitive: false).hasMatch(msg_text)) {
