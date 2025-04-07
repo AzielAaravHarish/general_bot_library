@@ -3,8 +3,7 @@ import 'package:edge_user_and_bot_app/page/telegram/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-
+ 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 

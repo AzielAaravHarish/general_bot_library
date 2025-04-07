@@ -5,6 +5,8 @@ import 'dart:async';
 import 'package:edge_user_and_bot_app/configuration/configuration.dart' as configuration;
 import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:edge_user_and_bot_app/core/database/database.dart';
+import 'package:edge_user_and_bot_app/page/bot_platform_configuration/bot_platform_configuration.dart';
+import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/controller.dart';
 import 'package:edge_user_and_bot_app/page/home/home.dart';
 import 'package:edge_user_and_bot_app/scheme/scheme/bot_edge_user_and_bot_app_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
@@ -233,11 +235,14 @@ class EdgeUserAndBotAppClientFlutter {
         ];
       },
     );
+ 
+ 
   }
 
   Widget botPlatformConfigurationWidget({
     required BuildContext context,
     required GeneralLibFlutterStatefulWidget pageState,
+    required final BotPlatformConfigurationController botPlatformConfigurationController,
   }) {
     return MaterialOutlineGeneralFrameworkButtonGeneralWidget(
       width: context.width,
@@ -248,11 +253,13 @@ class EdgeUserAndBotAppClientFlutter {
       onPressed: () {
         pageState.handleFunction(
           onFunction: (context, statefulWidget) {
-            // context.navigator().push(MaterialPageRoute(
-            //   builder: (context) {
-            //     return TelegramHomePage();
-            //   },
-            // ));
+            context.navigator().push(MaterialPageRoute(
+              builder: (context) {
+                return BotPlatformConfigurationHomePage(
+                  botPlatformConfigurationController: botPlatformConfigurationController,
+                );
+              },
+            ));
           },
         );
       },

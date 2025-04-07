@@ -1,9 +1,9 @@
 import 'package:edge_user_and_bot_app/core/core.dart';
+import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/controller.dart';
 import 'package:edge_user_and_bot_app/scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 class TelegramHomePage extends StatefulWidget {
   const TelegramHomePage({super.key});
@@ -39,7 +39,6 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
 
   @override
   Widget build(BuildContext context) {
-    final BotEdgePlatformConfigurationEdgeUserAndBot botEdgeTelegramConfigurationEdgeUserAndBot = BotEdgePlatformConfigurationEdgeUserAndBot.create();
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -69,9 +68,14 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
                   pageState: this,
                 ),
                 edgeUserAndBotAppClientFlutter.botPlatformConfigurationWidget(
-                  context: context,
-                  pageState: this,
-                ),
+                    context: context,
+                    pageState: this,
+                    botPlatformConfigurationController: BotPlatformConfigurationController(
+                      getBotEdgePlatformConfigurationEdgeUserAndBot: () {
+                        return botEdgePlatformConfigurationEdgeUserAndBot;
+                      },
+                      saveBotEdgePlatformConfigurationEdgeUserAndBot: () {},
+                    )),
                 SizedBox(
                   height: context.mediaQueryData.padding.bottom,
                 ),
@@ -83,3 +87,5 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
     );
   }
 }
+
+BotEdgePlatformConfigurationEdgeUserAndBot botEdgePlatformConfigurationEdgeUserAndBot = BotEdgePlatformConfigurationEdgeUserAndBot.create();
