@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches
+
 import 'dart:convert';
 import 'dart:io';
 
@@ -51,6 +53,8 @@ void main(List<String> arguments) async {
             option_parameter: GeneralBotLibraryConfigurationTelegramTdlibOptionParameterGeneralBotLibrary.create(
               database_directory: directory.path,
               files_directory: directory.path,
+              api_id: 94575,
+              api_hash: 'a3406de8d171bb422bb6ddf3bbd800e2',
             ),
           ),
         ),
@@ -62,27 +66,88 @@ void main(List<String> arguments) async {
     eventName: generalBotClientTelegramLibrary.eventUpdate,
     onUpdate: (generalBotPlatformTelegramUpdate) async {
       if (generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData.telegramClientType == GeneralBotClientTelegramLibraryType.telegam_bot_api) {
-        return;
+        return null;
       }
       await generalBotClientTelegramLibrary.autoSetData(
         generalBotPlatformTelegramUpdate: generalBotPlatformTelegramUpdate,
       );
-      final Map updateRaw = generalBotPlatformTelegramUpdate.raw;
+      final Map? update = await generalBotPlatformTelegramUpdate.update(
+        generalBotClientTelegramLibrary: generalBotClientTelegramLibrary,
+      );
+      if (update == null) {
+        return null;
+      }
       final GeneralBotClientTelegramLibraryData generalBotClientTelegramLibraryData = generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData;
       // final tdlib_json_scheme.Update update = tdlib_json_scheme.Update(updateRaw);
-      if (updateRaw["@type"] == tdlib_json_scheme.UpdateAuthorizationState.defaultDataSpecialType) {
-        final tdlib_json_scheme.UpdateAuthorizationState updateAuthorizationState = tdlib_json_scheme.UpdateAuthorizationState(updateRaw);
+      if (update["@type"] == tdlib_json_scheme.UpdateAuthorizationState.defaultDataSpecialType) {
+        final tdlib_json_scheme.UpdateAuthorizationState updateAuthorizationState = tdlib_json_scheme.UpdateAuthorizationState(update);
 
         if (updateAuthorizationState.authorization_state["@type"] == tdlib_json_scheme.AuthorizationStateWaitPhoneNumber.defaultDataSpecialType) {
-          logger.prompt("Token Bot");
-          await generalBotClientTelegramLibrary.invoke(
+          final String tokenBot = logger.prompt("Token Bot");
+          final response = await generalBotClientTelegramLibrary.invoke(
             parameters: tdlib_json_scheme.CheckAuthenticationBotToken.create(
-              token: "",
+              token: tokenBot,
             ).toJson(),
             invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
               is_void: false,
               is_invoke_throw_on_error: false,
             ),
+            generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+          );
+          response.printPretty();
+        }
+      }
+
+      if (update["message"] is Map) {
+        final Map msg = update["message"];
+        if (msg["from"] is Map == false) {
+          return null;
+        }
+        if (msg["chat"] is Map == false) {
+          return null;
+        }
+
+        final Map msg_from = msg["from"];
+        final int user_id = msg_from["id"];
+        final Map msg_chat = msg["chat"];
+        final int chat_id = msg_chat["id"];
+
+        final String msg_text = () {
+          try {
+            if (msg["text"] is String) {
+              return msg["text"];
+            }
+          } catch (e) {}
+          return "";
+        }();
+        if (msg_from["is_outgoing"] == true) {
+          return null;
+        }
+
+        if (RegExp(r"^(/start)$", caseSensitive: false).hasMatch(msg_text)) {
+          return await generalBotClientTelegramLibrary.request(
+            parameters: {
+              "@type": "sendMessage",
+              "chat_id": chat_id,
+              "text": """
+Hai Saya adalah manusia eh enggak tahu deng kok nanya saya
+
+Saya buatan general-developer
+"""
+            },
+            generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+          );
+        }
+        if (RegExp(r"^(/ping)$", caseSensitive: false).hasMatch(msg_text)) {
+
+          return await generalBotClientTelegramLibrary.request(
+            parameters: {
+              "@type": "sendMessage",
+              "chat_id": chat_id,
+              "text": """
+Pong
+"""
+            },
             generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
           );
         }

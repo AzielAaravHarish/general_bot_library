@@ -5,25 +5,25 @@ environment:
   sdk: '>=3.6.0 <4.0.0'
 dependencies:
   general_bot_library:
-    hosted: 'https://package-repository-general-developer.vercel.app/package/repository/dart'
+    hosted: 'https://package-repository-general-developer.vercel.app'
     version: '^0.0.0'
   general_universe:
-    hosted: 'https://package-repository-general-developer.vercel.app/package/repository/dart'
+    hosted: 'https://package-repository-general-developer.vercel.app'
     version: '^0.0.0'
   packagex:
-    hosted: 'https://package-repository-general-developer.vercel.app/package/repository/dart'
+    hosted: 'https://package-repository-general-developer.vercel.app'
     version: '^0.0.0'
   path: '^1.9.0'
   server_universe:
-    hosted: 'https://package-repository-general-developer.vercel.app/package/repository/dart'
+    hosted: 'https://package-repository-general-developer.vercel.app'
     version: '^0.0.0'
 dev_dependencies:
   lints: '^5.0.0'
   test: 'any'
 project:
   type: ''
-  is_use_direct_package: false
-  is_private: false
+  is_use_direct_package: true
+  is_private: true
   developers:
     - username: ''
       note: ''
@@ -31,5 +31,13 @@ project:
         - 'https://github.com'
 funding: []
 dependency_overrides:
+  general_bot_library:
+    path: '../../../../../github/general-developer/general_bot_library/package/general_bot_library'
+  general_universe:
+    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/general_universe'
   mime: '^2.0.0'
+  packagex:
+    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/packagex'
   pointycastle: '^4.0.0'
+  server_universe:
+    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/server_universe'
