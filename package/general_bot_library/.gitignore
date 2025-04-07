@@ -38,5 +38,6 @@ bin/dev.dart
 
 lib/telegram/
 fork/ephemeral/
-secret-*
-secret_*
+.idea
+fork/
+dlotk3ti4kyik2o3tksjinfs
