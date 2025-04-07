@@ -68,6 +68,10 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
                 edgeUserAndBotAppClientFlutter.developerWidget(
                   pageState: this,
                 ),
+                edgeUserAndBotAppClientFlutter.botPlatformConfigurationWidget(
+                  context: context,
+                  pageState: this,
+                ),
                 SizedBox(
                   height: context.mediaQueryData.padding.bottom,
                 ),

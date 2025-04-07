@@ -234,6 +234,30 @@ class EdgeUserAndBotAppClientFlutter {
       },
     );
   }
+
+  Widget botPlatformConfigurationWidget({
+    required BuildContext context,
+    required GeneralLibFlutterStatefulWidget pageState,
+  }) {
+    return MaterialOutlineGeneralFrameworkButtonGeneralWidget(
+      width: context.width,
+      margin: EdgeInsets.all(10),
+      borderRadius: BorderRadius.circular(15),
+      text: "Configuration",
+      isLoading: pageState.isLoading,
+      onPressed: () {
+        pageState.handleFunction(
+          onFunction: (context, statefulWidget) {
+            // context.navigator().push(MaterialPageRoute(
+            //   builder: (context) {
+            //     return TelegramHomePage();
+            //   },
+            // ));
+          },
+        );
+      },
+    );
+  }
 }
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
