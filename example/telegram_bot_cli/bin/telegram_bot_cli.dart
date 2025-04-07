@@ -62,6 +62,7 @@ void main(List<String> arguments) async {
     ),
   );
   final GeneralBotClientTelegramLibrary generalBotClientTelegramLibrary = generalBotPlatformsLibrary.generalBotPlatformTelegram.generalBotClientTelegramLibrary;
+  bool isClientUserbot = false;
   generalBotClientTelegramLibrary.on(
     eventName: generalBotClientTelegramLibrary.eventUpdate,
     onUpdate: (generalBotPlatformTelegramUpdate) async {
@@ -78,23 +79,78 @@ void main(List<String> arguments) async {
         return null;
       }
       final GeneralBotClientTelegramLibraryData generalBotClientTelegramLibraryData = generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData;
+
       // final tdlib_json_scheme.Update update = tdlib_json_scheme.Update(updateRaw);
       if (update["@type"] == tdlib_json_scheme.UpdateAuthorizationState.defaultDataSpecialType) {
         final tdlib_json_scheme.UpdateAuthorizationState updateAuthorizationState = tdlib_json_scheme.UpdateAuthorizationState(update);
 
         if (updateAuthorizationState.authorization_state["@type"] == tdlib_json_scheme.AuthorizationStateWaitPhoneNumber.defaultDataSpecialType) {
-          final String tokenBot = logger.prompt("Token Bot");
-          final response = await generalBotClientTelegramLibrary.invoke(
-            parameters: tdlib_json_scheme.CheckAuthenticationBotToken.create(
-              token: tokenBot,
-            ).toJson(),
-            invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
-              is_void: false,
-              is_invoke_throw_on_error: false,
-            ),
+          isClientUserbot = logger.chooseOne(
+            "Pilih Client Type ",
+            choices: [
+              true,
+              false,
+            ],
+            display: (choice) {
+              return (choice == true) ? "Userbot" : "Bot";
+            },
+          );
+          if (isClientUserbot) {
+          } else {
+            final String tokenBot = logger.prompt("Token Bot");
+            final response = await generalBotClientTelegramLibrary.invoke(
+              parameters: tdlib_json_scheme.CheckAuthenticationBotToken.create(
+                token: tokenBot,
+              ).toJson(),
+              invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+                is_void: false,
+                is_invoke_throw_on_error: false,
+              ),
+              generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+            );
+            if (response["@type"] != "ok") {
+              logger.err("Tolong check token bot lagi dengan benar ya");
+              exit(1);
+            }
+          }
+        }
+        if (updateAuthorizationState.authorization_state["@type"] == tdlib_json_scheme.AuthorizationStateReady.defaultDataSpecialType) {
+          final Map getMeRaw = await generalBotClientTelegramLibrary.request(
+            parameters: {
+              "@type": "getMe",
+            },
             generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
           );
-          response.printPretty();
+          if (getMeRaw["result"] is Map == false) {
+            getMeRaw["result"] = {};
+          }
+          final Map getMe = getMeRaw["result"];
+          if (getMe["is_bot"] == true) {
+            isClientUserbot = false;
+          } else {
+            isClientUserbot = true;
+          }
+          final user = jsonToMessage(
+            getMe.filterByKeys(keys: [
+              "id",
+              "first_name",
+              "last_name",
+              "title",
+              "username",
+              "is_bot",
+              "type",
+            ]),
+            jsonFullMedia: {},
+          );
+          logger.success("Login As ${user}");
+          logger.info("""
+Silahkan typing
+
+/start
+/ping
+
+Maaf command ini hanya tersedia singkat karena hanya contoh
+""");
         }
       }
 
@@ -139,7 +195,6 @@ Saya buatan general-developer
           );
         }
         if (RegExp(r"^(/ping)$", caseSensitive: false).hasMatch(msg_text)) {
-
           return await generalBotClientTelegramLibrary.request(
             parameters: {
               "@type": "sendMessage",
