@@ -14,3 +14,4 @@ analyzer:
     - test
     - dev
     - templates
+    - lib/database_universe_scheme

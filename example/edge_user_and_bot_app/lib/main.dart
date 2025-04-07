@@ -4,7 +4,9 @@ void main() {
   runApp(const MyApp());
 }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class MyApp extends StatelessWidget {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -35,7 +37,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class MyHomePage extends StatefulWidget {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const MyHomePage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -47,6 +51,7 @@ class MyHomePage extends StatefulWidget {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final String title;
 
   @override
