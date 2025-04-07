@@ -71,7 +71,7 @@ class EdgeUserAndBotDefaultScheme {
       "initial_respond_text": "",
       "initial_respond_unique_id": "",
       "dynamic_initial_respond_unique_id": "",
-      
+
       /// end:
     };
 

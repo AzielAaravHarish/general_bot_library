@@ -16,7 +16,7 @@ class BotEdgeChatTelegramEdgeUserAndBot extends JsonScheme {
   /// return default data
   ///
   static Map get defaultData {
-    return {"@type": "botEdgeChatTelegramEdgeUserAndBot", "chat_id": 0, "is_afk": true, "afk_from_date": 1744040833516, "afk_respond_duration_expire": 0, "afk_respond_text": "", "is_initial_respond": false, "initial_respond_text": "", "dynamic_afk_respond_expire_date": 0, "dynamic_is_initial_respond": false, "@extra": "", "@expire_date": "", "@client_id": ""};
+    return {"@type": "botEdgeChatTelegramEdgeUserAndBot", "chat_id": 0, "is_afk": true, "afk_from_date": 1744041163762, "afk_respond_duration_expire": 0, "afk_respond_text": "", "dynamic_afk_respond_expire_date": 0, "is_initial_respond": false, "initial_respond_text": "", "initial_respond_unique_id": "", "dynamic_initial_respond_unique_id": "", "@extra": "", "@expire_date": "", "@client_id": ""};
   }
 
   /// check data
@@ -143,6 +143,23 @@ class BotEdgeChatTelegramEdgeUserAndBot extends JsonScheme {
   }
 
   /// Generated
+  num? get dynamic_afk_respond_expire_date {
+    try {
+      if (rawData["dynamic_afk_respond_expire_date"] is num == false) {
+        return null;
+      }
+      return rawData["dynamic_afk_respond_expire_date"] as num;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /// Generated
+  set dynamic_afk_respond_expire_date(num? value) {
+    rawData["dynamic_afk_respond_expire_date"] = value;
+  }
+
+  /// Generated
   bool? get is_initial_respond {
     try {
       if (rawData["is_initial_respond"] is bool == false) {
@@ -177,37 +194,37 @@ class BotEdgeChatTelegramEdgeUserAndBot extends JsonScheme {
   }
 
   /// Generated
-  num? get dynamic_afk_respond_expire_date {
+  String? get initial_respond_unique_id {
     try {
-      if (rawData["dynamic_afk_respond_expire_date"] is num == false) {
+      if (rawData["initial_respond_unique_id"] is String == false) {
         return null;
       }
-      return rawData["dynamic_afk_respond_expire_date"] as num;
+      return rawData["initial_respond_unique_id"] as String;
     } catch (e) {
       return null;
     }
   }
 
   /// Generated
-  set dynamic_afk_respond_expire_date(num? value) {
-    rawData["dynamic_afk_respond_expire_date"] = value;
+  set initial_respond_unique_id(String? value) {
+    rawData["initial_respond_unique_id"] = value;
   }
 
   /// Generated
-  bool? get dynamic_is_initial_respond {
+  String? get dynamic_initial_respond_unique_id {
     try {
-      if (rawData["dynamic_is_initial_respond"] is bool == false) {
+      if (rawData["dynamic_initial_respond_unique_id"] is String == false) {
         return null;
       }
-      return rawData["dynamic_is_initial_respond"] as bool;
+      return rawData["dynamic_initial_respond_unique_id"] as String;
     } catch (e) {
       return null;
     }
   }
 
   /// Generated
-  set dynamic_is_initial_respond(bool? value) {
-    rawData["dynamic_is_initial_respond"] = value;
+  set dynamic_initial_respond_unique_id(String? value) {
+    rawData["dynamic_initial_respond_unique_id"] = value;
   }
 
   /// Generated
@@ -270,10 +287,11 @@ class BotEdgeChatTelegramEdgeUserAndBot extends JsonScheme {
     num? afk_from_date,
     num? afk_respond_duration_expire,
     String? afk_respond_text,
+    num? dynamic_afk_respond_expire_date,
     bool? is_initial_respond,
     String? initial_respond_text,
-    num? dynamic_afk_respond_expire_date,
-    bool? dynamic_is_initial_respond,
+    String? initial_respond_unique_id,
+    String? dynamic_initial_respond_unique_id,
     String special_extra = "",
     String special_expire_date = "",
     String special_client_id = "",
@@ -286,10 +304,11 @@ class BotEdgeChatTelegramEdgeUserAndBot extends JsonScheme {
       "afk_from_date": afk_from_date,
       "afk_respond_duration_expire": afk_respond_duration_expire,
       "afk_respond_text": afk_respond_text,
+      "dynamic_afk_respond_expire_date": dynamic_afk_respond_expire_date,
       "is_initial_respond": is_initial_respond,
       "initial_respond_text": initial_respond_text,
-      "dynamic_afk_respond_expire_date": dynamic_afk_respond_expire_date,
-      "dynamic_is_initial_respond": dynamic_is_initial_respond,
+      "initial_respond_unique_id": initial_respond_unique_id,
+      "dynamic_initial_respond_unique_id": dynamic_initial_respond_unique_id,
       "@extra": special_extra,
       "@expire_date": special_expire_date,
       "@client_id": special_client_id,
