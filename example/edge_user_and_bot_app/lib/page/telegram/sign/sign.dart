@@ -1,16 +1,16 @@
-import 'package:edge_user_and_bot_app/page/telegram/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
-import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
+import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart'; 
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+
+class TelegramSignPage extends StatefulWidget {
+  const TelegramSignPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<TelegramSignPage> createState() => _TelegramSignPageState();
 }
 
-class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidget {
+class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlutterStatefulWidget {
   @override
   void initState() {
     super.initState();
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
         title: SkeletonizerGeneralFramework(
           enabled: isLoading,
           child: Text(
-            "Edge User And Bot App",
+            "Telegram Home Page",
             style: context.theme.textTheme.titleLarge,
           ),
         ),
@@ -70,13 +70,7 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
                   isLoading: isLoading,
                   onPressed: () {
                     handleFunction(
-                      onFunction: (context, statefulWidget) {
-                        context.navigator().push(MaterialPageRoute(
-                          builder: (context) {
-                            return TelegramHomePage();
-                          },
-                        ));
-                      },
+                      onFunction: (context, statefulWidget) {},
                     );
                   },
                 ),
