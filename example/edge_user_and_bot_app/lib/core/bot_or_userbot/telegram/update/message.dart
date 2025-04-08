@@ -122,7 +122,7 @@ extension EdgeUserAndBotAppClientFlutterExtensionTelegramUpdate on EdgeUserAndBo
           "chat_id": chat_id,
           "text": """
 Pong From Edge User And Bot Application
- 
+
 OS: ${Dart.operatingSystem} 
 Version: ${Dart.operatingSystemVersion}
 """.trim(),
@@ -144,7 +144,7 @@ Version: ${Dart.operatingSystemVersion}
       telegramChatId: user_id,
     );
 
-    if (telegramMeConfigurationData.is_initial_respond == true) {
+    if (telegramMeConfigurationData.is_initial_respond == false) {
       final String initialRespondText = (telegramMeConfigurationData.initial_respond_text ?? "").trim();
       if (initialRespondText.isNotEmpty) {
         /// check apakah tidak sama dengan respond unique id
