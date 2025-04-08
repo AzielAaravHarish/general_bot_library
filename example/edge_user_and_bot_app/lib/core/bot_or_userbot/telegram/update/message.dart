@@ -71,7 +71,7 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 <!-- END LICENSE --> */
 import 'dart:async';
 
-import 'package:edge_user_and_bot_app/core/client/client.dart';
+
 import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_chat_telegram_edge_user_and_bot.dart';
 import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
@@ -216,6 +216,7 @@ ${afkRespondText}
           ),
           generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
         );
+        
 
         /// atur dahulu dynamic_initial_respond_unique_id
         /// samakan dengan pengaturan
