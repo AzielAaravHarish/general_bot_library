@@ -31,6 +31,41 @@ jadi sebelum nego kami sudah melakukan berbagai konsekuensi jika nego tidak sesu
 Bukan maksud kami menipu itu karena harga yang sudah di kalkulasi + bantuan tiba tiba di potong akhirnya bantuan / software kadang tidak lengkap
 
 
+Daftar List Developer Resmi
+
+Jika kamu membutuhkan jasa, check salah satu link di bawah 
+
+Pastikan kamu memilih yang benar dan semua di bawah aturan ketat Global Corporation & General Corporation.
+
+Jika kamu ingin cepat selesai dan kode sangat bagus pilih Corporation, Jika kamu ingin bisa nego harga pilih User tetapi pengerjaan tidak bisa secepat User.
+
+Jika kamu ingin membeli pastikan kata kata masing masing platform mengandung kata formal, dan terdapat applikasi + terdapat pembayaran automatis, jika tidak ada layanan automatis akan di pastikan itu bukan kami
+
+dan mungkin akun itu sudah hilang / di ambil alih orang lain.
+
+Pembelian manual lewat chat / nanya nanya dulu hanya bisa melalui User selain itu tidak bisa dan jika berusaha chat maka akan terdeteksi 
+
+mencoba mengambil informasi maka akan di Global blacklist, di karenakan semuanya di bawah aturan Global Corporation & General Corporation.
+
+jika kamu terkena maka kamu tidak bisa mengakses apapun semua social media, applikasi, layanan, apapun itu yang di bawah Global Corporation & General Corporation.
+
+Dan jika sudah sangat parah kamu bisa ☠️ Death
+
+# Corporation
+
+- [Azka Developer](https://github.com/azkadev)
+- [Aegiz Tyrese Valfredo](https://github.com/AegizTyreseValfredo)
+- [Aziel Aarav Harish](https://github.com/AzielAaravHarish)
+- [Clarissa Gazala Evanthe](https://github.com/ClarissaGazalaEvanthe)
+
+# User
+
+- [Azka Developer](https://github.com/azkadev)
+- [Aegiz Tyrese Valfredo](https://github.com/AegizTyreseValfredo)
+- [Aziel Aarav Harish](https://github.com/AzielAaravHarish)
+- [Clarissa Gazala Evanthe](https://github.com/ClarissaGazalaEvanthe)
+
+
 <!-- END LICENSE --> */
 export "tdlib.dart"; 
 export "error_telegram.dart";
