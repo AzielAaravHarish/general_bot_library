@@ -392,7 +392,7 @@ class EdgeUserAndBotAppClientFlutter {
                       if (key == "id" || key == "username") {
                         return "${Hide().obfocustData(
                           mystring: value,
-                          start: 3,
+                          start: 2,
                           end: 3,
                         )}";
                       }
