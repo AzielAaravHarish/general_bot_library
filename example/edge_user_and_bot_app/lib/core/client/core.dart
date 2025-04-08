@@ -8,7 +8,7 @@ import 'package:edge_user_and_bot_app/core/database/database.dart';
 import 'package:edge_user_and_bot_app/page/bot_platform_configuration/bot_platform_configuration.dart';
 import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/controller.dart';
 import 'package:edge_user_and_bot_app/page/home/home.dart';
-import 'package:edge_user_and_bot_app/scheme/scheme/bot_edge_user_and_bot_app_configuration_edge_user_and_bot.dart';
+import 'package:edge_user_and_bot_app/dart_json_scheme/scheme/bot_edge_user_and_bot_app_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe/general_universe.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';

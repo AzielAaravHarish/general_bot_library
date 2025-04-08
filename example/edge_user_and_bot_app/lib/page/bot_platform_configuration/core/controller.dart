@@ -1,4 +1,4 @@
-import 'package:edge_user_and_bot_app/scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
+import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
 
 class BotPlatformConfigurationController {
