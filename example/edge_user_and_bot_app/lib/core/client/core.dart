@@ -114,6 +114,8 @@ class EdgeUserAndBotAppClientFlutter {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   EdgeUserAndBotAppClientFlutter();
 
+  static Duration minimumAfkDurationRespond = Duration(minutes: 5);
+
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
   static final GeneralSystemDeviceFlutter generalFlutter = GeneralSystemDeviceFlutter();

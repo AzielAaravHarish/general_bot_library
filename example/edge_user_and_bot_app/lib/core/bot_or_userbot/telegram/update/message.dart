@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches, non_constant_identifier_names
+
 /* <!-- START LICENSE -->
 
 
@@ -69,11 +71,12 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 <!-- END LICENSE --> */
 import 'dart:async';
 
-import 'package:edge_user_and_bot_app/core/bot_or_userbot/telegram/client/client.dart';
 import 'package:edge_user_and_bot_app/core/client/client.dart';
 import 'package:edge_user_and_bot_app/core/core.dart';
+import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_chat_telegram_edge_user_and_bot.dart';
 import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
 import 'package:general_bot_library/general_bot_library_project.dart';
+import 'package:general_universe/general_universe.dart';
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 extension EdgeUserAndBotAppClientFlutterExtensionTelegramUpdate on EdgeUserAndBotAppClientFlutter {
@@ -108,29 +111,129 @@ extension EdgeUserAndBotAppClientFlutterExtensionTelegramUpdate on EdgeUserAndBo
       } catch (e) {}
       return "";
     }();
-
-    if (msg_chat_type != "private") {
+    if (msg_from["is_bot"] == true) {
       return null;
     }
     if (msg["is_outgoing"] == true) {
       return null;
     }
-    if (msg_from["is_bot"] == true) {
+
+    if (msg_chat_type != "private") {
       return null;
     }
-    final BotEdgePlatformConfigurationEdgeUserAndBot botEdgePlatformConfigurationEdgeUserAndBot = edgeUserAndBotAppDatabase.getBotEdgePlatformConfigurationEdgeUserAndBot(
+    final BotEdgePlatformConfigurationEdgeUserAndBot telegramMeConfigurationData = edgeUserAndBotAppDatabase.getBotEdgePlatformConfigurationEdgeUserAndBot(
       generalBotPlatformType: GeneralBotPlatformType.telegram,
     );
+    final BotEdgeChatTelegramEdgeUserAndBot telegramChatUserData = edgeUserAndBotAppDatabase.getBotEdgeChatTelegramEdgeUserAndBot(
+      telegramChatId: user_id,
+    );
 
-    if (botEdgePlatformConfigurationEdgeUserAndBot.is_initial_respond == true) {
-      final String initialRespondText = (botEdgePlatformConfigurationEdgeUserAndBot.initial_respond_text ?? "").trim();
-      if (initialRespondText.isNotEmpty){
+    if (telegramMeConfigurationData.is_initial_respond == true) {
+      final String initialRespondText = (telegramMeConfigurationData.initial_respond_text ?? "").trim();
+      if (initialRespondText.isNotEmpty) {
+        /// check apakah tidak sama dengan respond unique id
+        ///
+        if (telegramChatUserData.dynamic_initial_respond_unique_id != telegramMeConfigurationData.initial_respond_unique_id) {
+          // jika tidak sama kirim ya slebew
+          await generalBotClientTelegramLibrary.request(
+            parameters: {
+              "@type": "sendMessage",
+              "chat_id": chat_id,
+              "text": initialRespondText,
+            },
+            invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+              is_void: true,
+              is_invoke_throw_on_error: false,
+            ),
+            generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
+          );
 
+          /// atur dahulu dynamic_initial_respond_unique_id
+          /// samakan dengan pengaturan
+          telegramChatUserData["dynamic_initial_respond_unique_id"] = telegramMeConfigurationData["initial_respond_unique_id"];
+
+          /// simpan
+          /// hal ini di karenakan initial respond maka di kirim pertama kali /
+          /// ketika respond initial di perbarui
+          edgeUserAndBotAppDatabase.saveBotEdgeChatTelegramEdgeUserAndBot(
+            telegramChatId: user_id,
+            newBotEdgeChatTelegramEdgeUserAndBot: telegramChatUserData,
+          );
+        }
       }
-    
     }
+
+    if (telegramMeConfigurationData.is_afk == true) {
+      // check dahulu apakah respond kosong jika kosong abaikan afk
+      final String afkRespondText = (telegramMeConfigurationData.afk_respond_text ?? "").trim();
+      if (afkRespondText.isNotEmpty) {
+        final DateTime dateTimeNow = DateTime.now();
+
+        final DateTime afkUserExpireDateTime = () {
+          try {
+            return DateTime.fromMillisecondsSinceEpoch((telegramChatUserData.dynamic_afk_respond_expire_date ?? 0).toInt());
+          } catch (e) {
+            return dateTimeNow;
+          }
+        }();
+        // check dahulu apakah sudah expired jika belum hentikan procces script disini karena masih afk ya
+        //
+        if (afkUserExpireDateTime.isExpired() == false) {
+          return null;
+        }
+        final DateTime afkFromDateTime = () {
+          try {
+            return DateTime.fromMillisecondsSinceEpoch((telegramMeConfigurationData.afk_from_date ?? 0).toInt());
+          } catch (e) {
+            return dateTimeNow;
+          }
+        }();
+        final Duration afkRespondDuration = () {
+          try {
+            final Duration afkRespondDuration = Duration(seconds: (telegramMeConfigurationData.afk_respond_duration_expire ?? 0).toInt());
+            if (afkRespondDuration < EdgeUserAndBotAppClientFlutter.minimumAfkDurationRespond) {
+              return EdgeUserAndBotAppClientFlutter.minimumAfkDurationRespond;
+            }
+            return afkRespondDuration;
+          } catch (e) {}
+          return EdgeUserAndBotAppClientFlutter.minimumAfkDurationRespond;
+        }();
+
+        await generalBotClientTelegramLibrary.request(
+          parameters: {
+            "@type": "sendMessage",
+            "chat_id": chat_id,
+            "text": """
+${dateTimeNow.extension_general_universe_countAgoFromDateTime(dateTime: afkFromDateTime)}
+
+${afkRespondText}
+"""
+                .trim(),
+          },
+          invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+            is_void: true,
+            is_invoke_throw_on_error: false,
+          ),
+          generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
+        );
+
+        /// atur dahulu dynamic_initial_respond_unique_id
+        /// samakan dengan pengaturan
+        telegramChatUserData.dynamic_afk_respond_expire_date = dateTimeNow.add(afkRespondDuration).millisecondsSinceEpoch;
+
+        /// simpan
+        /// hal ini di karenakan initial respond maka di kirim pertama kali /
+        /// ketika respond initial di perbarui
+        edgeUserAndBotAppDatabase.saveBotEdgeChatTelegramEdgeUserAndBot(
+          telegramChatId: user_id,
+          newBotEdgeChatTelegramEdgeUserAndBot: telegramChatUserData,
+        );
+        return null;
+      }
+    }
+
     if (RegExp(r"^(/start)$", caseSensitive: false).hasMatch(msg_text)) {
-      final String commandStartRespondText = (botEdgePlatformConfigurationEdgeUserAndBot.command_start_respond_text ?? "").trim();
+      final String commandStartRespondText = (telegramMeConfigurationData.command_start_respond_text ?? "").trim();
       if (commandStartRespondText.isEmpty) {
         return null;
       }

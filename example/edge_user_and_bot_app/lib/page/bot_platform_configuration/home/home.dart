@@ -266,12 +266,12 @@ Setelah reset pesan akan kekirim lagi
                                 hours: timeOfDay.hour,
                                 minutes: timeOfDay.minute,
                               );
-                              if (duration < Duration(minutes: 5)) {
+                              if (duration < EdgeUserAndBotAppClientFlutter.minimumAfkDurationRespond) {
                                 context.showAlertGeneralFramework(
                                   alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
                                     title: "Error",
                                     builder: (context, alertGeneralFrameworkOptions) {
-                                      return "Timer Minimal 5 Menit ";
+                                      return "Timer Minimal ${EdgeUserAndBotAppClientFlutter.minimumAfkDurationRespond.inSeconds} Detik ";
                                     },
                                   ),
                                 );
