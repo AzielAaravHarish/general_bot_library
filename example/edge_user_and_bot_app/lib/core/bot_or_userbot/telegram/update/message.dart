@@ -71,7 +71,6 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 <!-- END LICENSE --> */
 import 'dart:async';
 
-
 import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_chat_telegram_edge_user_and_bot.dart';
 import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
@@ -115,7 +114,6 @@ extension EdgeUserAndBotAppClientFlutterExtensionTelegramUpdate on EdgeUserAndBo
       return null;
     }
     if (RegExp(r"^(/ping)$", caseSensitive: false).hasMatch(msg_text)) {
-       
       return await generalBotClientTelegramLibrary.request(
         parameters: {
           "@type": "sendMessage",
@@ -125,7 +123,8 @@ Pong From Edge User And Bot Application
 
 OS: ${Dart.operatingSystem} 
 Version: ${Dart.operatingSystemVersion}
-""".trim(),
+"""
+              .trim(),
         },
         generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
       );
@@ -144,12 +143,23 @@ Version: ${Dart.operatingSystemVersion}
       telegramChatId: user_id,
     );
 
-    if (telegramMeConfigurationData.is_initial_respond == false) {
+    if (telegramMeConfigurationData.is_initial_respond == true) {
       final String initialRespondText = (telegramMeConfigurationData.initial_respond_text ?? "").trim();
       if (initialRespondText.isNotEmpty) {
         /// check apakah tidak sama dengan respond unique id
         ///
         if (telegramChatUserData.dynamic_initial_respond_unique_id != telegramMeConfigurationData.initial_respond_unique_id) {
+          /// atur dahulu dynamic_initial_respond_unique_id
+          /// samakan dengan pengaturan
+          telegramChatUserData.dynamic_initial_respond_unique_id = telegramMeConfigurationData.initial_respond_unique_id;
+
+          /// simpan
+          /// hal ini di karenakan initial respond maka di kirim pertama kali /
+          /// ketika respond initial di perbarui
+          edgeUserAndBotAppDatabase.saveBotEdgeChatTelegramEdgeUserAndBot(
+            telegramChatId: user_id,
+            newBotEdgeChatTelegramEdgeUserAndBot: telegramChatUserData,
+          );
           // jika tidak sama kirim ya slebew
           await generalBotClientTelegramLibrary.request(
             parameters: {
@@ -162,18 +172,6 @@ Version: ${Dart.operatingSystemVersion}
               is_invoke_throw_on_error: false,
             ),
             generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
-          );
-
-          /// atur dahulu dynamic_initial_respond_unique_id
-          /// samakan dengan pengaturan
-          telegramChatUserData["dynamic_initial_respond_unique_id"] = telegramMeConfigurationData["initial_respond_unique_id"];
-
-          /// simpan
-          /// hal ini di karenakan initial respond maka di kirim pertama kali /
-          /// ketika respond initial di perbarui
-          edgeUserAndBotAppDatabase.saveBotEdgeChatTelegramEdgeUserAndBot(
-            telegramChatId: user_id,
-            newBotEdgeChatTelegramEdgeUserAndBot: telegramChatUserData,
           );
         }
       }
@@ -215,6 +213,18 @@ Version: ${Dart.operatingSystemVersion}
           return EdgeUserAndBotAppClientFlutter.minimumAfkDurationRespond;
         }();
 
+        /// atur dahulu dynamic_initial_respond_unique_id
+        /// samakan dengan pengaturan
+        telegramChatUserData.dynamic_afk_respond_expire_date = dateTimeNow.add(afkRespondDuration).millisecondsSinceEpoch;
+
+        /// simpan
+        /// hal ini di karenakan initial respond maka di kirim pertama kali /
+        /// ketika respond initial di perbarui
+        edgeUserAndBotAppDatabase.saveBotEdgeChatTelegramEdgeUserAndBot(
+          telegramChatId: user_id,
+          newBotEdgeChatTelegramEdgeUserAndBot: telegramChatUserData,
+        );
+
         await generalBotClientTelegramLibrary.request(
           parameters: {
             "@type": "sendMessage",
@@ -231,19 +241,6 @@ ${afkRespondText}
             is_invoke_throw_on_error: false,
           ),
           generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
-        );
-        
-
-        /// atur dahulu dynamic_initial_respond_unique_id
-        /// samakan dengan pengaturan
-        telegramChatUserData.dynamic_afk_respond_expire_date = dateTimeNow.add(afkRespondDuration).millisecondsSinceEpoch;
-
-        /// simpan
-        /// hal ini di karenakan initial respond maka di kirim pertama kali /
-        /// ketika respond initial di perbarui
-        edgeUserAndBotAppDatabase.saveBotEdgeChatTelegramEdgeUserAndBot(
-          telegramChatId: user_id,
-          newBotEdgeChatTelegramEdgeUserAndBot: telegramChatUserData,
         );
         return null;
       }
