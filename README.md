@@ -1,6 +1,6 @@
 # General Bot Library
  
-**General Bot Library** Is library Machine Learning
+**General Bot Library** All In One Client Bot Or Userbot Or Normally Account Anything Platforms Telegram,Discord,Google,Twitter / X etc
 
 [![](https://raw.githubusercontent.com/globalcorporation/.github/main/.github/logo/powered.png)](https://www.youtube.com/@Global_Corporation)
 
@@ -36,13 +36,13 @@
 1. **Dart**
 
 ```bash
-dart pub add 'general_bot_library:{"hosted":"https://package-repository-general-developer.vercel.app/package/repository/dart"}'
+dart pub add 'general_bot_library:{"hosted":"https://package-repository-general-developer.vercel.app"}'
 ```
 
 2. **Flutter**
 
 ```bash
-dart pub add 'general_bot_library_flutter:{"hosted":"https://package-repository-general-developer.vercel.app/package/repository/dart"}'
+dart pub add 'general_bot_library_flutter:{"hosted":"https://package-repository-general-developer.vercel.app"}'
 ```
 
 ## 🚀️ Quick Start
