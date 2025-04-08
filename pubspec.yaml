@@ -31,9 +31,9 @@ dependencies:
   yaml: '^3.1.3'
 dev_dependencies:
   lints: '^5.0.0'
-  test: 'any' 
+  test: 'any'
 project:
-  type: 'library'
+  type: 'open_source_library'
   is_use_direct_package: false
   is_private: false
   developers:

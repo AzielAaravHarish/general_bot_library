@@ -32,3 +32,6 @@ secret-*
 .idea
 fork/
 dlotk3ti4kyik2o3tksjinfs
+database_universe_scheme/
+dart_json_scheme/
+pubspec_overrides.yaml
