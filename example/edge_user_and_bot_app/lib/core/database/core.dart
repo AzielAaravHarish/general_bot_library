@@ -69,6 +69,11 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 <!-- END LICENSE --> */
 import 'dart:async';
 
+import 'package:database_universe/database_universe.dart';
+import 'package:edge_user_and_bot_app/database_universe_scheme/bot_edge_chat_telegram_edge_user_and_bot_local_database.dart';
+import 'package:edge_user_and_bot_app/database_universe_scheme/bot_edge_client_telegram_edge_user_and_bot_local_database.dart';
+import 'package:edge_user_and_bot_app/database_universe_scheme/bot_edge_client_whatsapp_edge_user_and_bot_local_database.dart';
+import 'package:edge_user_and_bot_app/database_universe_scheme/bot_edge_platform_configuration_edge_user_and_bot_local_database.dart';
 import 'package:general_universe/dart_universe/io_universe/io_universe.dart';
 import "package:path/path.dart" as path;
 
@@ -77,7 +82,18 @@ import "package:path/path.dart" as path;
 class EdgeUserAndBotAppDatabase {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
+  late final DatabaseUniverse databaseCore;
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   EdgeUserAndBotAppDatabase();
+
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  static final List<DatabaseUniverseGeneratedSchema> databaseUniverseSchemes = [
+    BotEdgeClientTelegramEdgeUserAndBotLocalDatabaseSchema,
+    BotEdgeClientWhatsappEdgeUserAndBotLocalDatabaseSchema,
+    BotEdgeChatTelegramEdgeUserAndBotLocalDatabaseSchema,
+    BotEdgePlatformConfigurationEdgeUserAndBotLocalDatabaseSchema,
+  ];
+
   String _currentPath = "";
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
@@ -122,7 +138,7 @@ class EdgeUserAndBotAppDatabase {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
-  void directoryEnsureInitialized() {
+  void ensureInitializedDatabase() {
     {
       directoryDatabase;
       directoryTemp;
@@ -143,7 +159,46 @@ class EdgeUserAndBotAppDatabase {
       return;
     }
     _currentPath = currentPath;
+    ensureInitializedDatabase();
+    {
+      databaseCore = await openDatabaseUniverse(
+        name: "edge_user_and_bot_app_core",
+        maxSizeMiB: null,
+      );
+    }
     _isEnsureInitialized = false;
     return;
+  }
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  Future<DatabaseUniverse> openDatabaseUniverse({
+    required String name,
+    required int? maxSizeMiB,
+  }) async {
+    int try_count = 0;
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 1));
+      try_count++;
+      try {
+        return DatabaseUniverse.open(
+          schemas: EdgeUserAndBotAppDatabase.databaseUniverseSchemes,
+          directory: directoryDatabase.path,
+          name: name,
+          maxSizeMiB: maxSizeMiB ?? DatabaseUniverse.defaultMaxSizeMiB * 100,
+        );
+      } catch (e) {
+        if (try_count > 2) {
+          rethrow;
+        }
+        for (var element in [
+          File(path.join(directoryDatabase.path, "${name}.isar")),
+          File(path.join(directoryDatabase.path, "${name}.isar.lock")),
+        ]) {
+          if (element.existsSync()) {
+            element.deleteSync(recursive: true);
+          }
+        }
+      }
+    }
   }
 }

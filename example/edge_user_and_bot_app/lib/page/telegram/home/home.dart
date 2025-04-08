@@ -69,12 +69,18 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 <!-- END LICENSE --> */
 import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/controller.dart';
-import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
+import 'package:edge_user_and_bot_app/page/telegram/telegram.dart';
 import 'package:flutter/material.dart';
+import 'package:general_bot_library/general_bot_library_project.dart';
+import 'package:general_universe/general_universe.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 
+import "package:general_bot_library/core/platform/telegram/client/tdlib/scheme/scheme.dart" as tdlib_scheme;
+
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class TelegramHomePage extends StatefulWidget {
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const TelegramHomePage({super.key});
 
   @override
@@ -82,6 +88,7 @@ class TelegramHomePage extends StatefulWidget {
 }
 
 class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlutterStatefulWidget {
+  Map borOrUserbotDetail = {};
   @override
   void initState() {
     super.initState();
@@ -100,24 +107,105 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
     setState(() {
       isLoading = true;
     });
-    setState(() {
-      isLoading = false;
+    bool isCanSetState = await Future(() async {
+      return await telegramRefreshAsync();
     });
+    if (isCanSetState) {
+      setState(() {
+        isLoading = false;
+      });
+    }
     return;
+  }
+
+  Future<bool> telegramRefreshAsync() async {
+    final GeneralBotClientTelegramLibraryData generalBotClientTelegramLibraryData = GeneralBotClientTelegramLibraryData.tdlib(
+      tdlib_client_id: generalBotClientTelegramLibrary.tdlib_first_client_id,
+    );
+    if (generalBotClientTelegramLibraryData.tdlib_client_id == 0) {
+      generalBotClientTelegramLibraryData.tdlib_client_id = generalBotClientTelegramLibrary.tdlib_td_create_client_id();
+      await generalBotClientTelegramLibrary.tdlib_createclient(
+        generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+      );
+    }
+     while (true) {
+      final response = await generalBotClientTelegramLibrary.invoke(
+        parameters: tdlib_scheme.GetAuthorizationState.defaultData,
+        invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+          is_invoke_throw_on_error: false,
+          invoke_time_out: Duration(minutes: 1).inSeconds,
+        ),
+        generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+      );
+      if (response.telegram_client_is_error_time_out_limit) {
+        context.showSnackBar("Koneksi Timeout pastikan internet anda cepat ya!");
+        continue;
+      }
+      if (response["@type"] == tdlib_scheme.AuthorizationStateReady.defaultDataSpecialType) {
+        break;
+      }
+      context.showSnackBar("Oops silahkan login dahulu ya");
+      context.navigator().pushReplacement(MaterialPageRoute(
+        builder: (context) {
+          return TelegramSignPage();
+        },
+      ));
+      // hentikan proses
+      return false;
+    }
+    while (true) {
+      final Map getMeRaw = await generalBotClientTelegramLibrary.request(
+        parameters: {
+          "@type": "getMe",
+        },
+        invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+          is_invoke_throw_on_error: false,
+          invoke_time_out: Duration(minutes: 1).inSeconds,
+        ),
+        generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+      );
+      if (getMeRaw.telegram_client_is_error_time_out_limit) {
+        context.showSnackBar("Koneksi Timeout pastikan internet anda cepat ya!");
+        continue;
+      }
+      final Map getMe = getMeRaw["result"];
+      borOrUserbotDetail = borOrUserbotDetail = getMe.filterByKeys(keys: [
+        "id",
+        "first_name",
+        "last_name",
+        "title",
+        "username",
+        "is_bot",
+        "type",
+      ]);
+
+      return true;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: SkeletonizerGeneralFramework(
-          enabled: isLoading,
-          child: Text(
-            "Telegram Home Page",
-            style: context.theme.textTheme.titleLarge,
-          ),
-        ),
+      appBar: AppBarGeneralFrameworkWidget.create(
+        leadingBuilder: (context, child) {
+          if (isCanPop == false) {
+            return SizedBox.shrink();
+          }
+          return child;
+        },
+        context: context,
+        title: "Telegram Home Page",
+        pageState: this,
+        isShowApplicationIconAndtitle: false,
+        isApplicationFullScreen: true,
+        applicationTitle: "",
+        applicationIcon: "",
+        generalLibFlutterApp: EdgeUserAndBotAppClientFlutter.generalLibFlutterApp,
+        actions: (context, pageState) sync* {},
+        builder: (context, pageState) sync* {},
+        appBarBuilder: (context, appBar) {
+          return appBar;
+        },
       ),
       body: RefreshIndicator(
         onRefresh: refresh,
@@ -136,15 +224,28 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
                 edgeUserAndBotAppClientFlutter.developerWidget(
                   pageState: this,
                 ),
+                edgeUserAndBotAppClientFlutter.borOrUserbotDetailWidget(
+                  pageState: this,
+                  borOrUserbotDetail: borOrUserbotDetail,
+                ),
                 edgeUserAndBotAppClientFlutter.botPlatformConfigurationWidget(
-                    context: context,
-                    pageState: this,
-                    botPlatformConfigurationController: BotPlatformConfigurationController(
-                      getBotEdgePlatformConfigurationEdgeUserAndBot: () {
-                        return botEdgePlatformConfigurationEdgeUserAndBot;
-                      },
-                      saveBotEdgePlatformConfigurationEdgeUserAndBot: () {},
-                    )),
+                  context: context,
+                  pageState: this,
+                  botPlatformConfigurationController: BotPlatformConfigurationController(
+                    generalBotPlatformType: GeneralBotPlatformType.telegram,
+                    getBotEdgePlatformConfigurationEdgeUserAndBot: () {
+                      return edgeUserAndBotAppClientFlutter.edgeUserAndBotAppDatabase.getBotEdgePlatformConfigurationEdgeUserAndBot(
+                        generalBotPlatformType: GeneralBotPlatformType.telegram,
+                      );
+                    },
+                    saveBotEdgePlatformConfigurationEdgeUserAndBot: (newBotEdgePlatformConfigurationEdgeUserAndBot) {
+                      edgeUserAndBotAppClientFlutter.edgeUserAndBotAppDatabase.saveBotEdgePlatformConfigurationEdgeUserAndBot(
+                        generalBotPlatformType: GeneralBotPlatformType.telegram,
+                        newBotEdgePlatformConfigurationEdgeUserAndBot: newBotEdgePlatformConfigurationEdgeUserAndBot,
+                      );
+                    },
+                  ),
+                ),
                 SizedBox(
                   height: context.mediaQueryData.padding.bottom,
                 ),
@@ -156,5 +257,3 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
     );
   }
 }
-
-BotEdgePlatformConfigurationEdgeUserAndBot botEdgePlatformConfigurationEdgeUserAndBot = BotEdgePlatformConfigurationEdgeUserAndBot.create();

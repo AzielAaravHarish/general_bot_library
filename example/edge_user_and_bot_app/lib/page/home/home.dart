@@ -73,7 +73,9 @@ import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class HomePage extends StatefulWidget {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const HomePage({super.key});
 
   @override
@@ -108,15 +110,26 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: SkeletonizerGeneralFramework(
-          enabled: isLoading,
-          child: Text(
-            "Edge User And Bot App",
-            style: context.theme.textTheme.titleLarge,
-          ),
-        ),
+      appBar: AppBarGeneralFrameworkWidget.create(
+        leadingBuilder: (context, child) {
+          if (isCanPop == false) {
+            return SizedBox.shrink();
+          }
+          return child;
+        },
+        context: context,
+        title: "Edge User And Bot App",
+        pageState: this,
+        isShowApplicationIconAndtitle: false,
+        isApplicationFullScreen: true,
+        applicationTitle: "",
+        applicationIcon: "",
+        generalLibFlutterApp: EdgeUserAndBotAppClientFlutter.generalLibFlutterApp,
+        actions: (context, pageState) sync* {},
+        builder: (context, pageState) sync* {},
+        appBarBuilder: (context, appBar) {
+          return appBar;
+        },
       ),
       body: RefreshIndicator(
         onRefresh: refresh,
@@ -211,8 +224,10 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
             context.showAlertGeneralFramework(
               alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
                 title: "Error",
+                isShowCancelButton: false,
+                isShowCloseButton: false,
                 builder: (context, alertGeneralFrameworkOptions) {
-                  return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
+                  return "Maaf dikarenakan open source, dan maka ${title} tidak tersedia!, jika butuh bantuan / informasi bisa chat developer ya!";
                 },
               ),
             );

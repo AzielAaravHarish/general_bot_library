@@ -407,6 +407,9 @@ List<String> commands = {
 | ☠️                                                   | 📅                                                                        | 👷 | 😄 |
 |-----------------------------------------------------|---------------------------------------------------------------------------|----|----|
 | ![](/assets/example/edge_user_and_bot_app/home.png) | ![](/assets/example/edge_user_and_bot_app/bot_platform_configuration.png) |    |    |
+
+
+
 <!-- START GLOBAL CORPORATION -->
 <h3 align="center">
   Global Corporation

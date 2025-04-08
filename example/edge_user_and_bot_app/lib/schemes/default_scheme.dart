@@ -124,6 +124,12 @@ class EdgeUserAndBotDefaultScheme {
 
   static Map<String, dynamic> _botEdgePlatformConfigurationMapData() {
     final Map<String, dynamic> jsonData = {
+      /// implement start
+      /// start:
+      "command_start_respond_text": "",
+
+      /// end:
+
       /// implement afk
       /// start:
       "is_afk": true,
@@ -133,6 +139,7 @@ class EdgeUserAndBotDefaultScheme {
       "dynamic_afk_respond_expire_date": 0,
 
       /// end:
+      ///
       ///
       /// implement initial respond
       /// start:
@@ -192,6 +199,7 @@ class EdgeUserAndBotDefaultScheme {
     return jsonData;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final List<Map<String, dynamic>> schemes = () {
     final GeneralUniverseSchemeType generalUniverseSchemeType = GeneralUniverseSchemeType.scheme;
 
@@ -202,6 +210,7 @@ class EdgeUserAndBotDefaultScheme {
     ];
   }();
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final List<Map<String, dynamic>> database_schemes = () {
     final List<GeneralUniverseSchemeType> generalUniverseSchemeTypes = [
       GeneralUniverseSchemeType.local,
@@ -226,6 +235,7 @@ class EdgeUserAndBotDefaultScheme {
     ];
   }();
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final List<Map<String, dynamic>> respond_schemes = () {
     final GeneralUniverseSchemeType generalUniverseSchemeType = GeneralUniverseSchemeType.scheme;
 

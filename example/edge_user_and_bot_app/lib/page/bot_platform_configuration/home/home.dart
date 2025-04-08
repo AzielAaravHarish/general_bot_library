@@ -73,13 +73,15 @@ import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/controller.dart';
 import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
-import 'package:general_universe/extension/extension.dart';
+
 import 'package:general_universe/general_universe.dart';
 import 'package:general_universe_flutter/extension/date_time.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class BotPlatformConfigurationHomePage extends BotPlatformConfigurationControllerStatefulWidget {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const BotPlatformConfigurationHomePage({
     super.key,
     required super.botPlatformConfigurationController,
@@ -118,15 +120,26 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
   Widget build(BuildContext context) {
     final BotEdgePlatformConfigurationEdgeUserAndBot botEdgePlatformConfigurationEdgeUserAndBot = widget.botPlatformConfigurationController.getBotEdgePlatformConfigurationEdgeUserAndBot();
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: SkeletonizerGeneralFramework(
-          enabled: isLoading,
-          child: Text(
-            "Bot Platform Configuration",
-            style: context.theme.textTheme.titleLarge,
-          ),
-        ),
+      appBar: AppBarGeneralFrameworkWidget.create(
+        leadingBuilder: (context, child) {
+          if (isCanPop == false) {
+            return SizedBox.shrink();
+          }
+          return child;
+        },
+        context: context,
+        title: "Edge User And Bot App",
+        pageState: this,
+        isShowApplicationIconAndtitle: false,
+        isApplicationFullScreen: true,
+        applicationTitle: "",
+        applicationIcon: "",
+        generalLibFlutterApp: EdgeUserAndBotAppClientFlutter.generalLibFlutterApp,
+        actions: (context, pageState) sync* {},
+        builder: (context, pageState) sync* {},
+        appBarBuilder: (context, appBar) {
+          return appBar;
+        },
       ),
       body: RefreshIndicator(
         onRefresh: refresh,
@@ -156,7 +169,7 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
                     return [
                       MenuContainerGeneralFrameworkWidget.title(
                         context: context,
-                        title: "Information",
+                        title: "${widget.botPlatformConfigurationController.generalBotPlatformType.name.toUpperCaseFirstData()}",
                       ),
                       MenuContainerGeneralFrameworkWidget.lisTile(
                         context: context,
@@ -170,7 +183,7 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
                               onFunction: (context, statefulWidget) {
                                 setState(() {
                                   botEdgePlatformConfigurationEdgeUserAndBot.is_afk = value;
-                                  widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                                  widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
                                 });
                               },
                             );
@@ -190,11 +203,11 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
                             onFunction: (context, statefulWidget) {
                               showTextFormWidget(
                                 context: context,
-                                title: "Initial Respond Text",
+                                title: "Afk Respond Text",
                                 onResult: (text) {
                                   setState(() {
                                     botEdgePlatformConfigurationEdgeUserAndBot.afk_respond_text = text;
-                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
                                   });
                                 },
                               );
@@ -228,7 +241,7 @@ Afk dari tanggal
                                 return;
                               }
                               botEdgePlatformConfigurationEdgeUserAndBot.afk_from_date = day.millisecondsSinceEpoch;
-                              widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                              widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
 
                               setState(() {});
                             },
@@ -266,21 +279,46 @@ Setelah reset pesan akan kekirim lagi
                                 hours: timeOfDay.hour,
                                 minutes: timeOfDay.minute,
                               );
-                              if (duration < Duration(minutes: 5)) {
+                              if (duration < EdgeUserAndBotAppClientFlutter.minimumAfkDurationRespond) {
                                 context.showAlertGeneralFramework(
                                   alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
                                     title: "Error",
                                     builder: (context, alertGeneralFrameworkOptions) {
-                                      return "Timer Minimal 5 Menit ";
+                                      return "Timer Minimal ${EdgeUserAndBotAppClientFlutter.minimumAfkDurationRespond.inSeconds} Detik ";
                                     },
                                   ),
                                 );
                                 return;
                               }
                               botEdgePlatformConfigurationEdgeUserAndBot.afk_respond_duration_expire = duration.inSeconds;
-                              widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                              widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
 
                               setState(() {});
+                            },
+                          );
+                        },
+                      ),
+                      Divider(
+                        thickness: context.theme.dividerTheme.thickness,
+                      ),
+                      MenuContainerGeneralFrameworkWidget.lisTile(
+                        context: context,
+                        contentPadding: EdgeInsets.all(5),
+                        title: "Command Start Respond Text",
+                        subtitle: "${(botEdgePlatformConfigurationEdgeUserAndBot.command_start_respond_text ?? "")}".trim(),
+                        onTap: () {
+                          handleFunction(
+                            onFunction: (context, statefulWidget) {
+                              showTextFormWidget(
+                                context: context,
+                                title: "Command Start Respond Text",
+                                onResult: (text) {
+                                  setState(() {
+                                    botEdgePlatformConfigurationEdgeUserAndBot.command_start_respond_text = text;
+                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
+                                  });
+                                },
+                              );
                             },
                           );
                         },
@@ -300,7 +338,7 @@ Setelah reset pesan akan kekirim lagi
                               onFunction: (context, statefulWidget) {
                                 setState(() {
                                   botEdgePlatformConfigurationEdgeUserAndBot.is_initial_respond = value;
-                                  widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                                  widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
                                 });
                               },
                             );
@@ -325,7 +363,7 @@ Setelah reset pesan akan kekirim lagi
                                   setState(() {
                                     botEdgePlatformConfigurationEdgeUserAndBot.initial_respond_text = text;
                                     botEdgePlatformConfigurationEdgeUserAndBot.initial_respond_unique_id = generateUuid(10);
-                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
                                   });
                                 },
                               );

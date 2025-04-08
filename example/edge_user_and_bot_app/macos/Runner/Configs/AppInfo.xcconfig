@@ -8,7 +8,7 @@
 PRODUCT_NAME = edge_user_and_bot_app
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.edgeUserAndBotApp
+PRODUCT_BUNDLE_IDENTIFIER = generaldeveloper.generalbotlibrary.edgeUserAndBotApp
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2025 com.example. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2025 general_developer.general_bot_library. All rights reserved.

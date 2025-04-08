@@ -79,7 +79,9 @@ import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/contr
 import 'package:edge_user_and_bot_app/page/home/home.dart';
 import 'package:edge_user_and_bot_app/dart_json_scheme/scheme/bot_edge_user_and_bot_app_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:general_universe/general_universe.dart';
+import 'package:general_universe/hide/hide.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 import 'package:general_universe_flutter/fork/general_system_device/flutter/flutter.dart';
@@ -113,6 +115,9 @@ class EdgeUserAndBotAppClientFlutter {
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   EdgeUserAndBotAppClientFlutter();
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  static Duration minimumAfkDurationRespond = Duration(minutes: 5);
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
@@ -235,10 +240,23 @@ class EdgeUserAndBotAppClientFlutter {
     if (update == null) {
       return null;
     }
-    update.printPretty();
-
+    if (update["@type"] == "updateAuthorizationState") {
+      if (update["authorization_state"] is Map) {
+        if (update["authorization_state"]["@type"] == "authorizationStateClosed") {
+          await generalBotClientTelegramLibrary.tdlib_exitClientById(
+            generalBotClientTelegramLibraryData: GeneralBotClientTelegramLibraryData.tdlib(
+              tdlib_client_id: update["@client_id"],
+            ),
+            isClose: true,
+            isInvokeThrowOnError: false,
+          );
+        }
+      }
+    }
     if (update["message"] is Map) {
       await telegramUpdateMessage(
+        generalBotClientTelegramLibrary: generalBotClientTelegramLibrary,
+        generalBotPlatformTelegramUpdate: generalBotPlatformTelegramUpdate,
         update: update["message"],
       );
     }
@@ -246,6 +264,7 @@ class EdgeUserAndBotAppClientFlutter {
     return;
   }
 
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Widget developerWidget({
     required GeneralLibFlutterStatefulWidget pageState,
   }) {
@@ -283,7 +302,7 @@ class EdgeUserAndBotAppClientFlutter {
           MenuContainerGeneralFrameworkWidget.lisTile(
             context: context,
             contentPadding: EdgeInsets.all(5),
-            title: "Maintaners",
+            title: "Developers",
             subtitle: """
 - Azkadev
 - AzielAaravHarish
@@ -295,6 +314,22 @@ class EdgeUserAndBotAppClientFlutter {
                 onFunction: (context, statefulWidget) async {
                   await launchUrlString(
                     "https://github.com/orgs/General-Developer/people",
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              );
+            },
+          ),
+          MenuContainerGeneralFrameworkWidget.lisTile(
+            context: context,
+            contentPadding: EdgeInsets.all(5),
+            title: "Azkadev",
+            subtitle: "Original Idea General Bot Library & Example",
+            onTap: () {
+              pageState.handleFunction(
+                onFunction: (context, statefulWidget) async {
+                  await launchUrlString(
+                    "https://github.com/azkadev",
                     mode: LaunchMode.externalApplication,
                   );
                 },
@@ -322,6 +357,67 @@ class EdgeUserAndBotAppClientFlutter {
     );
   }
 
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  Widget borOrUserbotDetailWidget({
+    required GeneralLibFlutterStatefulWidget pageState,
+    required Map borOrUserbotDetail,
+  }) {
+    return MenuContainerResponsiveGeneralFrameworkWidget(
+      isLoading: pageState.isLoading,
+      decorationBuilder: (context, decoration) {
+        return decoration.copyWith(
+          borderRadius: BorderRadius.circular(15),
+        );
+      },
+      titleBuilder: (context) {
+        return MenuContainerGeneralFrameworkWidget.title(
+          context: context,
+          title: "Bot Or Userbot Information",
+        );
+      },
+      menuBuilder: (context) {
+        return [
+          for (final element in borOrUserbotDetail.entries) ...[
+            if ((element.value is String && (element.value as String).isEmpty) == false) ...[
+              () {
+                final String key = "${element.key}";
+                final String value = "${element.value}";
+
+                return MenuContainerGeneralFrameworkWidget.lisTile(
+                  context: context,
+                  contentPadding: EdgeInsets.all(5),
+                  title: "${key}".split("_").map((e) => e.toUpperCaseFirstData()).join(" "),
+                  trailing: Text(
+                    () {
+                      if (key == "id" || key == "username") {
+                        return "${Hide().obfocustData(
+                          mystring: value,
+                          start: 2,
+                          end: 3,
+                        )}";
+                      }
+                      return value;
+                    }(),
+                    style: context.theme.textTheme.bodySmall,
+                  ),
+                  onTap: () {
+                    pageState.handleFunction(
+                      onFunction: (context, statefulWidget) async {
+                        await Clipboard.setData(ClipboardData(text: "${value}"));
+                        context.showSnackBar("Copied");
+                      },
+                    );
+                  },
+                );
+              }(),
+            ],
+          ],
+        ];
+      },
+    );
+  }
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Widget botPlatformConfigurationWidget({
     required BuildContext context,
     required GeneralLibFlutterStatefulWidget pageState,

@@ -67,11 +67,22 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 
 
 <!-- END LICENSE --> */
+import 'dart:async';
+
+import 'package:edge_user_and_bot_app/core/bot_or_userbot/bot_or_userbot.dart';
+import 'package:edge_user_and_bot_app/core/client/core.dart';
+import 'package:edge_user_and_bot_app/page/telegram/home/home.dart';
 import 'package:flutter/material.dart';
+import 'package:general_bot_library/general_bot_library_project.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
+import "package:general_bot_library/core/platform/telegram/client/tdlib/scheme/scheme.dart" as tdlib_scheme;
+import 'package:general_universe_flutter/flutter/loading/loading_controller.dart';
+import 'package:general_universe_flutter/flutter/loading/loading_core.dart';
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class TelegramSignPage extends StatefulWidget {
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const TelegramSignPage({super.key});
 
   @override
@@ -79,6 +90,13 @@ class TelegramSignPage extends StatefulWidget {
 }
 
 class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlutterStatefulWidget {
+  GeneralBotClientTelegramLibraryData generalBotClientTelegramLibraryData = GeneralBotClientTelegramLibraryData.tdlib(
+    tdlib_client_id: 0,
+  );
+  final TextEditingController telegramPhoneNumberOrTokenBotTextEditingController = TextEditingController();
+  final TextEditingController telegramCodeTextEditingController = TextEditingController();
+  final TextEditingController telegramPasswordTextEditingController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -86,6 +104,24 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
       ensureInitialized();
       refresh();
     });
+  }
+
+  @override
+  void dispose() {
+    telegramPhoneNumberOrTokenBotTextEditingController.dispose();
+    telegramCodeTextEditingController.dispose();
+    telegramPasswordTextEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void ensureInitialized() {
+    // TODO: implement ensureInitialized
+    super.ensureInitialized();
+
+    generalBotClientTelegramLibraryData = GeneralBotClientTelegramLibraryData.tdlib(
+      tdlib_client_id: generalBotClientTelegramLibrary.tdlib_first_client_id,
+    );
   }
 
   @override
@@ -97,74 +133,193 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
     setState(() {
       isLoading = true;
     });
-    setState(() {
-      isLoading = false;
+
+    final Map? result = await Future(() async {
+      return await updateState();
     });
+    // check apakh kosong jika tidak
+    // setState
+    //
+    if (result != null) {
+      setState(() {
+        isLoading = false;
+      });
+    }
     return;
+  }
+
+  Map authorizationState = {};
+
+  Future<Map?> updateState() async {
+    while (true) {
+      final response = await generalBotClientTelegramLibrary.invoke(
+        parameters: tdlib_scheme.GetAuthorizationState.defaultData,
+        invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+          is_invoke_throw_on_error: false,
+          invoke_time_out: Duration(minutes: 5).inSeconds,
+        ),
+        generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+      );
+      if (response.telegram_client_is_error_time_out_limit) {
+        context.showSnackBar("Koneksi Timeout pastikan internet anda cepat ya!");
+        continue;
+      }
+      if (response["@type"] == "error") {
+        generalBotClientTelegramLibraryData.tdlib_client_id = generalBotClientTelegramLibrary.tdlib_td_create_client_id();
+        await generalBotClientTelegramLibrary.tdlib_createclient(
+          generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+        );
+        continue;
+      }
+
+      authorizationState = response;
+      if (response["@type"] == tdlib_scheme.AuthorizationStateReady.defaultDataSpecialType) {
+        context.showSnackBar("Berhasil Login");
+
+        context.navigator().pushReplacement(MaterialPageRoute(
+          builder: (context) {
+            return TelegramHomePage();
+          },
+        ));
+        return null;
+      }
+      // hentikan proses
+      return response;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: SkeletonizerGeneralFramework(
-          enabled: isLoading,
-          child: Text(
-            "Telegram Home Page",
-            style: context.theme.textTheme.titleLarge,
-          ),
-        ),
+     return Scaffold(
+      appBar: AppBarGeneralFrameworkWidget.create(
+        key: appBarGlobalKey,
+        leadingBuilder: (context, child) {
+          if (isCanPop == false) {
+            return SizedBox.shrink();
+          }
+          return child;
+        },
+        context: context,
+        title: "Sign Page",
+        pageState: this,
+        isShowApplicationIconAndtitle: false,
+        isApplicationFullScreen: true,
+        applicationTitle: "",
+        applicationIcon: "",
+        generalLibFlutterApp: EdgeUserAndBotAppClientFlutter.generalLibFlutterApp,
+        actions: (context, pageState) sync* {
+          yield SkeletonizerGeneralFramework(
+            enabled: isLoading,
+            child: IconButton(
+              onPressed: refresh,
+              icon: Icon(
+                Icons.refresh,
+              ),
+            ),
+          );
+        },
+        builder: (context, pageState) sync* {},
+        appBarBuilder: (context, appBar) {
+          return appBar;
+        },
       ),
       body: RefreshIndicator(
         onRefresh: refresh,
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics(),
+          ),
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              minHeight: context.height,
+              minHeight: context.height - appBarGlobalKey.sizeRenderBox().height,
               minWidth: context.width,
             ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: context.mediaQueryData.padding.top,
-                ),
-                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
-                  width: context.width,
-                  margin: EdgeInsets.all(10),
-                  borderRadius: BorderRadius.circular(15),
-                  text: "Telegram",
-                  isLoading: isLoading,
-                  onPressed: () {
-                    handleFunction(
-                      onFunction: (context, statefulWidget) {},
-                    );
-                  },
-                ),
-                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
-                  width: context.width,
-                  margin: EdgeInsets.all(10),
-                  borderRadius: BorderRadius.circular(15),
-                  text: "Whatsapp",
-                  isLoading: isLoading,
-                  onPressed: () {
-                    handleFunction(
-                      onFunction: (context, statefulWidget) {
-                        context.showAlertGeneralFramework(
-                          alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
-                            title: "Error",
-                            builder: (context, alertGeneralFrameworkOptions) {
-                              return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
-                            },
+                if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateWaitPhoneNumber.defaultDataSpecialType) ...[
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: TextFormFieldGeneralFrameworkWidget(
+                      controller: telegramPhoneNumberOrTokenBotTextEditingController,
+                      inputDecorationBuilder: (context, inputDecoration) {
+                        return inputDecoration.copyWith(
+                          enabled: !isLoading,
+                          prefixIcon: Icon(
+                            Icons.phone,
                           ),
                         );
                       },
-                    );
-                  },
-                ),
-                SizedBox(
-                  height: context.mediaQueryData.padding.bottom,
+                      labelText: "Telegram Phone Number / Token Bot",
+                      hintText: "628xxxxxx or 12415789:Aadmk2mk3gmkkeg",
+                      obscureText: true,
+                      onChanged: (value) {
+                        setState(() {});
+                      },
+                    ),
+                  ),
+                ] else if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateWaitCode.defaultDataSpecialType) ...[
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: TextFormFieldGeneralFrameworkWidget(
+                      controller: telegramCodeTextEditingController,
+                      inputDecorationBuilder: (context, inputDecoration) {
+                        return inputDecoration.copyWith(
+                          enabled: !isLoading,
+                          prefixIcon: Icon(
+                            Icons.numbers,
+                          ),
+                        );
+                      },
+                      labelText: "Telegram Code",
+                      hintText: "",
+                      obscureText: false,
+                      onChanged: (value) {
+                        setState(() {});
+                      },
+                    ),
+                  ),
+                ] else if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateWaitPassword.defaultDataSpecialType) ...[
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: TextFormFieldGeneralFrameworkWidget(
+                      controller: telegramPasswordTextEditingController,
+                      inputDecorationBuilder: (context, inputDecoration) {
+                        return inputDecoration.copyWith(
+                          enabled: !isLoading,
+                          prefixIcon: Icon(
+                            Icons.password,
+                          ),
+                        );
+                      },
+                      labelText: "Telegram Password",
+                      hintText: "password",
+                      obscureText: true,
+                      onChanged: (value) {
+                        setState(() {});
+                      },
+                    ),
+                  ),
+                ] else ...[
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      """
+AuthorizationState ${authorizationState["@type"]} Tidak di implementasi secara public ${authorizationState["@type"]},
+jika kamu ingin kamu bisa membeli jasa ya
+"""
+                          .trim(),
+                      style: context.theme.textTheme.bodySmall,
+                    ),
+                  ),
+                ],
+                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
+                  width: context.width,
+                  margin: EdgeInsets.all(10),
+                  borderRadius: BorderRadius.circular(15),
+                  text: "Continue",
+                  isLoading: isLoading,
+                  onPressed: sendSignRequest,
                 ),
               ],
             ),
@@ -172,5 +327,190 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
         ),
       ),
     );
+  }
+
+  void showAlert({
+    required BuildContext context,
+    required String title,
+    required String message,
+  }) {
+    context.showAlertGeneralFramework(
+      alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
+        title: title.trim(),
+        isShowCancelButton: false,
+        isShowCloseButton: false,
+        builder: (context, alertGeneralFrameworkOptions) {
+          return message.trim();
+        },
+      ),
+    );
+  }
+
+  void sendSignRequest() async {
+    if (isLoading) {
+      return;
+    }
+    handleFunction(
+      onFunction: (context, statefulWidget) async {
+        return await sendSignRequestAsync(
+          context: context,
+          statefulWidget: statefulWidget,
+        );
+      },
+    );
+  }
+
+  Future<void> sendSignRequestAsync({
+    required BuildContext context,
+    required TelegramSignPage statefulWidget,
+  }) async {
+    final bool isImplemented = await Future(() async {
+      final LoadingGeneralFrameworkController loadingGeneralFrameworkController = LoadingGeneralFrameworkController(
+        loadingText: "Send Request",
+      );
+      LoadingGeneralFramework.show(
+        context: context,
+        loadingGeneralFrameworkController: loadingGeneralFrameworkController,
+      );
+      if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateWaitPhoneNumber.defaultDataSpecialType) {
+        final String telegramPhoneNumberOrTokenBot = telegramPhoneNumberOrTokenBotTextEditingController.text.trim();
+        if (telegramPhoneNumberOrTokenBot.isEmpty) {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Form Belum lengkap",
+            message: "Form Telegram Phone Or Token Bot perlu diisi ",
+          );
+
+          return true;
+        }
+        final bool isBot = telegramPhoneNumberOrTokenBot.contains(":");
+
+        final response = await generalBotClientTelegramLibrary.invoke(
+          parameters: () {
+            if (isBot == false) {
+              return tdlib_scheme.SetAuthenticationPhoneNumber.create(
+                phone_number: telegramPhoneNumberOrTokenBot,
+              ).toJson();
+            }
+            return tdlib_scheme.CheckAuthenticationBotToken.create(
+              token: telegramPhoneNumberOrTokenBot,
+            ).toJson();
+          }(),
+          invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+            is_void: false,
+            is_invoke_throw_on_error: false,
+          ),
+          generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+        );
+        telegramPhoneNumberOrTokenBotTextEditingController.clear();
+        if (response["@type"] != "ok") {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Error",
+            message: "Error ${response["message"]} ${response["description"]}",
+          );
+          return true;
+        }
+        context.navigator().pop();
+        await refresh();
+        return true;
+      }
+
+      if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateWaitCode.defaultDataSpecialType) {
+        final String telegramCodeText = telegramCodeTextEditingController.text.trim();
+        if (telegramCodeText.isEmpty) {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Form Belum lengkap",
+            message: "Form Telegram Code perlu diisi ",
+          );
+
+          return true;
+        }
+        final response = await generalBotClientTelegramLibrary.invoke(
+          parameters: tdlib_scheme.CheckAuthenticationCode.create(
+            code: telegramCodeText,
+          ).toJson(),
+          invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+            is_void: false,
+            is_invoke_throw_on_error: false,
+          ),
+          generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+        );
+
+        telegramCodeTextEditingController.clear();
+        if (response["@type"] != "ok") {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Error",
+            message: "Error ${response["message"]} ${response["description"]}",
+          );
+          return true;
+        }
+        context.navigator().pop();
+        await refresh();
+        return true;
+      }
+
+      if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateWaitPassword.defaultDataSpecialType) {
+        final String telegramPassword = telegramPasswordTextEditingController.text.trim();
+        if (telegramPassword.isEmpty) {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Form Belum lengkap",
+            message: "Form Telegram Password perlu diisi ",
+          );
+
+          return true;
+        }
+        final response = await generalBotClientTelegramLibrary.invoke(
+          parameters: tdlib_scheme.CheckAuthenticationPassword.create(
+            password: telegramPassword,
+          ).toJson(),
+          invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+            is_void: false,
+            is_invoke_throw_on_error: false,
+          ),
+          generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+        );
+        telegramPasswordTextEditingController.clear();
+        if (response["@type"] != "ok") {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Error",
+            message: "Error ${response["message"]} ${response["description"]}",
+          );
+          return true;
+        }
+        context.navigator().pop();
+        await refresh();
+        return true;
+      }
+      if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateReady.defaultDataSpecialType) {
+        context.navigator().pop();
+        await refresh();
+        return true;
+      }
+
+      context.navigator().pop();
+      return false;
+    });
+    if (isImplemented == false) {
+      showAlert(
+        context: context,
+        title: "Error",
+        message: """
+AuthorizationState ${authorizationState["@type"]} Tidak di implementasi secara public ${authorizationState["@type"]},
+jika kamu ingin kamu bisa membeli jasa ya
+""",
+      );
+    }
+    return;
   }
 }

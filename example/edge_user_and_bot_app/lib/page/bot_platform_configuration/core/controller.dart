@@ -69,34 +69,50 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 <!-- END LICENSE --> */
 import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
+import 'package:general_bot_library/general_bot_library_project.dart';
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class BotPlatformConfigurationController {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  final GeneralBotPlatformType generalBotPlatformType;
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final BotEdgePlatformConfigurationEdgeUserAndBot Function() getBotEdgePlatformConfigurationEdgeUserAndBot;
-  final void Function() saveBotEdgePlatformConfigurationEdgeUserAndBot;
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  final void Function(BotEdgePlatformConfigurationEdgeUserAndBot newBotEdgePlatformConfigurationEdgeUserAndBot) saveBotEdgePlatformConfigurationEdgeUserAndBot;
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const BotPlatformConfigurationController({
+    required this.generalBotPlatformType,
     required this.getBotEdgePlatformConfigurationEdgeUserAndBot,
     required this.saveBotEdgePlatformConfigurationEdgeUserAndBot,
   });
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   BotPlatformConfigurationController copyWith() {
     return BotPlatformConfigurationController(
+      generalBotPlatformType: generalBotPlatformType,
       getBotEdgePlatformConfigurationEdgeUserAndBot: getBotEdgePlatformConfigurationEdgeUserAndBot,
       saveBotEdgePlatformConfigurationEdgeUserAndBot: saveBotEdgePlatformConfigurationEdgeUserAndBot,
     );
   }
 }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 abstract class BotPlatformConfigurationControllerStatefulWidget extends StatefulWidget {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final BotPlatformConfigurationController botPlatformConfigurationController;
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const BotPlatformConfigurationControllerStatefulWidget({
     super.key,
     required this.botPlatformConfigurationController,
   });
 }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 abstract class BotPlatformConfigurationControllerStatelessWidget extends StatelessWidget {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final BotPlatformConfigurationController botPlatformConfigurationController;
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const BotPlatformConfigurationControllerStatelessWidget({
     super.key,
     required this.botPlatformConfigurationController,
