@@ -190,7 +190,7 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       appBar: AppBarGeneralFrameworkWidget.create(
         key: appBarGlobalKey,
         leadingBuilder: (context, child) {
@@ -294,6 +294,7 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
                       },
                       labelText: "Telegram Password",
                       hintText: "password",
+                      obscureText: true,
                       onChanged: (value) {
                         setState(() {});
                       },

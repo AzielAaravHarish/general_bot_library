@@ -107,71 +107,80 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
     setState(() {
       isLoading = true;
     });
-    await Future(() async {
-      while (true) {
-        final response = await generalBotClientTelegramLibrary.invoke(
-          parameters: tdlib_scheme.GetAuthorizationState.defaultData,
-          invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
-            is_invoke_throw_on_error: false,
-            invoke_time_out: Duration(minutes: 5).inSeconds,
-          ),
-          generalBotClientTelegramLibraryData: GeneralBotClientTelegramLibraryData.tdlib(
-            tdlib_client_id: generalBotClientTelegramLibrary.tdlib_first_client_id,
-          ),
-        );
-        if (response.telegram_client_is_error_time_out_limit) {
-          context.showSnackBar("Koneksi Timeout pastikan internet anda cepat ya!");
-          continue;
-        }
-        if (response["@type"] == tdlib_scheme.AuthorizationStateReady.defaultDataSpecialType) {
-          break;
-        }
-        context.showSnackBar("Oops silahkan login dahulu ya");
-
-        context.navigator().pushReplacement(MaterialPageRoute(
-          builder: (context) {
-            return TelegramSignPage();
-          },
-        ));
-        // hentikan proses
-        break;
-      }
-      while (true) {
-        final Map getMeRaw = await generalBotClientTelegramLibrary.request(
-          parameters: {
-            "@type": "getMe",
-          },
-          invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
-            is_invoke_throw_on_error: false,
-            invoke_time_out: Duration(minutes: 5).inSeconds,
-          ),
-          generalBotClientTelegramLibraryData: GeneralBotClientTelegramLibraryData.tdlib(
-            tdlib_client_id: generalBotClientTelegramLibrary.tdlib_first_client_id,
-          ),
-        );
-        if (getMeRaw.telegram_client_is_error_time_out_limit) {
-          context.showSnackBar("Koneksi Timeout pastikan internet anda cepat ya!");
-          continue;
-        }
-        final Map getMe = getMeRaw["result"];
-        borOrUserbotDetail = borOrUserbotDetail = getMe.filterByKeys(keys: [
-          "id",
-          "first_name",
-          "last_name",
-          "title",
-          "username",
-          "is_bot",
-          "type",
-        ]);
-
-        break;
-      }
-      return;
+    bool isCanSetState = await Future(() async {
+      return await telegramRefreshAsync();
     });
-    setState(() {
-      isLoading = false;
-    });
+    if (isCanSetState) {
+      setState(() {
+        isLoading = false;
+      });
+    }
     return;
+  }
+
+  Future<bool> telegramRefreshAsync() async {
+    final GeneralBotClientTelegramLibraryData generalBotClientTelegramLibraryData = GeneralBotClientTelegramLibraryData.tdlib(
+      tdlib_client_id: generalBotClientTelegramLibrary.tdlib_first_client_id,
+    );
+    if (generalBotClientTelegramLibraryData.tdlib_client_id == 0) {
+      generalBotClientTelegramLibraryData.tdlib_client_id = generalBotClientTelegramLibrary.tdlib_td_create_client_id();
+      await generalBotClientTelegramLibrary.tdlib_createclient(
+        generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+      );
+    }
+     while (true) {
+      final response = await generalBotClientTelegramLibrary.invoke(
+        parameters: tdlib_scheme.GetAuthorizationState.defaultData,
+        invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+          is_invoke_throw_on_error: false,
+          invoke_time_out: Duration(minutes: 1).inSeconds,
+        ),
+        generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+      );
+      if (response.telegram_client_is_error_time_out_limit) {
+        context.showSnackBar("Koneksi Timeout pastikan internet anda cepat ya!");
+        continue;
+      }
+      if (response["@type"] == tdlib_scheme.AuthorizationStateReady.defaultDataSpecialType) {
+        break;
+      }
+      context.showSnackBar("Oops silahkan login dahulu ya");
+      context.navigator().pushReplacement(MaterialPageRoute(
+        builder: (context) {
+          return TelegramSignPage();
+        },
+      ));
+      // hentikan proses
+      return false;
+    }
+    while (true) {
+      final Map getMeRaw = await generalBotClientTelegramLibrary.request(
+        parameters: {
+          "@type": "getMe",
+        },
+        invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+          is_invoke_throw_on_error: false,
+          invoke_time_out: Duration(minutes: 1).inSeconds,
+        ),
+        generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+      );
+      if (getMeRaw.telegram_client_is_error_time_out_limit) {
+        context.showSnackBar("Koneksi Timeout pastikan internet anda cepat ya!");
+        continue;
+      }
+      final Map getMe = getMeRaw["result"];
+      borOrUserbotDetail = borOrUserbotDetail = getMe.filterByKeys(keys: [
+        "id",
+        "first_name",
+        "last_name",
+        "title",
+        "username",
+        "is_bot",
+        "type",
+      ]);
+
+      return true;
+    }
   }
 
   @override
