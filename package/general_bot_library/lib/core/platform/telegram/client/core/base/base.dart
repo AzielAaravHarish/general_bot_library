@@ -851,7 +851,6 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     return;
   }
 
-
   /// TelegramClientUncompleDocumentation
   Future<bool> tdlib_exitClientById({
     required final GeneralBotClientTelegramLibraryData generalBotClientTelegramLibraryData,
@@ -1389,7 +1388,9 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     final invoke_options = getInvokeOptions(
       invokeOptions: invokeOptions,
     );
+
     final bool isVoid = invoke_options.is_void == true;
+    parameters["is_void"] = isVoid;
     final int taskMaxCount = getTaskMaxCount(
       taskMaxCount: (invoke_options.task_max_count ?? generalBotLibraryOptions.generalBotLibraryConfiguration.telegram.invoke_options.task_max_count ?? 0).toInt(),
     );
@@ -4443,6 +4444,7 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     final GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary invoke_option = getInvokeOptions(
       invokeOptions: invokeOptions,
     );
+    parameters["is_void"] = invoke_option.is_void ?? false;
     // telegramClientLib ??= telegram_client_lib;
     if (generalBotClientTelegramLibraryData.telegramClientType == GeneralBotClientTelegramLibraryType.telegam_bot_api) {
       final Map respond = await telegram_bot_api_request(
@@ -4506,6 +4508,8 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     final GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary invoke_option = getInvokeOptions(
       invokeOptions: invokeOptions,
     );
+
+    parameters["is_void"] = invoke_option.is_void ?? false;
     if (generalBotClientTelegramLibraryData.telegramClientType != GeneralBotClientTelegramLibraryType.tdlib) {
       return await invoke(
         parameters: parameters,

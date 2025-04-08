@@ -548,7 +548,7 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
           generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
         );
 
-        return (json_message);
+        return json_message;
       }
     }
     final Completer<Map> completer = Completer<Map>();

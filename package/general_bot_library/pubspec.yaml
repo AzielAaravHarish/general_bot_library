@@ -41,7 +41,7 @@ flutter:
   uses-material-design: true
 project:
   type: 'open_source_library'
-  is_use_direct_package: false
+  is_use_direct_package: true
   is_private: false
   developers:
     - username: 'azkadev'
