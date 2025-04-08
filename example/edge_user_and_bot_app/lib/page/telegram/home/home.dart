@@ -129,6 +129,8 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
             return TelegramSignPage();
           },
         ));
+        // hentikan proses
+        return;
       }
     });
     setState(() {
@@ -142,6 +144,9 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
     return Scaffold(
       appBar: AppBarGeneralFrameworkWidget.create(
         leadingBuilder: (context, child) {
+          if (isCanPop == false) {
+            return SizedBox.shrink();
+          }
           return child;
         },
         context: context,

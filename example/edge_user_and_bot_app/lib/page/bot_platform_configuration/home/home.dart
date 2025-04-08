@@ -120,6 +120,9 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
     return Scaffold(
       appBar: AppBarGeneralFrameworkWidget.create(
         leadingBuilder: (context, child) {
+          if (isCanPop == false) {
+            return SizedBox.shrink();
+          }
           return child;
         },
         context: context,

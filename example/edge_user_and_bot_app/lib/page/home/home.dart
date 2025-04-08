@@ -107,9 +107,12 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(
       appBar: AppBarGeneralFrameworkWidget.create(
         leadingBuilder: (context, child) {
+          if (isCanPop == false) {
+            return SizedBox.shrink();
+          }
           return child;
         },
         context: context,
@@ -118,7 +121,6 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
         isShowApplicationIconAndtitle: false,
         isApplicationFullScreen: true,
         applicationTitle: "",
-        
         applicationIcon: "",
         generalLibFlutterApp: EdgeUserAndBotAppClientFlutter.generalLibFlutterApp,
         actions: (context, pageState) sync* {},

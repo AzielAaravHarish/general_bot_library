@@ -68,6 +68,7 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 
 <!-- END LICENSE --> */
 import 'package:edge_user_and_bot_app/core/client/core.dart';
+import 'package:edge_user_and_bot_app/page/telegram/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
@@ -106,9 +107,12 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(
       appBar: AppBarGeneralFrameworkWidget.create(
         leadingBuilder: (context, child) {
+          if (isCanPop == false) {
+            return SizedBox.shrink();
+          }
           return child;
         },
         context: context,
@@ -117,7 +121,6 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
         isShowApplicationIconAndtitle: false,
         isApplicationFullScreen: true,
         applicationTitle: "",
-        
         applicationIcon: "",
         generalLibFlutterApp: EdgeUserAndBotAppClientFlutter.generalLibFlutterApp,
         actions: (context, pageState) sync* {},
@@ -148,27 +151,12 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
                   isLoading: isLoading,
                   onPressed: () {
                     handleFunction(
-                      onFunction: (context, statefulWidget) {},
-                    );
-                  },
-                ),
-                MaterialOutlineGeneralFrameworkButtonGeneralWidget(
-                  width: context.width,
-                  margin: EdgeInsets.all(10),
-                  borderRadius: BorderRadius.circular(15),
-                  text: "Whatsapp",
-                  isLoading: isLoading,
-                  onPressed: () {
-                    handleFunction(
                       onFunction: (context, statefulWidget) {
-                        context.showAlertGeneralFramework(
-                          alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
-                            title: "Error",
-                            builder: (context, alertGeneralFrameworkOptions) {
-                              return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
-                            },
-                          ),
-                        );
+                        context.navigator().pushReplacement(MaterialPageRoute(
+                          builder: (context) {
+                            return TelegramHomePage();
+                          },
+                        ));
                       },
                     );
                   },
