@@ -79,6 +79,7 @@ import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/contr
 import 'package:edge_user_and_bot_app/page/home/home.dart';
 import 'package:edge_user_and_bot_app/dart_json_scheme/scheme/bot_edge_user_and_bot_app_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:general_universe/general_universe.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
@@ -334,6 +335,50 @@ class EdgeUserAndBotAppClientFlutter {
               );
             },
           ),
+        ];
+      },
+    );
+  }
+
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  Widget borOrUserbotDetailWidget({
+    required GeneralLibFlutterStatefulWidget pageState,
+    required Map borOrUserbotDetail,
+  }) {
+    return MenuContainerResponsiveGeneralFrameworkWidget(
+      isLoading: pageState.isLoading,
+      decorationBuilder: (context, decoration) {
+        return decoration.copyWith(
+          borderRadius: BorderRadius.circular(15),
+        );
+      },
+      titleBuilder: (context) {
+        return MenuContainerGeneralFrameworkWidget.title(
+          context: context,
+          title: "Bot Or Userbot",
+        );
+      },
+      menuBuilder: (context) {
+        return [
+          for (final element in borOrUserbotDetail.entries) ...[
+            MenuContainerGeneralFrameworkWidget.lisTile(
+              context: context,
+              contentPadding: EdgeInsets.all(5),
+              title: "${element.key}".split("_").map((e) => e.toUpperCaseFirstData()).join(" "),
+              trailing: Text(
+                "${element.value}",
+                style: context.theme.textTheme.bodySmall,
+              ),
+              onTap: () {
+                pageState.handleFunction(
+                  onFunction: (context, statefulWidget) async {
+                    await Clipboard.setData(ClipboardData(text: "${element.value}"));
+                    context.showSnackBar("Copied");
+                  },
+                );
+              },
+            ),
+          ],
         ];
       },
     );

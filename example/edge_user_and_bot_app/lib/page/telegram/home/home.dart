@@ -72,6 +72,7 @@ import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/contr
 import 'package:edge_user_and_bot_app/page/telegram/telegram.dart';
 import 'package:flutter/material.dart';
 import 'package:general_bot_library/general_bot_library_project.dart';
+import 'package:general_universe/general_universe.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 
@@ -79,7 +80,7 @@ import "package:general_bot_library/core/platform/telegram/client/tdlib/scheme/s
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class TelegramHomePage extends StatefulWidget {
-/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const TelegramHomePage({super.key});
 
   @override
@@ -87,6 +88,7 @@ class TelegramHomePage extends StatefulWidget {
 }
 
 class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlutterStatefulWidget {
+  Map borOrUserbotDetail = {};
   @override
   void initState() {
     super.initState();
@@ -132,8 +134,39 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
           },
         ));
         // hentikan proses
-        return;
+        break;
       }
+      while (true) {
+        final Map getMeRaw = await generalBotClientTelegramLibrary.request(
+          parameters: {
+            "@type": "getMe",
+          },
+          invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+            is_invoke_throw_on_error: false,
+            invoke_time_out: Duration(minutes: 5).inSeconds,
+          ),
+          generalBotClientTelegramLibraryData: GeneralBotClientTelegramLibraryData.tdlib(
+            tdlib_client_id: generalBotClientTelegramLibrary.tdlib_first_client_id,
+          ),
+        );
+        if (getMeRaw.telegram_client_is_error_time_out_limit) {
+          context.showSnackBar("Koneksi Timeout pastikan internet anda cepat ya!");
+          continue;
+        }
+        final Map getMe = getMeRaw["result"];
+        borOrUserbotDetail = borOrUserbotDetail = getMe.filterByKeys(keys: [
+          "id",
+          "first_name",
+          "last_name",
+          "title",
+          "username",
+          "is_bot",
+          "type",
+        ]);
+
+        break;
+      }
+      return;
     });
     setState(() {
       isLoading = false;
@@ -181,6 +214,10 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
                 ),
                 edgeUserAndBotAppClientFlutter.developerWidget(
                   pageState: this,
+                ),
+                edgeUserAndBotAppClientFlutter.borOrUserbotDetailWidget(
+                  pageState: this,
+                  borOrUserbotDetail: borOrUserbotDetail,
                 ),
                 edgeUserAndBotAppClientFlutter.botPlatformConfigurationWidget(
                   context: context,
