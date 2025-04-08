@@ -397,9 +397,12 @@ List<String> commands = {
 - [Telegram User And Bot Cli](/example/telegram_user_and_bot_cli/)
   for beginners, because Telegram is an open API, anyone can use it
 
+  - [Video Demo]()
+ 
 - [Edge User And Bot App](/example/edge_user_and_bot_app/)
   For fairly skilled developers, we create applications to run userbots and bots, this is a simple example that if developed can be used as a business to generate passive income
-
+  
+  - [Video Demo]()
 
 | ☠️                                                   | 📅                                                                        | 👷 | 😄 |
 |-----------------------------------------------------|---------------------------------------------------------------------------|----|----|
