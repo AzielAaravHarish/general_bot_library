@@ -81,6 +81,7 @@ import 'package:edge_user_and_bot_app/dart_json_scheme/scheme/bot_edge_user_and_
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:general_universe/general_universe.dart';
+import 'package:general_universe/hide/hide.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 import 'package:general_universe_flutter/fork/general_system_device/flutter/flutter.dart';
@@ -378,23 +379,37 @@ class EdgeUserAndBotAppClientFlutter {
         return [
           for (final element in borOrUserbotDetail.entries) ...[
             if ((element.value is String && (element.value as String).isEmpty) == false) ...[
-              MenuContainerGeneralFrameworkWidget.lisTile(
-                context: context,
-                contentPadding: EdgeInsets.all(5),
-                title: "${element.key}".split("_").map((e) => e.toUpperCaseFirstData()).join(" "),
-                trailing: Text(
-                  "${element.value}",
-                  style: context.theme.textTheme.bodySmall,
-                ),
-                onTap: () {
-                  pageState.handleFunction(
-                    onFunction: (context, statefulWidget) async {
-                      await Clipboard.setData(ClipboardData(text: "${element.value}"));
-                      context.showSnackBar("Copied");
-                    },
-                  );
-                },
-              ),
+              () {
+                final String key = "${element.key}";
+                final String value = "${element.value}";
+
+                return MenuContainerGeneralFrameworkWidget.lisTile(
+                  context: context,
+                  contentPadding: EdgeInsets.all(5),
+                  title: "${key}".split("_").map((e) => e.toUpperCaseFirstData()).join(" "),
+                  trailing: Text(
+                    () {
+                      if (key == "id" || key == "username") {
+                        return "${Hide().obfocustData(
+                          mystring: value,
+                          start: 3,
+                          end: 3,
+                        )}";
+                      }
+                      return value;
+                    }(),
+                    style: context.theme.textTheme.bodySmall,
+                  ),
+                  onTap: () {
+                    pageState.handleFunction(
+                      onFunction: (context, statefulWidget) async {
+                        await Clipboard.setData(ClipboardData(text: "${value}"));
+                        context.showSnackBar("Copied");
+                      },
+                    );
+                  },
+                );
+              }(),
             ],
           ],
         ];
