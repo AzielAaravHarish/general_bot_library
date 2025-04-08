@@ -157,23 +157,22 @@ class EdgeUserAndBotDefaultScheme {
     ];
   }();
 
-final List<Map<String, dynamic>>respond_schemes = () {
-  final GeneralUniverseSchemeType generalUniverseSchemeType = GeneralUniverseSchemeType.scheme;
+  final List<Map<String, dynamic>> respond_schemes = () {
+    final GeneralUniverseSchemeType generalUniverseSchemeType = GeneralUniverseSchemeType.scheme;
 
-  return <Map<String, dynamic>>[
-    EdgeUserAndBotDefaultScheme.botEdgeClientTelegram(
-      generalUniverseSchemeType: generalUniverseSchemeType,
-    ),
-    EdgeUserAndBotDefaultScheme.botEdgeClientWhatsapp(
-      generalUniverseSchemeType: generalUniverseSchemeType,
-    ),
-    EdgeUserAndBotDefaultScheme.botEdgeChatTelegram(
-      generalUniverseSchemeType: generalUniverseSchemeType,
-    ),
-    EdgeUserAndBotDefaultScheme.botEdgePlatformConfiguration(
-      generalUniverseSchemeType: generalUniverseSchemeType,
-    ),
-  ];
-}();
-
+    return <Map<String, dynamic>>[
+      EdgeUserAndBotDefaultScheme.botEdgeClientTelegram(
+        generalUniverseSchemeType: generalUniverseSchemeType,
+      ),
+      EdgeUserAndBotDefaultScheme.botEdgeClientWhatsapp(
+        generalUniverseSchemeType: generalUniverseSchemeType,
+      ),
+      EdgeUserAndBotDefaultScheme.botEdgeChatTelegram(
+        generalUniverseSchemeType: generalUniverseSchemeType,
+      ),
+      EdgeUserAndBotDefaultScheme.botEdgePlatformConfiguration(
+        generalUniverseSchemeType: generalUniverseSchemeType,
+      ),
+    ];
+  }();
 }
