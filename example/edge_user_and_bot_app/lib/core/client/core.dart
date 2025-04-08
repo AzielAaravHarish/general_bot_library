@@ -355,7 +355,7 @@ class EdgeUserAndBotAppClientFlutter {
       titleBuilder: (context) {
         return MenuContainerGeneralFrameworkWidget.title(
           context: context,
-          title: "Bot Or Userbot",
+          title: "Bot Or Userbot Information",
         );
       },
       menuBuilder: (context) {
