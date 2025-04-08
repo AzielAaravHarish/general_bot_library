@@ -251,8 +251,6 @@ class EdgeUserAndBotAppClientFlutter {
         ];
       },
     );
- 
- 
   }
 
   Widget botPlatformConfigurationWidget({

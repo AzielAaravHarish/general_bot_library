@@ -122,4 +122,58 @@ class EdgeUserAndBotDefaultScheme {
 
     return jsonData;
   }
+
+  final List<Map<String, dynamic>> schemes = () {
+    final GeneralUniverseSchemeType generalUniverseSchemeType = GeneralUniverseSchemeType.scheme;
+
+    return <Map<String, dynamic>>[
+      EdgeUserAndBotDefaultScheme.botEdgeUserAndBotAppConfiguration(
+        generalUniverseSchemeType: generalUniverseSchemeType,
+      ),
+    ];
+  }();
+
+  final List<Map<String, dynamic>> database_schemes = () {
+    final List<GeneralUniverseSchemeType> generalUniverseSchemeTypes = [
+      GeneralUniverseSchemeType.local,
+      GeneralUniverseSchemeType.database,
+    ];
+
+    return <Map<String, dynamic>>[
+      for (final GeneralUniverseSchemeType generalUniverseSchemeType in generalUniverseSchemeTypes) ...[
+        EdgeUserAndBotDefaultScheme.botEdgeClientTelegram(
+          generalUniverseSchemeType: generalUniverseSchemeType,
+        ),
+        EdgeUserAndBotDefaultScheme.botEdgeClientWhatsapp(
+          generalUniverseSchemeType: generalUniverseSchemeType,
+        ),
+        EdgeUserAndBotDefaultScheme.botEdgeChatTelegram(
+          generalUniverseSchemeType: generalUniverseSchemeType,
+        ),
+        EdgeUserAndBotDefaultScheme.botEdgePlatformConfiguration(
+          generalUniverseSchemeType: generalUniverseSchemeType,
+        ),
+      ],
+    ];
+  }();
+
+final List<Map<String, dynamic>>respond_schemes = () {
+  final GeneralUniverseSchemeType generalUniverseSchemeType = GeneralUniverseSchemeType.scheme;
+
+  return <Map<String, dynamic>>[
+    EdgeUserAndBotDefaultScheme.botEdgeClientTelegram(
+      generalUniverseSchemeType: generalUniverseSchemeType,
+    ),
+    EdgeUserAndBotDefaultScheme.botEdgeClientWhatsapp(
+      generalUniverseSchemeType: generalUniverseSchemeType,
+    ),
+    EdgeUserAndBotDefaultScheme.botEdgeChatTelegram(
+      generalUniverseSchemeType: generalUniverseSchemeType,
+    ),
+    EdgeUserAndBotDefaultScheme.botEdgePlatformConfiguration(
+      generalUniverseSchemeType: generalUniverseSchemeType,
+    ),
+  ];
+}();
+
 }
