@@ -399,3 +399,8 @@ List<String> commands = {
 
 - [Edge User And Bot App](/example/edge_user_and_bot_app/)
   For fairly skilled developers, we create applications to run userbots and bots, this is a simple example that if developed can be used as a business to generate passive income
+
+
+| ☠️                                                   | 📅                                                                        | 👷 | 😄 |
+|-----------------------------------------------------|---------------------------------------------------------------------------|----|----|
+| ![](/assets/example/edge_user_and_bot_app/home.png) | ![](/assets/example/edge_user_and_bot_app/bot_platform_configuration.png) |    |    |
