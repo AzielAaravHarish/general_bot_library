@@ -32,13 +32,8 @@ dependencies:
 dev_dependencies:
   lints: '^5.0.0'
   test: 'any'
-dependency_overrides:
-  general_universe: '^0.0.0'
-  mime: '^2.0.0'
-  packagex: '^0.0.0'
-  pointycastle: '^4.0.0'
 project:
-  type: 'library'
+  type: 'open_source_library'
   is_use_direct_package: false
   is_private: false
   developers:

@@ -148,7 +148,7 @@ packages:
   general_universe:
     dependency: "direct main"
     description:
-      path: "../../../galaxeus/app/general_developer_public_library_project/packages/general_universe"
+      path: "../../../../.pub-cache/hosted/package-repository-general-developer.vercel.app/general_universe-0.0.0"
       relative: true
     source: path
     version: "0.0.0"
@@ -291,7 +291,7 @@ packages:
   packagex:
     dependency: "direct main"
     description:
-      path: "../../../galaxeus/app/general_developer_public_library_project/packages/packagex"
+      path: "../../../../.pub-cache/hosted/package-repository-general-developer.vercel.app/packagex-0.0.0"
       relative: true
     source: path
     version: "0.0.0"
