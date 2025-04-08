@@ -77,7 +77,9 @@ import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/genera
 
 import "package:general_bot_library/core/platform/telegram/client/tdlib/scheme/scheme.dart" as tdlib_scheme;
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class TelegramHomePage extends StatefulWidget {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const TelegramHomePage({super.key});
 
   @override

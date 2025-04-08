@@ -73,13 +73,15 @@ import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/controller.dart';
 import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
-import 'package:general_universe/extension/extension.dart';
+
 import 'package:general_universe/general_universe.dart';
 import 'package:general_universe_flutter/extension/date_time.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class BotPlatformConfigurationHomePage extends BotPlatformConfigurationControllerStatefulWidget {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   const BotPlatformConfigurationHomePage({
     super.key,
     required super.botPlatformConfigurationController,

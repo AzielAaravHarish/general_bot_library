@@ -7,7 +7,9 @@ import 'package:edge_user_and_bot_app/core/database/core.dart';
 import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_chat_telegram_edge_user_and_bot.dart';
 import 'package:edge_user_and_bot_app/database_universe_scheme/bot_edge_chat_telegram_edge_user_and_bot_local_database.dart';
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 extension EdgeUserAndBotAppDatabaseExtensionBotEdgeChatTelegramEdgeUserAndBot on EdgeUserAndBotAppDatabase {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   BotEdgeChatTelegramEdgeUserAndBot getBotEdgeChatTelegramEdgeUserAndBot({
     required int telegramChatId,
   }) {
@@ -24,6 +26,7 @@ extension EdgeUserAndBotAppDatabaseExtensionBotEdgeChatTelegramEdgeUserAndBot on
     return BotEdgeChatTelegramEdgeUserAndBot.create();
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   bool saveBotEdgeChatTelegramEdgeUserAndBot({
     required int telegramChatId,
     required BotEdgeChatTelegramEdgeUserAndBot newBotEdgeChatTelegramEdgeUserAndBot,

@@ -114,6 +114,7 @@ class EdgeUserAndBotAppClientFlutter {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   EdgeUserAndBotAppClientFlutter();
 
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   static Duration minimumAfkDurationRespond = Duration(minutes: 5);
 
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
@@ -237,8 +238,19 @@ class EdgeUserAndBotAppClientFlutter {
     if (update == null) {
       return null;
     }
-    update.printPretty();
-
+    if (update["@type"] == "updateAuthorizationState") {
+      if (update["authorization_state"] is Map) {
+        if (update["authorization_state"]["@type"] == "authorizationStateClosed") {
+          await generalBotClientTelegramLibrary.tdlib_exitClientById(
+            generalBotClientTelegramLibraryData: GeneralBotClientTelegramLibraryData.tdlib(
+              tdlib_client_id: update["@client_id"],
+            ),
+            isClose: true,
+            isInvokeThrowOnError: false,
+          );
+        }
+      }
+    }
     if (update["message"] is Map) {
       await telegramUpdateMessage(
         generalBotClientTelegramLibrary: generalBotClientTelegramLibrary,
@@ -250,6 +262,7 @@ class EdgeUserAndBotAppClientFlutter {
     return;
   }
 
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Widget developerWidget({
     required GeneralLibFlutterStatefulWidget pageState,
   }) {
@@ -326,6 +339,7 @@ class EdgeUserAndBotAppClientFlutter {
     );
   }
 
+  /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   Widget botPlatformConfigurationWidget({
     required BuildContext context,
     required GeneralLibFlutterStatefulWidget pageState,

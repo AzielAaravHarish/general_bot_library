@@ -199,6 +199,7 @@ class EdgeUserAndBotDefaultScheme {
     return jsonData;
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final List<Map<String, dynamic>> schemes = () {
     final GeneralUniverseSchemeType generalUniverseSchemeType = GeneralUniverseSchemeType.scheme;
 
@@ -209,6 +210,7 @@ class EdgeUserAndBotDefaultScheme {
     ];
   }();
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final List<Map<String, dynamic>> database_schemes = () {
     final List<GeneralUniverseSchemeType> generalUniverseSchemeTypes = [
       GeneralUniverseSchemeType.local,
@@ -233,6 +235,7 @@ class EdgeUserAndBotDefaultScheme {
     ];
   }();
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   final List<Map<String, dynamic>> respond_schemes = () {
     final GeneralUniverseSchemeType generalUniverseSchemeType = GeneralUniverseSchemeType.scheme;
 

@@ -8,7 +8,9 @@ import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_p
 import 'package:edge_user_and_bot_app/database_universe_scheme/bot_edge_platform_configuration_edge_user_and_bot_local_database.dart';
 import 'package:general_bot_library/general_bot_library_project.dart';
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 extension EdgeUserAndBotAppDatabaseExtensionBotPlatformConfiguration on EdgeUserAndBotAppDatabase {
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   BotEdgePlatformConfigurationEdgeUserAndBot getBotEdgePlatformConfigurationEdgeUserAndBot({
     required GeneralBotPlatformType generalBotPlatformType,
   }) {
@@ -25,6 +27,7 @@ extension EdgeUserAndBotAppDatabaseExtensionBotPlatformConfiguration on EdgeUser
     return BotEdgePlatformConfigurationEdgeUserAndBot.create();
   }
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   bool saveBotEdgePlatformConfigurationEdgeUserAndBot({
     required GeneralBotPlatformType generalBotPlatformType,
     required BotEdgePlatformConfigurationEdgeUserAndBot newBotEdgePlatformConfigurationEdgeUserAndBot,

@@ -83,8 +83,10 @@ class EdgeUserAndBotAppDatabase {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 
   late final DatabaseUniverse databaseCore;
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   EdgeUserAndBotAppDatabase();
 
+/// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   static final List<DatabaseUniverseGeneratedSchema> databaseUniverseSchemes = [
     BotEdgeClientTelegramEdgeUserAndBotLocalDatabaseSchema,
     BotEdgeClientWhatsappEdgeUserAndBotLocalDatabaseSchema,
