@@ -48,7 +48,7 @@ void main(List<String> arguments) async {
       generalBotLibraryConfiguration: GeneralBotLibraryConfigurationGeneralBotLibrary.create(
         telegram: GeneralBotLibraryConfigurationTelegramGeneralBotLibrary.create(
           tdlib: GeneralBotLibraryConfigurationTelegramTdlibGeneralBotLibrary.create(
-            tdlib_library_path: "libtdjson.so",
+            // tdlib_library_path: "libtdjson.so",
             is_auto_initialized: true,
             option_parameter: GeneralBotLibraryConfigurationTelegramTdlibOptionParameterGeneralBotLibrary.create(
               database_directory: directory.path,
@@ -61,6 +61,7 @@ void main(List<String> arguments) async {
       ),
     ),
   );
+
   final GeneralBotClientTelegramLibrary generalBotClientTelegramLibrary = generalBotPlatformsLibrary.generalBotPlatformTelegram.generalBotClientTelegramLibrary;
   bool isClientUserbot = false;
   generalBotClientTelegramLibrary.on(
