@@ -67,6 +67,7 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 
 
 <!-- END LICENSE --> */
+import 'package:edge_user_and_bot_app/core/client/core.dart';
 import 'package:flutter/material.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
@@ -105,16 +106,25 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: SkeletonizerGeneralFramework(
-          enabled: isLoading,
-          child: Text(
-            "Telegram Home Page",
-            style: context.theme.textTheme.titleLarge,
-          ),
-        ),
+    return Scaffold( 
+      appBar: AppBarGeneralFrameworkWidget.create(
+        leadingBuilder: (context, child) {
+          return child;
+        },
+        context: context,
+        title: "Sign Page",
+        pageState: this,
+        isShowApplicationIconAndtitle: false,
+        isApplicationFullScreen: true,
+        applicationTitle: "",
+        
+        applicationIcon: "",
+        generalLibFlutterApp: EdgeUserAndBotAppClientFlutter.generalLibFlutterApp,
+        actions: (context, pageState) sync* {},
+        builder: (context, pageState) sync* {},
+        appBarBuilder: (context, appBar) {
+          return appBar;
+        },
       ),
       body: RefreshIndicator(
         onRefresh: refresh,

@@ -118,15 +118,23 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
   Widget build(BuildContext context) {
     final BotEdgePlatformConfigurationEdgeUserAndBot botEdgePlatformConfigurationEdgeUserAndBot = widget.botPlatformConfigurationController.getBotEdgePlatformConfigurationEdgeUserAndBot();
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: SkeletonizerGeneralFramework(
-          enabled: isLoading,
-          child: Text(
-            "Bot Platform Configuration",
-            style: context.theme.textTheme.titleLarge,
-          ),
-        ),
+      appBar: AppBarGeneralFrameworkWidget.create(
+        leadingBuilder: (context, child) {
+          return child;
+        },
+        context: context,
+        title: "Edge User And Bot App",
+        pageState: this,
+        isShowApplicationIconAndtitle: false,
+        isApplicationFullScreen: true,
+        applicationTitle: "",
+        applicationIcon: "",
+        generalLibFlutterApp: EdgeUserAndBotAppClientFlutter.generalLibFlutterApp,
+        actions: (context, pageState) sync* {},
+        builder: (context, pageState) sync* {},
+        appBarBuilder: (context, appBar) {
+          return appBar;
+        },
       ),
       body: RefreshIndicator(
         onRefresh: refresh,

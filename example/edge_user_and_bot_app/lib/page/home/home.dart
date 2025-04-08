@@ -107,16 +107,25 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: SkeletonizerGeneralFramework(
-          enabled: isLoading,
-          child: Text(
-            "Edge User And Bot App",
-            style: context.theme.textTheme.titleLarge,
-          ),
-        ),
+    return Scaffold( 
+      appBar: AppBarGeneralFrameworkWidget.create(
+        leadingBuilder: (context, child) {
+          return child;
+        },
+        context: context,
+        title: "Edge User And Bot App",
+        pageState: this,
+        isShowApplicationIconAndtitle: false,
+        isApplicationFullScreen: true,
+        applicationTitle: "",
+        
+        applicationIcon: "",
+        generalLibFlutterApp: EdgeUserAndBotAppClientFlutter.generalLibFlutterApp,
+        actions: (context, pageState) sync* {},
+        builder: (context, pageState) sync* {},
+        appBarBuilder: (context, appBar) {
+          return appBar;
+        },
       ),
       body: RefreshIndicator(
         onRefresh: refresh,
@@ -212,7 +221,7 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
               alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
                 title: "Error",
                 builder: (context, alertGeneralFrameworkOptions) {
-                  return "Maaf ini belum di implementasi, tunggu update berikutnya ya!";
+                  return "Maaf dikarenakan open source, dan maka ${title} tidak tersedia!, jika butuh bantuan / informasi bisa chat developer ya!";
                 },
               ),
             );

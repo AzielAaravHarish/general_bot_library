@@ -69,10 +69,13 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 <!-- END LICENSE --> */
 import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:edge_user_and_bot_app/page/bot_platform_configuration/core/controller.dart';
+import 'package:edge_user_and_bot_app/page/telegram/telegram.dart';
 import 'package:flutter/material.dart';
-import 'package:general_bot_library/core/core/core.dart';
+import 'package:general_bot_library/general_bot_library_project.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
+
+import "package:general_bot_library/core/platform/telegram/client/tdlib/scheme/scheme.dart" as tdlib_scheme;
 
 class TelegramHomePage extends StatefulWidget {
   const TelegramHomePage({super.key});
@@ -100,6 +103,34 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
     setState(() {
       isLoading = true;
     });
+    await Future(() async {
+      while (true) {
+        final response = await generalBotClientTelegramLibrary.invoke(
+          parameters: tdlib_scheme.GetAuthorizationState.defaultData,
+          invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+            is_invoke_throw_on_error: false,
+            invoke_time_out: Duration(minutes: 5).inSeconds,
+          ),
+          generalBotClientTelegramLibraryData: GeneralBotClientTelegramLibraryData.tdlib(
+            tdlib_client_id: generalBotClientTelegramLibrary.tdlib_first_client_id,
+          ),
+        );
+        if (response.telegram_client_is_error_time_out_limit) {
+          context.showSnackBar("Koneksi Timeout pastikan internet anda cepat ya!");
+          continue;
+        }
+        if (response["@type"] == tdlib_scheme.AuthorizationStateReady.defaultDataSpecialType) {
+          break;
+        }
+        context.showSnackBar("Oops silahkan login dahulu ya");
+
+        context.navigator().pushReplacement(MaterialPageRoute(
+          builder: (context) {
+            return TelegramSignPage();
+          },
+        ));
+      }
+    });
     setState(() {
       isLoading = false;
     });
@@ -109,15 +140,23 @@ class _TelegramHomePageState extends State<TelegramHomePage> with GeneralLibFlut
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: SkeletonizerGeneralFramework(
-          enabled: isLoading,
-          child: Text(
-            "Telegram Home Page",
-            style: context.theme.textTheme.titleLarge,
-          ),
-        ),
+      appBar: AppBarGeneralFrameworkWidget.create(
+        leadingBuilder: (context, child) {
+          return child;
+        },
+        context: context,
+        title: "Telegram Home Page",
+        pageState: this,
+        isShowApplicationIconAndtitle: false,
+        isApplicationFullScreen: true,
+        applicationTitle: "",
+        applicationIcon: "",
+        generalLibFlutterApp: EdgeUserAndBotAppClientFlutter.generalLibFlutterApp,
+        actions: (context, pageState) sync* {},
+        builder: (context, pageState) sync* {},
+        appBarBuilder: (context, appBar) {
+          return appBar;
+        },
       ),
       body: RefreshIndicator(
         onRefresh: refresh,
