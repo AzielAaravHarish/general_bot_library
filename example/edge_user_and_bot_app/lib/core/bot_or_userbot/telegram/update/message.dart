@@ -120,7 +120,12 @@ extension EdgeUserAndBotAppClientFlutterExtensionTelegramUpdate on EdgeUserAndBo
         parameters: {
           "@type": "sendMessage",
           "chat_id": chat_id,
-          "text": "Pong From Edge User And Bot Application",
+          "text": """
+Pong From Edge User And Bot Application
+ 
+OS: ${Dart.operatingSystem} 
+Version: ${Dart.operatingSystemVersion}
+""".trim(),
         },
         generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
       );

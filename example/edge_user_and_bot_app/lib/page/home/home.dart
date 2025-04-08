@@ -224,6 +224,8 @@ class _HomePageState extends State<HomePage> with GeneralLibFlutterStatefulWidge
             context.showAlertGeneralFramework(
               alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
                 title: "Error",
+                isShowCancelButton: false,
+                isShowCloseButton: false,
                 builder: (context, alertGeneralFrameworkOptions) {
                   return "Maaf dikarenakan open source, dan maka ${title} tidak tersedia!, jika butuh bantuan / informasi bisa chat developer ya!";
                 },
