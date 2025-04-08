@@ -71,7 +71,7 @@ dependency_overrides:
   general_audio_flutter:
     path: '../../../../../galaxeus/app/general_audio_project/package/general_audio_flutter'
   general_bot_library:
-    path: '../../../../../github/general-developer/general_bot_library/package/general_bot_library'
+    path: '../../package/general_bot_library'
   general_bot_library_flutter:
     path: '../../../../../github/general-developer/general_bot_library/package/general_bot_library_flutter'
   general_universe:

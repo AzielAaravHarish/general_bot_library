@@ -19,8 +19,8 @@ dependencies:
     version: '^0.0.0'
 dev_dependencies:
   lints: '^5.0.0'
-  test: 'any'
   msix: '^3.16.8'
+  test: 'any'
 project:
   type: ''
   is_use_direct_package: true
@@ -33,7 +33,7 @@ project:
 funding: []
 dependency_overrides:
   general_bot_library:
-    path: '../../package/general_bot_library'
+    path: '../../../../../github/general-developer/general_bot_library/package/general_bot_library'
   general_universe:
     path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/general_universe'
   mime: '^2.0.0'
