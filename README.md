@@ -36,13 +36,13 @@
 1. **Dart**
 
 ```bash
-dart pub add general_bot_library_dart
+dart pub add 'general_bot_library:{"hosted":"https://package-repository-general-developer.vercel.app/package/repository/dart"}'
 ```
 
 2. **Flutter**
 
 ```bash
-flutter pub add general_bot_library_flutter
+dart pub add 'general_bot_library_flutter:{"hosted":"https://package-repository-general-developer.vercel.app/package/repository/dart"}'
 ```
 
 ## 🚀️ Quick Start
