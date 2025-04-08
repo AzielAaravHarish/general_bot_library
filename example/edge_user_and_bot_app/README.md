@@ -7,6 +7,10 @@ Feature asli library general_bot_library bisa membuat banyak bot dengan mudah, d
 
 Platform yang siap di pakai (Karena ini example jadi dikit aja ya takut id pakai buat hal merugikan)
 
+
+example ini buatan [Azkadev](https://github.com/azkadev) jadi jika kamu ingin melihat  contoh ini lebih update check aja repo ini
+[Azkadev - Edge User And Bot App](https://github.com/azkadev/edge_user_and_bot_app)
+
 1. Telegram Bot & Userbot
 2. Whatsapp Userbot
 
