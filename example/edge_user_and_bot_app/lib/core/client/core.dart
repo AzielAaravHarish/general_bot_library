@@ -361,23 +361,25 @@ class EdgeUserAndBotAppClientFlutter {
       menuBuilder: (context) {
         return [
           for (final element in borOrUserbotDetail.entries) ...[
-            MenuContainerGeneralFrameworkWidget.lisTile(
-              context: context,
-              contentPadding: EdgeInsets.all(5),
-              title: "${element.key}".split("_").map((e) => e.toUpperCaseFirstData()).join(" "),
-              trailing: Text(
-                "${element.value}",
-                style: context.theme.textTheme.bodySmall,
+            if ((element.value is String && (element.value as String).isEmpty) == false) ...[
+              MenuContainerGeneralFrameworkWidget.lisTile(
+                context: context,
+                contentPadding: EdgeInsets.all(5),
+                title: "${element.key}".split("_").map((e) => e.toUpperCaseFirstData()).join(" "),
+                trailing: Text(
+                  "${element.value}",
+                  style: context.theme.textTheme.bodySmall,
+                ),
+                onTap: () {
+                  pageState.handleFunction(
+                    onFunction: (context, statefulWidget) async {
+                      await Clipboard.setData(ClipboardData(text: "${element.value}"));
+                      context.showSnackBar("Copied");
+                    },
+                  );
+                },
               ),
-              onTap: () {
-                pageState.handleFunction(
-                  onFunction: (context, statefulWidget) async {
-                    await Clipboard.setData(ClipboardData(text: "${element.value}"));
-                    context.showSnackBar("Copied");
-                  },
-                );
-              },
-            ),
+            ],
           ],
         ];
       },
