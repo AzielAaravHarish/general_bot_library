@@ -301,7 +301,7 @@ class EdgeUserAndBotAppClientFlutter {
           MenuContainerGeneralFrameworkWidget.lisTile(
             context: context,
             contentPadding: EdgeInsets.all(5),
-            title: "Maintaners",
+            title: "Developers",
             subtitle: """
 - Azkadev
 - AzielAaravHarish
@@ -313,6 +313,22 @@ class EdgeUserAndBotAppClientFlutter {
                 onFunction: (context, statefulWidget) async {
                   await launchUrlString(
                     "https://github.com/orgs/General-Developer/people",
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+              );
+            },
+          ),
+          MenuContainerGeneralFrameworkWidget.lisTile(
+            context: context,
+            contentPadding: EdgeInsets.all(5),
+            title: "Azkadev",
+            subtitle: "Original Idea General Bot Library & Example",
+            onTap: () {
+              pageState.handleFunction(
+                onFunction: (context, statefulWidget) async {
+                  await launchUrlString(
+                    "https://github.com/azkadev",
                     mode: LaunchMode.externalApplication,
                   );
                 },
