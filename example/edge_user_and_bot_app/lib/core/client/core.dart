@@ -239,6 +239,8 @@ class EdgeUserAndBotAppClientFlutter {
 
     if (update["message"] is Map) {
       await telegramUpdateMessage(
+        generalBotClientTelegramLibrary: generalBotClientTelegramLibrary,
+        generalBotPlatformTelegramUpdate: generalBotPlatformTelegramUpdate,
         update: update["message"],
       );
     }

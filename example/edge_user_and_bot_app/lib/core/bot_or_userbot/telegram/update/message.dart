@@ -69,14 +69,84 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 <!-- END LICENSE --> */
 import 'dart:async';
 
+import 'package:edge_user_and_bot_app/core/bot_or_userbot/telegram/client/client.dart';
 import 'package:edge_user_and_bot_app/core/client/client.dart';
+import 'package:edge_user_and_bot_app/core/core.dart';
+import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
+import 'package:general_bot_library/general_bot_library_project.dart';
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 extension EdgeUserAndBotAppClientFlutterExtensionTelegramUpdate on EdgeUserAndBotAppClientFlutter {
   /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
   FutureOr<dynamic> telegramUpdateMessage({
     required Map update,
+    required GeneralBotClientTelegramLibrary generalBotClientTelegramLibrary,
+    required GeneralBotPlatformTelegramUpdate generalBotPlatformTelegramUpdate,
   }) async {
+    final Map msg = update;
+    if (msg["from"] is Map == false) {
+      return null;
+    }
+    if (msg["chat"] is Map == false) {
+      return null;
+    }
+
+    final Map msg_from = msg["from"];
+    final int user_id = msg_from["id"];
+    final Map msg_chat = msg["chat"];
+    final int chat_id = msg_chat["id"];
+    if (msg_chat["type"] is String == false) {
+      msg_chat["type"] = "";
+    }
+    final String msg_chat_type = msg_chat["type"];
+
+    final String msg_text = () {
+      try {
+        if (msg["text"] is String) {
+          return msg["text"];
+        }
+      } catch (e) {}
+      return "";
+    }();
+
+    if (msg_chat_type != "private") {
+      return null;
+    }
+    if (msg["is_outgoing"] == true) {
+      return null;
+    }
+    if (msg_from["is_bot"] == true) {
+      return null;
+    }
+    final BotEdgePlatformConfigurationEdgeUserAndBot botEdgePlatformConfigurationEdgeUserAndBot = edgeUserAndBotAppDatabase.getBotEdgePlatformConfigurationEdgeUserAndBot(
+      generalBotPlatformType: GeneralBotPlatformType.telegram,
+    );
+
+    if (botEdgePlatformConfigurationEdgeUserAndBot.is_initial_respond == true) {
+      final String initialRespondText = (botEdgePlatformConfigurationEdgeUserAndBot.initial_respond_text ?? "").trim();
+      if (initialRespondText.isNotEmpty){
+
+      }
+    
+    }
+    if (RegExp(r"^(/start)$", caseSensitive: false).hasMatch(msg_text)) {
+      final String commandStartRespondText = (botEdgePlatformConfigurationEdgeUserAndBot.command_start_respond_text ?? "").trim();
+      if (commandStartRespondText.isEmpty) {
+        return null;
+      }
+      if (commandStartRespondText == "/start") {
+        return null;
+      }
+      return await generalBotClientTelegramLibrary.request(
+        parameters: {
+          "@type": "sendMessage",
+          "chat_id": chat_id,
+          "text": commandStartRespondText,
+        },
+        generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
+      );
+    }
+
     return null;
   }
 }
