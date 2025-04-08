@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Telegram User And Bot Cli
+GenericName=Telegram User And Bot Cli
+Version=1.0.0
+Exec=/opt/telegram-user-and-bot-cli/telegram_user_and_bot_cli
+Icon=/opt/telegram-user-and-bot-cli/data/flutter_assets/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Music;Media;
+Keywords=Hello;World;Test;Application;
+StartupNotify=true

@@ -782,6 +782,42 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
   }
 
   /// TelegramClientUncompleDocumentation
+  FutureOr<void> tdlib_closeClients({
+    bool isVoid = true,
+  }) async {
+    //
+    final int tdlibClientIdFirstProcces = () {
+      final int tdlibFirstClientId = tdlib_first_client_id;
+
+      /// check dahulu apakah
+      if (tdlibFirstClientId < 1) {
+        return tdlib_td_create_client_id();
+      }
+      return tdlibFirstClientId;
+    }();
+    if (tdlibClientIdFirstProcces >= 1) {
+      for (int tdlibClientId = 1; tdlibClientId <= tdlibClientIdFirstProcces; tdlibClientId++) {
+        try {
+          await invoke(
+            parameters: {
+              "@type": "close",
+            },
+            generalBotClientTelegramLibraryData: GeneralBotClientTelegramLibraryData.tdlib(
+              tdlib_client_id: tdlibClientId,
+            ),
+            invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+              is_void: isVoid,
+              is_invoke_throw_on_error: false,
+            ),
+          );
+        } catch (e) {}
+      }
+    }
+    return;
+  }
+
+
+  /// TelegramClientUncompleDocumentation
   Future<bool> tdlib_exitClientById({
     required final GeneralBotClientTelegramLibraryData generalBotClientTelegramLibraryData,
     bool isClose = false,

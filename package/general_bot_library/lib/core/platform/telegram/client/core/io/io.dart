@@ -230,15 +230,17 @@ class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBase
           value: event,
         );
       } else if (event is GeneralBotPlatformTelegramTdlibReceiveDataError) {
+        GeneralBotClientTelegramLibrary._is_tdlib_initialized = false;
         await generalBotClientTelegramLibrary.tdlib_ensureInitialized();
       }
     } catch (e) {}
   }
 
   static final EventEmitter _eventEmitter = EventEmitter();
+  static bool _is_tdlib_first_initialized = false;
+  static bool _is_tdlib_initialized = false;
 
   @override
-  
   EventEmitter get eventEmitter {
     return GeneralBotClientTelegramLibrary._eventEmitter;
   }
@@ -283,6 +285,18 @@ class GeneralBotClientTelegramLibrary extends GeneralBotPlatformTelegramCoreBase
 
   @override
   FutureOr<void> tdlib_ensureInitialized() async {
+    if (GeneralBotClientTelegramLibrary._is_tdlib_first_initialized == false) {
+      GeneralBotClientTelegramLibrary._is_tdlib_first_initialized = true;
+      await tdlib_closeClients(
+        isVoid: true,
+      );
+    }
+    if (GeneralBotClientTelegramLibrary._is_tdlib_initialized) {
+      return;
+    }
+
+    GeneralBotClientTelegramLibrary._is_tdlib_initialized = true;
+
     if (GeneralBotClientTelegramLibrary._tdlibIsolate != Isolate.current) {
       GeneralBotClientTelegramLibrary._tdlibIsolate.kill();
     }
