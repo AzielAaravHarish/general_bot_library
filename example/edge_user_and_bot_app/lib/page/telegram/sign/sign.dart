@@ -67,6 +67,8 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 
 
 <!-- END LICENSE --> */
+import 'dart:async';
+
 import 'package:edge_user_and_bot_app/core/bot_or_userbot/bot_or_userbot.dart';
 import 'package:edge_user_and_bot_app/core/client/core.dart';
 import 'package:edge_user_and_bot_app/page/telegram/home/home.dart';
@@ -75,6 +77,8 @@ import 'package:general_bot_library/general_bot_library_project.dart';
 import 'package:general_universe_flutter/flutter/flutter.dart';
 import 'package:general_universe_flutter/flutter/fork/general_lib_flutter/general_lib_flutter.dart';
 import "package:general_bot_library/core/platform/telegram/client/tdlib/scheme/scheme.dart" as tdlib_scheme;
+import 'package:general_universe_flutter/flutter/loading/loading_controller.dart';
+import 'package:general_universe_flutter/flutter/loading/loading_core.dart';
 
 /// General Library Documentation Undocument By General Corporation & Global Corporation & General Developer
 class TelegramSignPage extends StatefulWidget {
@@ -114,6 +118,7 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
   void ensureInitialized() {
     // TODO: implement ensureInitialized
     super.ensureInitialized();
+
     generalBotClientTelegramLibraryData = GeneralBotClientTelegramLibraryData.tdlib(
       tdlib_client_id: generalBotClientTelegramLibrary.tdlib_first_client_id,
     );
@@ -221,6 +226,9 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
       body: RefreshIndicator(
         onRefresh: refresh,
         child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(
+            parent: AlwaysScrollableScrollPhysics(),
+          ),
           child: ConstrainedBox(
             constraints: BoxConstraints(
               minHeight: context.height - appBarGlobalKey.sizeRenderBox().height,
@@ -291,8 +299,19 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
                       },
                     ),
                   ),
-                ] else
-                  ...[],
+                ] else ...[
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      """
+AuthorizationState ${authorizationState["@type"]} Tidak di implementasi secara public ${authorizationState["@type"]},
+jika kamu ingin kamu bisa membeli jasa ya
+"""
+                          .trim(),
+                      style: context.theme.textTheme.bodySmall,
+                    ),
+                  ),
+                ],
                 MaterialOutlineGeneralFrameworkButtonGeneralWidget(
                   width: context.width,
                   margin: EdgeInsets.all(10),
@@ -309,14 +328,111 @@ class _TelegramSignPageState extends State<TelegramSignPage> with GeneralLibFlut
     );
   }
 
+  void showAlert({
+    required BuildContext context,
+    required String title,
+    required String message,
+  }) {
+    context.showAlertGeneralFramework(
+      alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
+        title: title.trim(),
+        isShowCancelButton: false,
+        isShowCloseButton: false,
+        builder: (context, alertGeneralFrameworkOptions) {
+          return message.trim();
+        },
+      ),
+    );
+  }
+
   void sendSignRequest() async {
     if (isLoading) {
       return;
     }
     handleFunction(
       onFunction: (context, statefulWidget) async {
-        if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateWaitPhoneNumber.defaultDataSpecialType) {}
+        return await sendSignRequestAsync(
+          context: context,
+          statefulWidget: statefulWidget,
+        );
       },
     );
+  }
+
+  Future<void> sendSignRequestAsync({
+    required BuildContext context,
+    required TelegramSignPage statefulWidget,
+  }) async {
+    final bool isImplemented = await Future(() async {
+      final LoadingGeneralFrameworkController loadingGeneralFrameworkController = LoadingGeneralFrameworkController(
+        loadingText: "Send Request",
+      );
+      LoadingGeneralFramework.show(
+        context: context,
+        loadingGeneralFrameworkController: loadingGeneralFrameworkController,
+      );
+      if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateWaitPhoneNumber.defaultDataSpecialType) {
+        final String telegramPhoneNumberOrTokenBot = telegramPhoneNumberOrTokenBotTextEditingController.text.trim();
+        if (telegramPhoneNumberOrTokenBot.isEmpty) {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Form Belum lengkap",
+            message: "Form Telegram Phone Or Token Bot perlu diisi ",
+          );
+
+          return true;
+        }
+        final bool isBot = telegramPhoneNumberOrTokenBot.contains(":");
+
+        final response = await generalBotClientTelegramLibrary.invoke(
+          parameters: () {
+            if (isBot == false) {
+              return tdlib_scheme.SetAuthenticationPhoneNumber.create(
+                phone_number: telegramPhoneNumberOrTokenBot,
+              ).toJson();
+            }
+            return tdlib_scheme.CheckAuthenticationBotToken.create(
+              token: telegramPhoneNumberOrTokenBot,
+            ).toJson();
+          }(),
+          invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+            is_void: false,
+            is_invoke_throw_on_error: false,
+          ),
+          generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+        );
+        if (response["@type"] != "ok") {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Error",
+            message: () {
+              if (isBot == false) {
+                return "Tolong check nomor telepon lagi dengan benar ya";
+              } else {
+                return "Tolong check token bot lagi dengan benar ya";
+              }
+            }(),
+          );
+        }
+        context.navigator().pop();
+        await refresh();
+        return true;
+      }
+      context.navigator().pop();
+      return false;
+    });
+    if (isImplemented == false) {
+      showAlert(
+        context: context,
+        title: "Error",
+        message: """
+AuthorizationState ${authorizationState["@type"]} Tidak di implementasi secara public ${authorizationState["@type"]},
+jika kamu ingin kamu bisa membeli jasa ya
+""",
+      );
+    }
+    return;
   }
 }

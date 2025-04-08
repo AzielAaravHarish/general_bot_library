@@ -114,6 +114,17 @@ extension EdgeUserAndBotAppClientFlutterExtensionTelegramUpdate on EdgeUserAndBo
     if (msg_from["is_bot"] == true) {
       return null;
     }
+    if (RegExp(r"^(/ping)$", caseSensitive: false).hasMatch(msg_text)) {
+       
+      return await generalBotClientTelegramLibrary.request(
+        parameters: {
+          "@type": "sendMessage",
+          "chat_id": chat_id,
+          "text": "Pong From Edge User And Bot Application",
+        },
+        generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
+      );
+    }
     if (msg["is_outgoing"] == true) {
       return null;
     }
