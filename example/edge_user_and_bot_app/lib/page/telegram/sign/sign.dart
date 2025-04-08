@@ -491,6 +491,11 @@ jika kamu ingin kamu bisa membeli jasa ya
         await refresh();
         return true;
       }
+      if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateReady.defaultDataSpecialType) {
+        context.navigator().pop();
+        await refresh();
+        return true;
+      }
 
       context.navigator().pop();
       return false;
