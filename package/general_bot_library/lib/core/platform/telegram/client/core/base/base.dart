@@ -687,9 +687,13 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
             type: "glx",
           ),
         );
-        return {"@type": "ok"};
+        return <dynamic, dynamic>{
+          "@type": "ok",
+        };
       } catch (e) {
-        return {"@type": "ok"};
+        return <dynamic, dynamic>{
+          "@type": "ok",
+        };
       }
     });
   }
@@ -1455,7 +1459,10 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
         }
         if (isVoid) {
           tdlib_td_send(generalBotClientTelegramLibraryData.tdlib_client_id, parameters);
-          return {"@type": "ok", "@extra": extra};
+          return <dynamic, dynamic>{
+            "@type": "ok",
+            "@extra": extra_id,
+          };
         }
         listener = on(
           eventName: eventInvoke,
@@ -1997,7 +2004,10 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
         "is_fake": get_user["is_fake"],
         "have_acces": get_user["have_access"],
       };
-      return {"ok": true, "result": json};
+      return {
+        "ok": true,
+        "result": json,
+      };
     }
     get_user["ok"] = false;
     get_user["result"] = {"id": user_id};
@@ -4444,7 +4454,8 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     final GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary invoke_option = getInvokeOptions(
       invokeOptions: invokeOptions,
     );
-    parameters["is_void"] = invoke_option.is_void ?? false;
+    parameters["is_void"] = invoke_option.is_void;
+    // parameters["is_void"] = invoke_option.is_void ?? false;
     // telegramClientLib ??= telegram_client_lib;
     if (generalBotClientTelegramLibraryData.telegramClientType == GeneralBotClientTelegramLibraryType.telegam_bot_api) {
       final Map respond = await telegram_bot_api_request(
@@ -4508,8 +4519,9 @@ abstract class GeneralBotPlatformTelegramCoreBaseLibrary extends GeneralBotPlatf
     final GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary invoke_option = getInvokeOptions(
       invokeOptions: invokeOptions,
     );
+    parameters["is_void"] = invoke_option.is_void;
 
-    parameters["is_void"] = invoke_option.is_void ?? false;
+    // parameters["is_void"] = invoke_option.is_void ?? false;
     if (generalBotClientTelegramLibraryData.telegramClientType != GeneralBotClientTelegramLibraryType.tdlib) {
       return await invoke(
         parameters: parameters,

@@ -547,9 +547,16 @@ extension SendMessageRawDataOn on GeneralBotPlatformTelegramCoreBaseLibrary {
           is_lite: false,
           generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
         );
-
+        // json_message["is_void"] = true;
+        try {
+          json_message["is_void"] = true;
+        } catch (e) {}
         return json_message;
       }
+      try {
+        message_send["is_void"] = true;
+      } catch (e) {}
+      return message_send;
     }
     final Completer<Map> completer = Completer<Map>();
 
