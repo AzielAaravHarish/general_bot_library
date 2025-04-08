@@ -73,3 +73,4 @@ dev/
 lib/configuration/configuration.dart
 database_universe_scheme/
 dart_json_scheme/
+pubspec_overrides.yaml

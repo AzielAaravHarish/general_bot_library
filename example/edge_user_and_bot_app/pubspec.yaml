@@ -63,33 +63,6 @@ project:
       note: ''
       social_medias:
         - 'https://github.com'
-dependency_overrides:
-  database_universe:
-    path: '../../../../../galaxeus/app/database_universe_project/package/database_universe'
-  database_universe_flutter_libs:
-    path: '../../../../../galaxeus/app/database_universe_project/package/database_universe_flutter_libs'
-  general_audio_flutter:
-    path: '../../../../../galaxeus/app/general_audio_project/package/general_audio_flutter'
-  general_bot_library:
-    path: '../../package/general_bot_library'
-  general_bot_library_flutter:
-    path: '../../../../../github/general-developer/general_bot_library/package/general_bot_library_flutter'
-  general_universe:
-    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/general_universe'
-  general_universe_flutter:
-    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/general_universe_flutter'
-  media_universe_flutter:
-    path: '../../../../../galaxeus/app/media_universe_project/package/media_universe_flutter'
-  mime: '^2.0.0'
-  packagex:
-    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/packagex'
-  pointycastle: '^4.0.0'
-  server_universe:
-    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/server_universe'
-  system_information:
-    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/system_information/package/system_information'
-  system_information_flutter:
-    path: '../../../../../galaxeus/app/general_developer_public_library_project/packages/system_information/package/system_information_flutter'
 funding: []
 packagex:
   name: 'edge_user_and_bot_app'
