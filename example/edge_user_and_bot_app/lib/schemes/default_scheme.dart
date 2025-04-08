@@ -124,6 +124,12 @@ class EdgeUserAndBotDefaultScheme {
 
   static Map<String, dynamic> _botEdgePlatformConfigurationMapData() {
     final Map<String, dynamic> jsonData = {
+      /// implement start
+      /// start:
+      "command_start_respond_text": "",
+
+      /// end:
+
       /// implement afk
       /// start:
       "is_afk": true,
@@ -133,6 +139,7 @@ class EdgeUserAndBotDefaultScheme {
       "dynamic_afk_respond_expire_date": 0,
 
       /// end:
+      ///
       ///
       /// implement initial respond
       /// start:

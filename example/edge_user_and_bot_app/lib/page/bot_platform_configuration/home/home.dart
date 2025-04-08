@@ -190,7 +190,7 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
                             onFunction: (context, statefulWidget) {
                               showTextFormWidget(
                                 context: context,
-                                title: "Initial Respond Text",
+                                title: "Afk Respond Text",
                                 onResult: (text) {
                                   setState(() {
                                     botEdgePlatformConfigurationEdgeUserAndBot.afk_respond_text = text;
@@ -266,12 +266,12 @@ Setelah reset pesan akan kekirim lagi
                                 hours: timeOfDay.hour,
                                 minutes: timeOfDay.minute,
                               );
-                              if (duration < Duration(minutes: 1)) {
+                              if (duration < Duration(minutes: 5)) {
                                 context.showAlertGeneralFramework(
                                   alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
                                     title: "Error",
                                     builder: (context, alertGeneralFrameworkOptions) {
-                                      return "Timer Minimal 1 Menit ";
+                                      return "Timer Minimal 5 Menit ";
                                     },
                                   ),
                                 );
@@ -281,6 +281,31 @@ Setelah reset pesan akan kekirim lagi
                               widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
 
                               setState(() {});
+                            },
+                          );
+                        },
+                      ),
+                      Divider(
+                        thickness: context.theme.dividerTheme.thickness,
+                      ),
+                      MenuContainerGeneralFrameworkWidget.lisTile(
+                        context: context,
+                        contentPadding: EdgeInsets.all(5),
+                        title: "Command Start Respond Text",
+                        subtitle: "${(botEdgePlatformConfigurationEdgeUserAndBot.command_start_respond_text ?? "")}".trim(),
+                        onTap: () {
+                          handleFunction(
+                            onFunction: (context, statefulWidget) {
+                              showTextFormWidget(
+                                context: context,
+                                title: "Command Start Respond Text",
+                                onResult: (text) {
+                                  setState(() {
+                                    botEdgePlatformConfigurationEdgeUserAndBot.command_start_respond_text = text;
+                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
+                                  });
+                                },
+                              );
                             },
                           );
                         },

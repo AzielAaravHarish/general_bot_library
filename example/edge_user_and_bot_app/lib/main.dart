@@ -78,7 +78,6 @@ import 'package:general_universe_flutter/flutter/loading/loading_controller.dart
 import 'package:general_universe_flutter/flutter/loading/loading_core.dart';
 import 'package:general_universe_flutter/flutter/loading/loading_widget.dart';
 
-
 void main(List<String> args) async {
   await EdgeUserAndBotAppClientFlutter.init();
   runApp(EdgeUserBotAndAppFlutter());

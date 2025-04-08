@@ -67,4 +67,3 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 
 
 <!-- END LICENSE --> */
-
