@@ -70,6 +70,7 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 
 <!-- END LICENSE --> */
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:edge_user_and_bot_app/core/core.dart';
 import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_chat_telegram_edge_user_and_bot.dart';
@@ -126,6 +127,32 @@ Version: ${Dart.operatingSystemVersion}
 """
               .trim(),
         },
+        generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
+      );
+    }
+    if (RegExp(r"^(/test)$", caseSensitive: false).hasMatch(msg_text)) {
+      Map result = await generalBotClientTelegramLibrary.request(
+        parameters: {
+          "@type": "sendMessage",
+          "chat_id": chat_id,
+          "text": "Send Test",
+        },
+        invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+          is_void: true,
+          is_invoke_throw_on_error: false,
+        ),
+        generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
+      );
+      await generalBotClientTelegramLibrary.request(
+        parameters: {
+          "@type": "sendMessage",
+          "chat_id": chat_id,
+          "text": "Result: ${json.encode(result)}",
+        },
+        invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+          is_void: true,
+          is_invoke_throw_on_error: false,
+        ),
         generalBotClientTelegramLibraryData: generalBotPlatformTelegramUpdate.generalBotClientTelegramLibraryData,
       );
     }

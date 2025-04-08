@@ -424,7 +424,7 @@ packages:
   general_bot_library:
     dependency: "direct main"
     description:
-      path: "../../../../../github/general-developer/general_bot_library/package/general_bot_library"
+      path: "../../package/general_bot_library"
       relative: true
     source: path
     version: "0.0.0"
