@@ -63,7 +63,10 @@ project:
       note: ''
       social_medias:
         - 'https://github.com'
-funding: []
+funding:
+  - 'https://github.com/sponsors/azkadev'
+  - 'https://github.com/sponsors/generalfoss'
+  - 'https://github.com/sponsors/general-developer'
 packagex:
   name: 'edge_user_and_bot_app'
   is_without_platform_name: true
@@ -97,3 +100,7 @@ packagex:
 msix_config:
   display_name: 'edge_user_and_bot_app'
   install_certificate: false
+homepage: 'https://youtube.com/{youtube_username}'
+repository: 'https://github.com/{github_username}/{repository_name}'
+issue_tracker: 'https://t.me/DEVELOPER_GLOBAL_PUBLIC'
+documentation: 'https://youtube.com/{youtube_username}'
