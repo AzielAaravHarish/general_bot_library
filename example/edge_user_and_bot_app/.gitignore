@@ -68,6 +68,6 @@ packagex-compile-debug
 dlotk3ti4kyik2o3tksjinfs
 
 *.g.dart
-
+database_universe_scheme/
 dev/
 lib/configuration/configuration.dart
