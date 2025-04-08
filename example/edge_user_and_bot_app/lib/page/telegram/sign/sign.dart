@@ -402,24 +402,96 @@ jika kamu ingin kamu bisa membeli jasa ya
           ),
           generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
         );
+        telegramPhoneNumberOrTokenBotTextEditingController.clear();
         if (response["@type"] != "ok") {
           context.navigator().pop();
           showAlert(
             context: context,
             title: "Error",
-            message: () {
-              if (isBot == false) {
-                return "Tolong check nomor telepon lagi dengan benar ya";
-              } else {
-                return "Tolong check token bot lagi dengan benar ya";
-              }
-            }(),
+            message: "Error ${response["message"]} ${response["description"]}",
           );
+          return true;
         }
         context.navigator().pop();
         await refresh();
         return true;
       }
+
+      if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateWaitCode.defaultDataSpecialType) {
+        final String telegramCodeText = telegramCodeTextEditingController.text.trim();
+        if (telegramCodeText.isEmpty) {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Form Belum lengkap",
+            message: "Form Telegram Code perlu diisi ",
+          );
+
+          return true;
+        }
+        final response = await generalBotClientTelegramLibrary.invoke(
+          parameters: tdlib_scheme.CheckAuthenticationCode.create(
+            code: telegramCodeText,
+          ).toJson(),
+          invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+            is_void: false,
+            is_invoke_throw_on_error: false,
+          ),
+          generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+        );
+
+        telegramCodeTextEditingController.clear();
+        if (response["@type"] != "ok") {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Error",
+            message: "Error ${response["message"]} ${response["description"]}",
+          );
+          return true;
+        }
+        context.navigator().pop();
+        await refresh();
+        return true;
+      }
+
+      if (authorizationState["@type"] == tdlib_scheme.AuthorizationStateWaitPassword.defaultDataSpecialType) {
+        final String telegramPassword = telegramPasswordTextEditingController.text.trim();
+        if (telegramPassword.isEmpty) {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Form Belum lengkap",
+            message: "Form Telegram Password perlu diisi ",
+          );
+
+          return true;
+        }
+        final response = await generalBotClientTelegramLibrary.invoke(
+          parameters: tdlib_scheme.CheckAuthenticationPassword.create(
+            password: telegramPassword,
+          ).toJson(),
+          invokeOptions: GeneralBotLibraryConfigurationTelegramInvokeOptionsGeneralBotLibrary.create(
+            is_void: false,
+            is_invoke_throw_on_error: false,
+          ),
+          generalBotClientTelegramLibraryData: generalBotClientTelegramLibraryData,
+        );
+        telegramPasswordTextEditingController.clear();
+        if (response["@type"] != "ok") {
+          context.navigator().pop();
+          showAlert(
+            context: context,
+            title: "Error",
+            message: "Error ${response["message"]} ${response["description"]}",
+          );
+          return true;
+        }
+        context.navigator().pop();
+        await refresh();
+        return true;
+      }
+
       context.navigator().pop();
       return false;
     });
