@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    
     <!-- copy from this -->
     
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
@@ -45,9 +46,8 @@
     <!-- if you want more -->
 
 
-
     <application
-        android:label="edge_user_and_bot_app"
+        android:label="Edge User And Bot App"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -77,14 +77,15 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <meta-data
-            android:name="io.flutter.embedding.android.EnableImpeller"
-            android:value="false" />
-        <!-- Adapt to the foreground service type(s) desired, these are just examples -->
-        <service
-            android:name="de.julianassmann.flutter_background.IsolateHolderService"
-            android:exported="false"
-            android:foregroundServiceType="dataSync|systemExempted" />
+            <meta-data
+                android:name="io.flutter.embedding.android.EnableImpeller"
+                android:value="false" />
+            <!-- Adapt to the foreground service type(s) desired, these are just examples -->
+            <service
+                android:name="de.julianassmann.flutter_background.IsolateHolderService"
+                android:exported="false"
+                android:foregroundServiceType="dataSync|systemExempted" />
+    
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

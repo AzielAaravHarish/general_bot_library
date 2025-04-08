@@ -156,7 +156,7 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
                     return [
                       MenuContainerGeneralFrameworkWidget.title(
                         context: context,
-                        title: "Information",
+                        title: "${widget.botPlatformConfigurationController.generalBotPlatformType.name.toUpperCaseFirstData()}",
                       ),
                       MenuContainerGeneralFrameworkWidget.lisTile(
                         context: context,
@@ -170,7 +170,7 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
                               onFunction: (context, statefulWidget) {
                                 setState(() {
                                   botEdgePlatformConfigurationEdgeUserAndBot.is_afk = value;
-                                  widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                                  widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
                                 });
                               },
                             );
@@ -194,7 +194,7 @@ class _BotPlatformConfigurationHomePageState extends State<BotPlatformConfigurat
                                 onResult: (text) {
                                   setState(() {
                                     botEdgePlatformConfigurationEdgeUserAndBot.afk_respond_text = text;
-                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
                                   });
                                 },
                               );
@@ -228,7 +228,7 @@ Afk dari tanggal
                                 return;
                               }
                               botEdgePlatformConfigurationEdgeUserAndBot.afk_from_date = day.millisecondsSinceEpoch;
-                              widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                              widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
 
                               setState(() {});
                             },
@@ -266,19 +266,19 @@ Setelah reset pesan akan kekirim lagi
                                 hours: timeOfDay.hour,
                                 minutes: timeOfDay.minute,
                               );
-                              if (duration < Duration(minutes: 5)) {
+                              if (duration < Duration(minutes: 1)) {
                                 context.showAlertGeneralFramework(
                                   alertGeneralFrameworkOptions: AlertGeneralFrameworkOptions(
                                     title: "Error",
                                     builder: (context, alertGeneralFrameworkOptions) {
-                                      return "Timer Minimal 5 Menit ";
+                                      return "Timer Minimal 1 Menit ";
                                     },
                                   ),
                                 );
                                 return;
                               }
                               botEdgePlatformConfigurationEdgeUserAndBot.afk_respond_duration_expire = duration.inSeconds;
-                              widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                              widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
 
                               setState(() {});
                             },
@@ -300,7 +300,7 @@ Setelah reset pesan akan kekirim lagi
                               onFunction: (context, statefulWidget) {
                                 setState(() {
                                   botEdgePlatformConfigurationEdgeUserAndBot.is_initial_respond = value;
-                                  widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                                  widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
                                 });
                               },
                             );
@@ -325,7 +325,7 @@ Setelah reset pesan akan kekirim lagi
                                   setState(() {
                                     botEdgePlatformConfigurationEdgeUserAndBot.initial_respond_text = text;
                                     botEdgePlatformConfigurationEdgeUserAndBot.initial_respond_unique_id = generateUuid(10);
-                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot();
+                                    widget.botPlatformConfigurationController.saveBotEdgePlatformConfigurationEdgeUserAndBot(botEdgePlatformConfigurationEdgeUserAndBot);
                                   });
                                 },
                               );

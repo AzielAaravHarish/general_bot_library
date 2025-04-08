@@ -69,18 +69,22 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 <!-- END LICENSE --> */
 import 'package:edge_user_and_bot_app/dart_json_scheme/respond_scheme/bot_edge_platform_configuration_edge_user_and_bot.dart';
 import 'package:flutter/material.dart';
+import 'package:general_bot_library/general_bot_library_project.dart';
 
 class BotPlatformConfigurationController {
+  final GeneralBotPlatformType generalBotPlatformType;
   final BotEdgePlatformConfigurationEdgeUserAndBot Function() getBotEdgePlatformConfigurationEdgeUserAndBot;
-  final void Function() saveBotEdgePlatformConfigurationEdgeUserAndBot;
+  final void Function(BotEdgePlatformConfigurationEdgeUserAndBot newBotEdgePlatformConfigurationEdgeUserAndBot) saveBotEdgePlatformConfigurationEdgeUserAndBot;
 
   const BotPlatformConfigurationController({
+    required this.generalBotPlatformType,
     required this.getBotEdgePlatformConfigurationEdgeUserAndBot,
     required this.saveBotEdgePlatformConfigurationEdgeUserAndBot,
   });
 
   BotPlatformConfigurationController copyWith() {
     return BotPlatformConfigurationController(
+      generalBotPlatformType: generalBotPlatformType,
       getBotEdgePlatformConfigurationEdgeUserAndBot: getBotEdgePlatformConfigurationEdgeUserAndBot,
       saveBotEdgePlatformConfigurationEdgeUserAndBot: saveBotEdgePlatformConfigurationEdgeUserAndBot,
     );

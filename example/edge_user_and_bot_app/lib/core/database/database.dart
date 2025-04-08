@@ -68,3 +68,5 @@ Dan jika sudah sangat parah kamu bisa ☠️ Death
 
 <!-- END LICENSE --> */
 export "core.dart";
+
+export "bot_platform_configuration/bot_platform_configuration.dart";
